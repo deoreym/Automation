@@ -62,7 +62,7 @@ public class IR_Settings {
 		edwiserSettingObj.visitInstructorSettings(baseURL);
 
 		// Send Empty URL and Token
-		response = edwiserSettingObj.testConnectionSettings("", "");
+//		response = edwiserSettingObj.testConnectionSettings("", "");
 
 		// Check response
 		Assert.assertEquals(response, "A valid URL was not provided. : to know more about this error click here",

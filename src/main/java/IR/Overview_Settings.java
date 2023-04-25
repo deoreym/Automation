@@ -15,6 +15,8 @@ import setUp.GeneralisedProjectOperations;
 import setUp.ProjectSetUpOperations;
 import setUp.projectSetUp;
 
+
+
 public class Overview_Settings {
 
 	WebDriver driver;
@@ -23,6 +25,10 @@ public class Overview_Settings {
 	GeneralSettings GSobj;
 	WebDriverWait wait;
 	String baseURL;
+	String adminU;
+	String adminP;
+	String IRU;
+	String IRP;
 	String response; // Server response o Connection
 
 	/**
@@ -33,9 +39,9 @@ public class Overview_Settings {
 	 * @param password
 	 * @throws Exception
 	 */
-	@Parameters({ "siteURL", "username", "password" })
+	@Parameters({ "siteURL", "username", "password", "Instructor1", "Instructor1Password" })
 	@BeforeClass
-	public void connectionSettingsSetUp(String siteURL, String username, String password) throws Exception {
+	public void connectionSettingsSetUp(String siteURL, String username, String password, String InstructorU, String InstructorP) throws Exception {
 		driver = projectSetUp.driver;
 		// Initializing ProjectSetUpOperations Object
 		projectOperationObject = new ProjectSetUpOperations();
@@ -48,17 +54,20 @@ public class Overview_Settings {
 
 		// Setting Admin Details
 		baseURL = siteURL;
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, username, password);
+		adminU=username;
+		adminP=password;
+		IRU= InstructorU;
+		IRP= InstructorP;
 	}
 
 	/**
-	 * Test with Empty Moodle URL and Empty Access Token
+	 * Enable Course Block
 	 * 
 	 * @throws Exception
 	 */
-	@Parameters({ "Instructor1", "Instructor1Password" })
 	@Test(priority = 1)
-	public void EnableCourseBlock(String InstructorU, String InstructorP) throws Exception {
+	public void EnableCourseBlock() throws Exception {
+		projectOperationObject.loginToAdminDashboard(driver, baseURL, adminU, adminP);
 		// Visit Settings
 		GSobj.visitInstructorSettings(baseURL);
 		
@@ -70,11 +79,40 @@ public class Overview_Settings {
 		GSobj.overviewSaveSettings.click();
 		
 		//Instructor Login
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, InstructorU, InstructorP);
+		projectOperationObject.loginToAdminDashboard(driver, baseURL, IRU, IRP);
 		
 		boolean t = GSobj.OvCourseBlock.isDisplayed();
 		System.out.println(t);
 		Assert.assertTrue(GSobj.OvCourseBlock.isDisplayed(), "Course Block Not Visible");
+		// Check response
+
+	}
+	
+	/**
+	 * Enable Course Block
+	 * 
+	 * @throws Exception
+	 */
+	@Test(priority = 2)
+	public void EnableStudentBlock() throws Exception {
+		projectOperationObject.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		
+		// Visit Settings
+		GSobj.visitInstructorSettings(baseURL);
+		
+		GSobj.overviewSettings.click();
+
+		if(!GSobj.studentBlock.isSelected()){
+			GSobj.studentBlockSlider.click();
+		}
+		GSobj.overviewSaveSettings.click();
+		
+		//Instructor Login
+		projectOperationObject.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		
+		boolean t = GSobj.OvCourseBlock.isDisplayed();
+		System.out.println(t);
+		Assert.assertFalse(GSobj.OvCourseBlock.isDisplayed(), "Course Block Not Visible");
 		// Check response
 
 	}
