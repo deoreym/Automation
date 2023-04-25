@@ -85,7 +85,6 @@ public class Overview_Settings {
 		System.out.println(t);
 		Assert.assertTrue(GSobj.OvCourseBlock.isDisplayed(), "Course Block Not Visible");
 		// Check response
-
 	}
 	
 	/**
