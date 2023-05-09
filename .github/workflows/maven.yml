@@ -10,9 +10,8 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "release" ]
+
 
 jobs:
   build:
@@ -29,6 +28,21 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Upload Surefire reports
+      uses: actions/upload-artifact@v2
+      with:
+        name: surefire-reports
+        path: target/surefire-reports
+    - name: Send Surefire report email
+      uses: sendgrid/github-action@v3
+      env:
+        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+      with:
+        to: yogesh.deore@wisdmlabs.com
+        subject: Surefire report for ${GITHUB_REPOSITORY}
+        html_content: |
+          <p>The Surefire report for ${GITHUB_REPOSITORY} is available <a href="${{ steps.upload.outputs.artifact_url }}">here</a>.</p>
+
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
    #  - name: Update dependency graph
