@@ -33,15 +33,43 @@ jobs:
       with:
         name: surefire-reports
         path: target/surefire-reports
-    - name: Send Surefire report email
-      uses: sendgrid/github-action@v3
-      env:
-       SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-      with:
-        to: yogesh.deore@wisdmlabs.com
-        subject: Surefire report for ${GITHUB_REPOSITORY}
-        html_content: |
-          <p>The Surefire report for ${GITHUB_REPOSITORY} is available <a href="${{ steps.upload.outputs.artifact_url }}">here</a>.</p>
+        
+    - name: Send email
+      run: |
+        curl --request POST \
+          --url https://api.sendgrid.com/v3/mail/send \
+          --header "Authorization: Bearer ${{ secrets.SENDGRID_API_KEY }}" \
+          --header 'Content-Type: application/json' \
+          --data '{
+            "personalizations": [
+              {
+                "to": [
+                  {
+                    "email": "yogesh.deore@wisdmlabs.com"
+                  }
+                ]
+              }
+            ],
+            "from": {
+              "email": "yogesh.deore@wisdmlabs.com"
+            },
+            "subject": "Your email subject",
+            "content": [
+              {
+                "type": "text/html",
+                "value": "<p>The Surefire report for ${GITHUB_REPOSITORY} is available <a href="${{ steps.upload.outputs.artifact_url }}">here</a>.</p>"
+              }
+            ]
+          }'
+#     - name: Send Surefire report email
+#       uses: sendgrid/github-action@v3
+#       env:
+#        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+#       with:
+#         to: yogesh.deore@wisdmlabs.com
+#         subject: Surefire report for ${GITHUB_REPOSITORY}
+#         html_content: |
+#           <p>The Surefire report for ${GITHUB_REPOSITORY} is available <a href="${{ steps.upload.outputs.artifact_url }}">here</a>.</p>
 
    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
    #  - name: Update dependency graph
