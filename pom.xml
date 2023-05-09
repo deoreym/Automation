@@ -30,6 +30,7 @@
 			  <version>7.6.1</version>
 			  <scope>compile</scope>
 		</dependency>
+		
 		<dependency>
 		    <groupId>io.github.bonigarcia</groupId>
 		    <artifactId>webdrivermanager</artifactId>

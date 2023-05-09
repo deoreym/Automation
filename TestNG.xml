@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Edwiser Test Suite">
+<suite name="Instructor Role Test Suite">
 	<!-- <parameter name="browser" value="Chrome" /> -->
 	<parameter name="browser" value="Chrome" />
 	<parameter name="DriverPath"

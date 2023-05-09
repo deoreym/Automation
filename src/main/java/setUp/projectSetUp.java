@@ -41,23 +41,23 @@ public class projectSetUp {
 			// Set the chrome driver system property
 //			System.setProperty("webdriver.chrome.driver", DriverPath);
 			// driver = new ChromeDriver();
-			 WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().setup();
 
-			 ChromeOptions options = new ChromeOptions();
+			ChromeOptions options = new ChromeOptions();
 
-			 options.addArguments("--no-sandbox");
+			options.addArguments("--no-sandbox");
 
-			 options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--disable-dev-shm-usage");
 
-			 options.addArguments("--headless");
-			 
-			 options.addArguments("window-size=1400,900");
+//			 options.addArguments("--headless");
 
-			 driver = new ChromeDriver(options);
+			options.addArguments("window-size=1400,900");
+
+			driver = new ChromeDriver(options);
 		}
 
 		// Set the implicit wait time now so that system will run smoothly
-		Duration d=Duration.ofSeconds(10);
+		Duration d = Duration.ofSeconds(10);
 		driver.manage().timeouts().implicitlyWait(d);
 
 		// maximize the window
