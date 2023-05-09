@@ -36,7 +36,7 @@ jobs:
     - name: Send Surefire report email
       uses: sendgrid/github-action@v3
       env:
-        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+       SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
       with:
         to: yogesh.deore@wisdmlabs.com
         subject: Surefire report for ${GITHUB_REPOSITORY}
