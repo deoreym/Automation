@@ -1,29 +1,57 @@
 package pageClasses;
 
-import java.time.Duration;
 import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import setUp.GeneralisedProjectOperations;
 
 public class GeneralSettings {
 
 	WebDriver driver;
-	GeneralisedProjectOperations generalisedOps = new GeneralisedProjectOperations();
 	WebDriverWait wait;
 
 	// Constructor
 	public GeneralSettings(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+
+	// WP Login Page Username
+	@FindBy(id = "user_login")
+	public WebElement UserName;
+
+	// WP Login Page Password
+	@FindBy(id = "user_pass")
+	public WebElement Password;
+
+	// WP Login Page Submit Button
+	@FindBy(id = "wp-submit")
+	public WebElement LoginSubmit;
+	
+	//SignOut
+	@FindBy(xpath = "//a[text()='Log out']")
+	public WebElement LogOut;
+
+	public void loginToAdminDashboard(WebDriver driver, String siteURL, String username, String password)
+			throws Exception {
+		// Get the admin login page first
+		driver.get(siteURL + "wp-login.php");
+		Thread.sleep(500);
+		UserName.clear();
+		UserName.sendKeys(username);
+		Password.clear();
+		Password.sendKeys(password);
+		LoginSubmit.click();
+	}
+
+	public void logOut(WebDriver driver, String baseUrl) {
+		// Get the My Account Page First
+		driver.get(baseUrl + "my-account");
+
+		// Click LogOut link if it is Present
+		LogOut.click();
 	}
 
 	// General Settings Tab

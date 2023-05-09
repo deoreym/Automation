@@ -1,7 +1,6 @@
 package IR;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -9,16 +8,12 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import pageClasses.GeneralSettings;
-import setUp.GeneralisedProjectOperations;
-import setUp.ProjectSetUpOperations;
 import setUp.projectSetUp;
 
 public class Overview_Settings {
 
 	WebDriver driver;
 	GeneralSettings GSobj;
-	ProjectSetUpOperations projectOperationObject;
-	GeneralisedProjectOperations generalisedOps;
 
 	WebDriverWait wait;
 	String baseURL;
@@ -41,11 +36,6 @@ public class Overview_Settings {
 	public void connectionSettingsSetUp(String siteURL, String username, String password, String InstructorU,
 			String InstructorP) throws Exception {
 		driver = projectSetUp.driver;
-		// Initializing ProjectSetUpOperations Object
-		projectOperationObject = new ProjectSetUpOperations();
-
-		// Initializing GeneralisedProjectOperations Object
-		generalisedOps = new GeneralisedProjectOperations();
 
 		// Initializing EdwiserSettings Object
 		GSobj = new GeneralSettings(driver);
@@ -65,7 +55,7 @@ public class Overview_Settings {
 	 */
 	@Test(priority = 2)
 	public void EnableCourseBlock() throws Exception {
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		GSobj.loginToAdminDashboard(driver, baseURL, adminU, adminP);
 		// Visit Settings
 		GSobj.visitInstructorSettings(baseURL);
 
@@ -77,7 +67,7 @@ public class Overview_Settings {
 		GSobj.overviewSaveSettings.click();
 
 		// Instructor Login
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		GSobj.loginToAdminDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(GSobj.checkinsightBlock("Courses"), "Course Block Not Visible");
 		// Check response
@@ -90,7 +80,7 @@ public class Overview_Settings {
 	 */
 	@Test(priority = 3)
 	public void EnableStudentBlock() throws Exception {
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		GSobj.loginToAdminDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		GSobj.visitInstructorSettings(baseURL);
@@ -103,7 +93,7 @@ public class Overview_Settings {
 		GSobj.overviewSaveSettings.click();
 
 		// Instructor Login
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		GSobj.loginToAdminDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(GSobj.checkinsightBlock("Students"), "Student Block Not Visible");
 
@@ -116,7 +106,7 @@ public class Overview_Settings {
 	 */
 	@Test(priority = 4)
 	public void EnableProductsBlock() throws Exception {
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		GSobj.loginToAdminDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		GSobj.visitInstructorSettings(baseURL);
@@ -129,7 +119,7 @@ public class Overview_Settings {
 		GSobj.overviewSaveSettings.click();
 
 		// Instructor Login
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		GSobj.loginToAdminDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(GSobj.checkinsightBlock("Products"), "Products Block Not Visible");
 
@@ -142,7 +132,7 @@ public class Overview_Settings {
 	 */
 	@Test(priority = 5)
 	public void EnableEarningsBlock() throws Exception {
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		GSobj.loginToAdminDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		GSobj.visitInstructorSettings(baseURL);
@@ -155,7 +145,7 @@ public class Overview_Settings {
 		GSobj.overviewSaveSettings.click();
 
 		// Instructor Login
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		GSobj.loginToAdminDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(GSobj.checkOverviewBlock("Earnings"), "Earnings Block Not Visible");
 
@@ -168,7 +158,7 @@ public class Overview_Settings {
 	 */
 	@Test(priority = 6)
 	public void EnableCourseReportBlock() throws Exception {
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		GSobj.loginToAdminDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		GSobj.visitInstructorSettings(baseURL);
@@ -181,7 +171,7 @@ public class Overview_Settings {
 		GSobj.overviewSaveSettings.click();
 
 		// Instructor Login
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		GSobj.loginToAdminDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(GSobj.checkOverviewBlock("Course Reports"), "Course Reports Block Not Visible");
 
@@ -194,7 +184,7 @@ public class Overview_Settings {
 	 */
 	@Test(priority = 7)
 	public void EnableSubmissionsBlock() throws Exception {
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		GSobj.loginToAdminDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		GSobj.visitInstructorSettings(baseURL);
@@ -207,7 +197,7 @@ public class Overview_Settings {
 		GSobj.overviewSaveSettings.click();
 
 		// Instructor Login
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		GSobj.loginToAdminDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(GSobj.checkOverviewBlock("Submissions"), "Submissions Block Not Visible");
 
@@ -220,7 +210,7 @@ public class Overview_Settings {
 	 */
 	@Test(priority = 1)
 	public void noBlocksMessage() throws Exception {
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		GSobj.loginToAdminDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		GSobj.visitInstructorSettings(baseURL);
@@ -252,7 +242,7 @@ public class Overview_Settings {
 		GSobj.overviewSaveSettings.click();
 
 		// Instructor Login
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		GSobj.loginToAdminDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(GSobj.overviewNoBlocks.getText().equals(NoBlocksMessage), "Submissions Block Not Visible");
 

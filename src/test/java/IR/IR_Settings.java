@@ -1,9 +1,6 @@
 package IR;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -11,15 +8,11 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import pageClasses.GeneralSettings;
-import setUp.GeneralisedProjectOperations;
-import setUp.ProjectSetUpOperations;
 import setUp.projectSetUp;
 
 public class IR_Settings {
 
 	WebDriver driver;
-	ProjectSetUpOperations projectOperationObject;
-	GeneralisedProjectOperations generalisedOps;
 	GeneralSettings edwiserSettingObj;
 	WebDriverWait wait;
 	String baseURL;
@@ -37,18 +30,13 @@ public class IR_Settings {
 	@BeforeClass
 	public void connectionSettingsSetUp(String siteURL, String username, String password) throws Exception {
 		driver = projectSetUp.driver;
-		// Initializing ProjectSetUpOperations Object
-		projectOperationObject = new ProjectSetUpOperations();
-
-		// Initializing GeneralisedProjectOperations Object
-		generalisedOps = new GeneralisedProjectOperations();
 
 		// Initializing EdwiserSettings Object
 		edwiserSettingObj = new GeneralSettings(driver);
 
 		// Setting Admin Details
 		baseURL = siteURL;
-		projectOperationObject.loginToAdminDashboard(driver, baseURL, username, password);
+		edwiserSettingObj.loginToAdminDashboard(driver, baseURL, username, password);
 	}
 
 	/**
