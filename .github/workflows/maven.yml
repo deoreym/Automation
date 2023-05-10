@@ -35,14 +35,14 @@ jobs:
 #       name: surefire-reports
 #       path: IR-Automation/target/surefire-reports/emailable-report.html
 
-    - name: SendGrid Action
-      uses: mmichailidis/sendgrid-mail-action@v1.0
-      with:
-          sendgrid-token: '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'
-          mail: 'yogesh.deore@wisdmlabs.com'
-          subject: Surefire report for ${GITHUB_REPOSITORY}
-          html_content: |
-           <p>The Surefire report for ${GITHUB_REPOSITORY} is available <a href="${{ steps.upload.outputs.artifact_url }}">here</a>.</p>
+#     - name: SendGrid Action
+#       uses: mmichailidis/sendgrid-mail-action@v1.0
+#       with:
+#           sendgrid-token: 'sample'
+#           mail: 'yogesh.deore@wisdmlabs.com'
+#           subject: Surefire report for ${GITHUB_REPOSITORY}
+#           html_content: |
+#            <p>The Surefire report for ${GITHUB_REPOSITORY} is available <a href="${{ steps.upload.outputs.artifact_url }}">here</a>.</p>
 
 #     - name: Send Surefire report email
 #       uses: sendgrid/github-action@v3
