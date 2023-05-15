@@ -27,21 +27,41 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Upload Surefire reports
-      uses: actions/upload-artifact@v2
+      if: ${{ steps.build.outcome == 'success' }}
+      run: mvn test
+    - name: Generate Surefire report
+      if: ${{ steps.build.outcome == 'success' }}
+      run: mvn surefire-report:report
+
+    - name: Send email with Surefire report
+      if: ${{ steps.build.outcome == 'success' }}
+      uses: dawidd6/action-send-mail@v3
       with:
-        name: surefire-reports
-        path: target/surefire-reports/emailable-report.html
-    - name: Send Surefire report email
-      uses: mmichailidis/sendgrid-mail-action@v1.0
-      with:
-          sendgrid-token: ${{ secrets.SENDGRID_API_KEY }}
-          mail: 'yogesh.deore@wisdmlabs.com'
-          from: 'yogesh.deore@wisdmlabs.com'
-          subject: Surefire report for ${GITHUB_REPOSITORY}
-          text: |
-           <p>The Surefire report for ${GITHUB_REPOSITORY} is available <a href="${{ steps.upload.outputs.artifact_url }}">here</a>.</p>
+          server_address: smtp.example.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: Build failure - Surefire report
+          to: user@example.com
+          from: sender@example.com
+          body: |
+            The build has failed. Please find the Surefire report attached.
+          attachments: target/site/surefire-report.html
+          
+#     - name: Upload Surefire reports
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: surefire-reports
+#         path: target/surefire-reports/emailable-report.html
+#     - name: Send Surefire report email
+#       uses: mmichailidis/sendgrid-mail-action@v1.0
+#       with:
+#           sendgrid-token: ${{ secrets.SENDGRID_API_KEY }}
+#           mail: 'yogesh.deore@wisdmlabs.com'
+#           from: 'yogesh.deore@wisdmlabs.com'
+#           subject: Surefire report for ${GITHUB_REPOSITORY}
+#           text: |
+#            <p>The Surefire report for ${GITHUB_REPOSITORY} is available <a href="${{ steps.upload.outputs.artifact_url }}">here</a>.</p>
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
    #  - name: Update dependency graph
