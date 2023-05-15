@@ -27,15 +27,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      if: ${{ steps.build.outcome != 'success' }}
       run: mvn -B package --file pom.xml
       
     - name: Generate Surefire report
-      if: ${{ steps.build.outcome != 'success' }}
+      if: ${{ always() }}
       run: mvn surefire-report:report
 
     - name: Send email with Surefire report
-      if: ${{ steps.build.outcome != 'success' }}
+      if: ${{ always() }}
       uses: mmichailidis/sendgrid-mail-action@v1.0
       env:
         SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
