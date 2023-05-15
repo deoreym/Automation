@@ -36,18 +36,26 @@ jobs:
 
     - name: Send email with Surefire report
       if: ${{ steps.build.outcome != 'success' }}
-      uses: dawidd6/action-send-mail@v3
+      uses: sendgrid/github-action@v1.0
+      env:
+        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
       with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
-          subject: Build failure - Surefire report
-          to: user@example.com
-          from: sender@example.com
-          body: |
-            The build has failed. Please find the Surefire report attached.
-          attachments: target/site/surefire-report.html
+        to: user@example.com
+        subject: Surefire report for ${GITHUB_REPOSITORY}
+        html_content: |
+          <p>The Surefire report for ${GITHUB_REPOSITORY} is available <a href="${{ steps.upload.outputs.artifact_url }}">here</a>.</p>
+      # uses: dawidd6/action-send-mail@v3
+      # with:
+      #     server_address: smtp.gmail.com
+      #     server_port: 465
+      #     username: ${{ secrets.SMTP_USERNAME }}
+      #     password: ${{ secrets.SMTP_PASSWORD }}
+      #     subject: Build failure - Surefire report
+      #     to: user@example.com
+      #     from: sender@example.com
+      #     body: |
+      #       The build has failed. Please find the Surefire report attached.
+      #     attachments: target/site/surefire-report.html
           
 #     - name: Upload Surefire reports
 #       uses: actions/upload-artifact@v2
