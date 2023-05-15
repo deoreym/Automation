@@ -36,7 +36,7 @@ jobs:
 
     - name: Send email with Surefire report
       if: ${{ steps.build.outcome != 'success' }}
-      uses: sendgrid/github-action@v1.0
+      uses: mmichailidis/sendgrid-mail-action@v1.0
       env:
         SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
       with:
