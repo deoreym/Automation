@@ -27,14 +27,15 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      if: ${{ steps.build.outcome == 'success' }}
-      run: mvn test
+      if: ${{ steps.build.outcome != 'success' }}
+      run: mvn -B package --file pom.xml
+      
     - name: Generate Surefire report
-      if: ${{ steps.build.outcome == 'success' }}
+      if: ${{ steps.build.outcome != 'success' }}
       run: mvn surefire-report:report
 
     - name: Send email with Surefire report
-      if: ${{ steps.build.outcome == 'success' }}
+      if: ${{ steps.build.outcome != 'success' }}
       uses: dawidd6/action-send-mail@v3
       with:
           server_address: smtp.example.com
