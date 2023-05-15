@@ -30,7 +30,8 @@
 	<parameter name="course5" value="Reliability and Performance" /><!--This 
 		Course will be used to Check My Courses on User Account Page -->
 	<parameter name="course6" value="Test Course 6" /><!-- THis Course 
-		will be userd for reccomended course. -->
+		will
+	be userd for reccomended course. -->
 	<parameter name="MaxCoursesInRow" value="3" /><!--Max number of 
 		courses in a row on the courses page -->
 
@@ -40,11 +41,23 @@
 		</classes>
 	</test>
 
-	<test name="General Settings">
+	<!-- <test name="OverView Settings">
 		<classes>
-			<class name="IR.Overview_Settings" />
+			<class
+	name="IR.IR_Settings_Overview" />
 		</classes>
 	</test>
-
+	<test
+	name="Instructors Tab in IR Settings">
+		<classes>
+			<class
+	name="IR.IR_Settings_Instructors_Tab" />
+		</classes>
+	</test>-->
+	<test name="Commission Reports Tab in IR Settings">
+		<classes>
+			<class name="IR.IR_Settings_Commission_Report" />
+		</classes>
+	</test>
 
 </suite>
