@@ -36,13 +36,14 @@ jobs:
     - name: Send email with Surefire report
       if: ${{ always() }}
       uses: mmichailidis/sendgrid-mail-action@v1.0
-      env:
-        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
       with:
-        to: user@example.com
-        subject: Surefire report for ${GITHUB_REPOSITORY}
-        html_content: |
-          <p>The Surefire report for ${GITHUB_REPOSITORY} is available <a href="${{ steps.upload.outputs.artifact_url }}">here</a>.</p>
+        api_key: ${{ secrets.SENDGRID_API_KEY }}
+        mail: 'yogesh.deore@wisdmlabs.com'
+        from: 'yogesh.deore@wisdmlabs.com'
+        subject: Build failure - Surefire report
+        body: |
+            The build has failed. Please find the Surefire report attached.
+        attachments: target/site/surefire-report.html
       # uses: dawidd6/action-send-mail@v3
       # with:
       #     server_address: smtp.gmail.com
