@@ -34,15 +34,15 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: surefire-reports
-        path: target/surefire-reports
+        path: target/surefire-reports/emailable-report.html
       
 #     - name: Generate Surefire report
 #       if: ${{ always() }}
 #       run: mvn surefire-report:report
       
-    - name: Create Surefire report ZIP
-      if: ${{ always() }}
-      run: zip -r surefire-report.zip target/surefire-reports
+#     - name: Create Surefire report ZIP
+#       if: ${{ always() }}
+#       run: zip -r surefire-report.zip target/surefire-reports
       
     - name: Send email with Surefire report
       if: ${{ always() }}
@@ -53,7 +53,7 @@ jobs:
         from: 'yogesh.deore@wisdmlabs.com'
         subject: Build failure - Surefire report
         text: |
-            The build has failed. Please find the Surefire report attached.
+            The build has failed. Please find the Surefire report attached. ${{ steps.upload.outputs.artifact_url }}
         individual: true
         splitterator: ','
 #         attachments: ./surefire-report.zip
