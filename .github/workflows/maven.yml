@@ -32,7 +32,11 @@ jobs:
     - name: Generate Surefire report
       if: ${{ always() }}
       run: mvn surefire-report:report
-
+      
+    - name: Create Surefire report ZIP
+      if: ${{ always() }}
+      run: zip -r surefire-report.zip target/surefire-reports
+      
     - name: Send email with Surefire report
       if: ${{ always() }}
       uses: mmichailidis/sendgrid-mail-action@v1.0
@@ -41,9 +45,11 @@ jobs:
         mail: 'yogesh.deore@wisdmlabs.com'
         from: 'yogesh.deore@wisdmlabs.com'
         subject: Build failure - Surefire report
-        body: |
+        text: |
             The build has failed. Please find the Surefire report attached.
-        attachments: target/site/surefire-report.html
+        individual: true
+        splitterator: ','
+        attachments: ./surefire-report.zip
       # uses: dawidd6/action-send-mail@v3
       # with:
       #     server_address: smtp.gmail.com
