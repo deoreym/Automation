@@ -29,6 +29,13 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
+    - name: Upload Surefire reports
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: surefire-reports
+        path: target/surefire-reports
+      
 #     - name: Generate Surefire report
 #       if: ${{ always() }}
 #       run: mvn surefire-report:report
@@ -49,7 +56,7 @@ jobs:
             The build has failed. Please find the Surefire report attached.
         individual: true
         splitterator: ','
-        attachments: ./surefire-report.zip
+#         attachments: ./surefire-report.zip
       # uses: dawidd6/action-send-mail@v3
       # with:
       #     server_address: smtp.gmail.com
