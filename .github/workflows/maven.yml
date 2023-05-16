@@ -29,9 +29,9 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
-    - name: Generate Surefire report
-      if: ${{ always() }}
-      run: mvn surefire-report:report
+#     - name: Generate Surefire report
+#       if: ${{ always() }}
+#       run: mvn surefire-report:report
       
     - name: Create Surefire report ZIP
       if: ${{ always() }}
@@ -41,7 +41,7 @@ jobs:
       if: ${{ always() }}
       uses: mmichailidis/sendgrid-mail-action@v1.0
       with:
-        api_key: ${{ secrets.SENDGRID_API_KEY }}
+        sendgrid-token: ${{ secrets.SENDGRID_API_KEY }}
         mail: 'yogesh.deore@wisdmlabs.com'
         from: 'yogesh.deore@wisdmlabs.com'
         subject: Build failure - Surefire report
