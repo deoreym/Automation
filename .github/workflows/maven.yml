@@ -35,7 +35,9 @@ jobs:
       with:
         name: surefire-reports
         path: target/surefire-reports/emailable-report.html
-      
+    - name: Print URL
+      if: ${{ always() }}
+      run: echo ${{ steps.upload.outputs.artifact_url }}
 #     - name: Generate Surefire report
 #       if: ${{ always() }}
 #       run: mvn surefire-report:report
