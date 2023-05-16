@@ -35,9 +35,9 @@ jobs:
       with:
         name: surefire-reports
         path: target/surefire-reports/emailable-report.html
-    - name: Print URL
+    - name: Print artifact path
       if: ${{ always() }}
-      run: echo "${{ github.workspace }}/surefire-reports"
+      run: echo "Artifact path ${{ steps.upload.outputs.artifact-path }}"
 #     - name: Generate Surefire report
 #       if: ${{ always() }}
 #       run: mvn surefire-report:report
@@ -55,7 +55,7 @@ jobs:
         from: 'yogesh.deore@wisdmlabs.com'
         subject: Build failure - Surefire report
         text: |
-            The build has failed. Please find the Surefire report attached. ${{ steps.upload.outputs.artifact_url }}
+            The build has failed. Please find the Surefire report attached. ${{ steps.upload.outputs.artifact-path }}
         individual: true
         splitterator: ','
 #         attachments: ./surefire-report.zip
