@@ -30,6 +30,7 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - name: Upload Surefire reports
+      id: upload
       if: ${{ always() }}
       uses: actions/upload-artifact@v2
       with:
@@ -37,7 +38,7 @@ jobs:
         path: target/surefire-reports/emailable-report.html
     - name: Print artifact path
       if: ${{ always() }}
-      run: echo "Artifact path ${{ steps.upload.outputs.artifact-path }}"
+      run: echo "Artifact path ${{ steps.upload.outputs.artifact-path }}" | echo "Artifact path ${{ steps.upload.outputs }}"
 #     - name: Generate Surefire report
 #       if: ${{ always() }}
 #       run: mvn surefire-report:report
@@ -51,7 +52,7 @@ jobs:
       uses: mmichailidis/sendgrid-mail-action@v1.0
       with:
         sendgrid-token: ${{ secrets.SENDGRID_API_KEY }}
-        mail: 'yogesh.deore@wisdmlabs.com'
+        mail: 'yogesh.deore@wisdmlabs.com,abhay.vishwakarma@wisdmlabs.com'
         from: 'yogesh.deore@wisdmlabs.com'
         subject: Build failure - Surefire report
         text: |
