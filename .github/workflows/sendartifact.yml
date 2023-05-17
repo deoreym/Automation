@@ -31,7 +31,7 @@ jobs:
           > artifacts.txt
 
           content=`cat artifacts.txt`
-          echo "::set-output name=id::$content"
+          echo "{id}={content}" >> $GITHUB_OUTPUT
           
       - name: Send email with Surefire report
         if: ${{ always() }}
