@@ -1,8 +1,8 @@
 name: Send report
 on:
   workflow_run:
-    workflows: ["Java CI with Maven"]
-    types: ["completed"]
+    workflows: [Java CI with Maven]
+    types: [completed]
 
 jobs:
   pin-artifacts:
