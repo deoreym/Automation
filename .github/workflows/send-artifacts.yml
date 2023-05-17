@@ -39,6 +39,6 @@ jobs:
           mail: 'yogesh.deore@wisdmlabs.com,abhay.vishwakarma@wisdmlabs.com'
           from: 'yogesh.deore@wisdmlabs.com'
           subject: Build failure - Surefire report
-          text: "FODBAR=${{ env.FOOBAR }} workflow_id=${{ github.event.workflow_run.workflow_id }} run_number=${{ github.event.workflow_run.run_number }} check_suite_id=${{ github.event.workflow_run.check_suite_id }} The build has been failed. Please find the Surefire report attached. ${{ steps.upload.outputs.artifact-path }}"
+          text: "workflow_id=${{ github.event.workflow_run.workflow_id }} run_number=${{ github.event.workflow_run.run_number }} check_suite_id=${{ github.event.workflow_run.check_suite_id }} The build has been failed. Please find the Surefire report attached."
           individual: true
           splitterator: ','
