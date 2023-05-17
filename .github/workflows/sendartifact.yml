@@ -36,8 +36,8 @@ jobs:
           content="${content//$'\r'/'%0D'}"
           # end of optional handling for multi line json
           
-          echo "{content}={content}" >> $GITHUB_ENV
-      - run: echo '${{ env.content }}'
+          echo "packageJson={$content}" >> $GITHUB_OUTPUT
+      - run: echo '${{ steps.set_var.outputs.packageJson }}'
 
       - name: Send email with Surefire report
         if: ${{ always() }}
