@@ -29,9 +29,16 @@ jobs:
           "https://api.github.com/repos/${{ github.repository }}/actions/runs/${run_id}/artifacts" \
           | jq '[.artifacts | .[] | {"id":.id}]' \
           > artifacts.json
-          cat artifacts.json
           content=`cat artifacts.json`
-          echo "{content}={content}" >> $GITHUB_OUTPUT
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          
+          echo "{content}={content}" >> $GITHUB_ENV
+      - run: echo '${{ fromJson(env.content).id }}'
+      - run: echo '${{ env.content }}'
 
       - name: Send email with Surefire report
         if: ${{ always() }}
