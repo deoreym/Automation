@@ -5,7 +5,6 @@ on:
     types: ["completed"]
 
 jobs:
-  # Make artifacts links more visible for the upstream project
   pin-artifacts:
     permissions:
       statuses: write
@@ -13,7 +12,7 @@ jobs:
     if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
-      - name: Add artifacts links to commit status
+      - name: Send artifacts links
         run: |
           set -x
           workflow_id=${{ github.event.workflow_run.workflow_id }}
