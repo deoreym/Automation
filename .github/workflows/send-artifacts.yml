@@ -10,7 +10,7 @@ jobs:
     permissions:
       statuses: write
     name: Add artifacts links to commit statuses
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.repository == 'deoreym/IR-Automation' }}
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
       - name: Add artifacts links to commit status
@@ -31,16 +31,14 @@ jobs:
           > artifacts.json
 
           cat artifacts.json
-
-          < artifacts.json jq -r ".[] | \
-            .name + \"§\" + \
-            ( .id | tostring | \"https://github.com/${{ github.repository }}/suites/${check_suite_id}/artifacts/\" + . ) + \"§\" + \
-            ( \"Link to \" + .name + \".zip [\" + ( .created_at | sub(\"T.*\"; \"→\") ) + ( .expires_at | sub(\"T.*\"; \"] (you must be logged)\" ) ) )" \
-          | while IFS="§" read name url descr; do
-              curl \
-              -X POST \
-              -H "Accept: application/vnd.github+json" \
-              -H "Authorization: Bearer ${{ github.token }}" \
-              "https://api.github.com/repos/${{ github.repository }}/statuses/${head_sha}" \
-              -d "$( printf '{"state":"%s","target_url":"%s","description":"%s","context":"%s"}' "${{ github.event.workflow_run.conclusion }}" "$url" "$descr" "$name (artifact)" )"
-          done
+      - name: Send email with Surefire report
+        if: ${{ always() }}
+        uses: mmichailidis/sendgrid-mail-action@v1.0
+        with:
+          sendgrid-token: ${{ secrets.SENDGRID_API_KEY }}
+          mail: 'yogesh.deore@wisdmlabs.com,abhay.vishwakarma@wisdmlabs.com'
+          from: 'yogesh.deore@wisdmlabs.com'
+          subject: Build failure - Surefire report
+          text: "FODBAR=${{ env.FOOBAR }} workflow_id=${{ github.event.workflow_run.workflow_id }} run_number=${{ github.event.workflow_run.run_number }} check_suite_id=${{ github.event.workflow_run.check_suite_id }} The build has been failed. Please find the Surefire report attached. ${{ steps.upload.outputs.artifact-path }}"
+          individual: true
+          splitterator: ','
