@@ -1,7 +1,7 @@
 name: Pin artifacts
 on:
   workflow_run:
-    workflows: ["Generate static binaries"]
+    workflows: ["Java CI with Maven"]
     types: ["completed"]
 
 jobs:
