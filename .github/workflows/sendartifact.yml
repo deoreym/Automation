@@ -37,7 +37,6 @@ jobs:
           # end of optional handling for multi line json
           
           echo "{content}={content}" >> $GITHUB_ENV
-      - run: echo '${{ fromJson(env.content).id }}'
       - run: echo '${{ env.content }}'
 
       - name: Send email with Surefire report
