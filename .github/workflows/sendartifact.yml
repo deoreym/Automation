@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send artifacts links
+        id: set_var
         run: |
           set -x
           workflow_id=${{ github.event.workflow_run.workflow_id }}
@@ -29,7 +30,14 @@ jobs:
           | jq '[.artifacts | .[] | {"id": .id, "name": .name, "created_at": .created_at, "expires_at": .expires_at, "archive_download_url": .archive_download_url}] | sort_by(.name)' \
           > artifacts.json
 
-          cat artifacts.json
+          content=`cat artifacts.json`
+          # the following lines are only required for multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of optional handling for multi line json
+          echo "::set-output name=packageJson::$content"
+          
       - name: Send email with Surefire report
         if: ${{ always() }}
         uses: mmichailidis/sendgrid-mail-action@v1.0
@@ -38,6 +46,6 @@ jobs:
           mail: 'yogesh.deore@wisdmlabs.com,abhay.vishwakarma@wisdmlabs.com'
           from: 'yogesh.deore@wisdmlabs.com'
           subject: Build failure - Surefire report
-          text: "workflow_id=${{ github.event.workflow_run.workflow_id }} run_number=${{ github.event.workflow_run.run_number }} check_suite_id=${{ github.event.workflow_run.check_suite_id }} The build has been failed. Please find the Surefire report attached."
+          text: "https://github.com/${{ github.repository }}/suites/${{ github.event.workflow_run.check_suite_id }}/artifacts/${{fromJson(steps.set_var.outputs.packageJson).id}}  workflow_id=${{ github.event.workflow_run.workflow_id }} run_number=${{ github.event.workflow_run.run_number }} check_suite_id=${{ github.event.workflow_run.check_suite_id }} The build has been failed. Please find the Surefire report attached."
           individual: true
           splitterator: ','
