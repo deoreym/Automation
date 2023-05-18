@@ -60,7 +60,7 @@ jobs:
         uses: mmichailidis/sendgrid-mail-action@v1.0
         with:
           sendgrid-token: ${{ secrets.SENDGRID_API_KEY }}
-          mail: 'yogesh.deore@wisdmlabs.com,abhay.vishwakarma@wisdmlabs.com'
+          mail: 'abhay.vishwakarma@wisdmlabs.com'
           from: 'yogesh.deore@wisdmlabs.com'
           subject: Surefire report
           text: "https://github.com/${{ github.repository }}/suites/${{ github.event.workflow_run.check_suite_id }}/artifacts/${{ steps.set_var.outputs.packageJson }} The build has been failed. Please find the Surefire report attached."
