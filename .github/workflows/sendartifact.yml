@@ -9,7 +9,7 @@ jobs:
     permissions:
       statuses: write
     name: Sending report link in Email
-    if: ${{ always() }}
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     runs-on: ubuntu-latest
     steps:
       - name: Getting artifact link
