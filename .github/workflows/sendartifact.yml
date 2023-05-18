@@ -49,19 +49,12 @@ jobs:
           # end of optional handling for multi line json
           
           echo "packageJson=$content" >> $GITHUB_OUTPUT
-      - run: |
-          temp_content=${{ steps.set_var.outputs.packageJson }}
-          temp_content="${temp_content//{/''}"
-          temp_content="${temp_content//'}'/''}"
-          echo "newpackageJson=$temp_content" >> $GITHUB_OUTPUT
-          echo "$temp_content"
-
       - name: Send email with Surefire report
         if: ${{ always() }}
         uses: mmichailidis/sendgrid-mail-action@v1.0
         with:
           sendgrid-token: ${{ secrets.SENDGRID_API_KEY }}
-          mail: 'abhay.vishwakarma@wisdmlabs.com'
+          mail: 'yogesh.deore@wisdmlabs.com,abhay.vishwakarma@wisdmlabs.com'
           from: 'yogesh.deore@wisdmlabs.com'
           subject: Surefire report
           text: "https://github.com/${{ github.repository }}/suites/${{ github.event.workflow_run.check_suite_id }}/artifacts/${{ steps.set_var.outputs.packageJson }} The build has been failed. Please find the Surefire report attached."
