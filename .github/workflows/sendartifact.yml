@@ -51,9 +51,9 @@ jobs:
           echo "packageJson={$content}" >> $GITHUB_OUTPUT
       - run: |
           temp_content=${{ steps.set_var.outputs.packageJson }}
-          temp_content="${temp_content//'{'/''}"
+          temp_content="${temp_content//{/''}"
           temp_content="${temp_content//'}'/''}"
-          echo "packageJson={$temp_content#{" >> $GITHUB_OUTPUT
+          echo "packageJson={$temp_content" >> $GITHUB_OUTPUT
 
       #- name: Send email with Surefire report
       #  if: ${{ always() }}
