@@ -44,8 +44,8 @@ jobs:
           content="${content//$'"'/''}"
           content="${content//$'id'/''}"
           content="${content//$':'/''}"
-          content="${content//$'{'/''}"
-          content="${content//$'}'/''}"
+          content="${content//'{'/''}"
+          content="${content//'}'/''}"
           # end of optional handling for multi line json
           
           echo "packageJson={$content}" >> $GITHUB_OUTPUT
