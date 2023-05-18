@@ -30,6 +30,14 @@ jobs:
           | jq '[.artifacts|.[]|{"id":.id}]' \
           > artifacts.json
           content=`cat artifacts.json`
+          # the following lines are only required for multi line json
+          content="${content//'%'/''}"
+          content="${content//$'\n'/''}"
+          content="${content//$'\r'/''}"
+          content="${content//$'{'/''}"
+          content="${content//$'}'/''}"
+          # end of optional handling for multi line json
+          
           echo "packageJson={$content}" >> $GITHUB_OUTPUT
       - run: echo '${{ steps.set_var.outputs.packageJson }}'
 
