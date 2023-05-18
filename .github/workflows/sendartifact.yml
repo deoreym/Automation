@@ -49,7 +49,11 @@ jobs:
           # end of optional handling for multi line json
           
           echo "packageJson={$content}" >> $GITHUB_OUTPUT
-      - run: echo '${{ steps.set_var.outputs.packageJson }}'
+      - run: |
+          temp_content=${{ steps.set_var.outputs.packageJson }}
+          temp_content="${temp_content//$'{'/''}"
+          temp_content="${temp_content//$'}'/''}"
+          echo "packageJson={$temp_content}" >> $GITHUB_OUTPUT
 
       - name: Send email with Surefire report
         if: ${{ always() }}
