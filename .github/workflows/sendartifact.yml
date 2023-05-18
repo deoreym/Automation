@@ -48,7 +48,7 @@ jobs:
           content="${content//'}'/''}"
           # end of optional handling for multi line json
           
-          echo "packageJson={$content}" >> $GITHUB_OUTPUT
+          echo "packageJson=$content" >> $GITHUB_OUTPUT
       - run: |
           temp_content=${{ steps.set_var.outputs.packageJson }}
           temp_content="${temp_content//{/''}"
