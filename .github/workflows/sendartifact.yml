@@ -30,7 +30,7 @@ jobs:
           | jq '[.artifacts|.[]|{"id":.id}]' \
           > artifacts.json
           content=`cat artifacts.json`
-
+          cat artifacts.json
           # the following lines are only required for multi line json
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
