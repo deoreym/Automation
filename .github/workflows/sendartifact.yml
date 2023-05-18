@@ -53,7 +53,7 @@ jobs:
           temp_content=${{ steps.set_var.outputs.packageJson }}
           temp_content="${temp_content//{/''}"
           temp_content="${temp_content//'}'/''}"
-          echo "packageJson={$temp_content" >> $GITHUB_OUTPUT
+          echo "packageJson={$temp_content}" >> $GITHUB_OUTPUT
           echo "${{ steps.set_var.outputs.packageJson }}"
           echo "$temp_content"
 
