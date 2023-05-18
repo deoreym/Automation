@@ -55,14 +55,14 @@ jobs:
           temp_content="${temp_content//'}'/''}"
           echo "packageJson={$temp_content:1}" >> $GITHUB_OUTPUT
 
-      - name: Send email with Surefire report
-        if: ${{ always() }}
-        uses: mmichailidis/sendgrid-mail-action@v1.0
-        with:
-          sendgrid-token: ${{ secrets.SENDGRID_API_KEY }}
-          mail: 'abhay.vishwakarma@wisdmlabs.com'
-          from: 'yogesh.deore@wisdmlabs.com'
-          subject: Surefire report
-          text: "https://github.com/${{ github.repository }}/suites/${{ github.event.workflow_run.check_suite_id }}/artifacts/${{ steps.set_var.outputs.packageJson }} The build has been failed. Please find the Surefire report attached."
-          individual: true
-          splitterator: ','
+      #- name: Send email with Surefire report
+      #  if: ${{ always() }}
+      #  uses: mmichailidis/sendgrid-mail-action@v1.0
+      #  with:
+      #    sendgrid-token: ${{ secrets.SENDGRID_API_KEY }}
+      #    mail: 'abhay.vishwakarma@wisdmlabs.com'
+      #    from: 'yogesh.deore@wisdmlabs.com'
+      #    subject: Surefire report
+      #    text: "https://github.com/${{ github.repository }}/suites/${{ github.event.workflow_run.check_suite_id }}/artifacts/${{ steps.set_var.outputs.packageJson }} The build has been failed. Please find the Surefire report attached."
+      #    individual: true
+      #    splitterator: ','
