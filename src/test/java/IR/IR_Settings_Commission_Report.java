@@ -39,7 +39,7 @@ public class IR_Settings_Commission_Report {
 		CR_OB = new Commission_Reports(driver);
 		// Setting Admin Details
 		baseURL = siteURL;
-		OS_OB.loginToAdminDashboard(driver, baseURL, username, password);
+		OS_OB.loginToDashboard(driver, baseURL, username, password);
 	}
 
 	/**

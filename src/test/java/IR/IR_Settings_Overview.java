@@ -1,7 +1,6 @@
 package IR;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -15,13 +14,12 @@ public class IR_Settings_Overview {
 	WebDriver driver;
 	OverviewSettings OS_OB;
 
-	WebDriverWait wait;
 	String baseURL;
 	String adminU;
 	String adminP;
 	String IRU;
 	String IRP;
-	String response; // Server response o Connection
+
 
 	/**
 	 * Before Class: This Method does Admin Login
@@ -55,7 +53,7 @@ public class IR_Settings_Overview {
 	 */
 	@Test(priority = 2)
 	public void EnableCourseBlock() throws Exception {
-		OS_OB.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 		// Visit Settings
 		OS_OB.visitInstructorSettings(baseURL);
 
@@ -67,7 +65,7 @@ public class IR_Settings_Overview {
 		OS_OB.overviewSaveSettings.click();
 
 		// Instructor Login
-		OS_OB.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(OS_OB.checkinsightBlock("Courses"), "Course Block Not Visible");
 		// Check response
@@ -80,7 +78,7 @@ public class IR_Settings_Overview {
 	 */
 	@Test(priority = 3)
 	public void EnableStudentBlock() throws Exception {
-		OS_OB.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		OS_OB.visitInstructorSettings(baseURL);
@@ -93,7 +91,7 @@ public class IR_Settings_Overview {
 		OS_OB.overviewSaveSettings.click();
 
 		// Instructor Login
-		OS_OB.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(OS_OB.checkinsightBlock("Students"), "Student Block Not Visible");
 
@@ -106,7 +104,7 @@ public class IR_Settings_Overview {
 	 */
 	@Test(priority = 4)
 	public void EnableProductsBlock() throws Exception {
-		OS_OB.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		OS_OB.visitInstructorSettings(baseURL);
@@ -119,7 +117,7 @@ public class IR_Settings_Overview {
 		OS_OB.overviewSaveSettings.click();
 
 		// Instructor Login
-		OS_OB.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(OS_OB.checkinsightBlock("Products"), "Products Block Not Visible");
 
@@ -132,7 +130,7 @@ public class IR_Settings_Overview {
 	 */
 	@Test(priority = 5)
 	public void EnableEarningsBlock() throws Exception {
-		OS_OB.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		OS_OB.visitInstructorSettings(baseURL);
@@ -145,7 +143,7 @@ public class IR_Settings_Overview {
 		OS_OB.overviewSaveSettings.click();
 
 		// Instructor Login
-		OS_OB.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(OS_OB.checkOverviewBlock("Earnings"), "Earnings Block Not Visible");
 
@@ -158,7 +156,7 @@ public class IR_Settings_Overview {
 	 */
 	@Test(priority = 6)
 	public void EnableCourseReportBlock() throws Exception {
-		OS_OB.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		OS_OB.visitInstructorSettings(baseURL);
@@ -171,7 +169,7 @@ public class IR_Settings_Overview {
 		OS_OB.overviewSaveSettings.click();
 
 		// Instructor Login
-		OS_OB.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(OS_OB.checkOverviewBlock("Course Reports"), "Course Reports Block Not Visible");
 
@@ -184,7 +182,7 @@ public class IR_Settings_Overview {
 	 */
 	@Test(priority = 7)
 	public void EnableSubmissionsBlock() throws Exception {
-		OS_OB.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		OS_OB.visitInstructorSettings(baseURL);
@@ -197,7 +195,7 @@ public class IR_Settings_Overview {
 		OS_OB.overviewSaveSettings.click();
 
 		// Instructor Login
-		OS_OB.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(OS_OB.checkOverviewBlock("Submissions"), "Submissions Block Not Visible");
 
@@ -210,7 +208,7 @@ public class IR_Settings_Overview {
 	 */
 	@Test(priority = 1)
 	public void noBlocksMessage() throws Exception {
-		OS_OB.loginToAdminDashboard(driver, baseURL, adminU, adminP);
+		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
 		OS_OB.visitInstructorSettings(baseURL);
@@ -242,7 +240,7 @@ public class IR_Settings_Overview {
 		OS_OB.overviewSaveSettings.click();
 
 		// Instructor Login
-		OS_OB.loginToAdminDashboard(driver, baseURL, IRU, IRP);
+		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
 
 		Assert.assertTrue(OS_OB.overviewNoBlocks.getText().equals(NoBlocksMessage), "Submissions Block Not Visible");
 

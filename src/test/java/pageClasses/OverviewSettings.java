@@ -34,7 +34,7 @@ public class OverviewSettings {
 	@FindBy(xpath = "//a[text()='Log out']")
 	public WebElement LogOut;
 
-	public void loginToAdminDashboard(WebDriver driver, String siteURL, String username, String password)
+	public void loginToDashboard(WebDriver driver, String siteURL, String username, String password)
 			throws Exception {
 		// Get the admin login page first
 		driver.get(siteURL + "wp-login.php");

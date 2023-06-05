@@ -1,41 +1,55 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Instructor Role Test Suite">
 	<!-- <parameter name="browser" value="Chrome" /> -->
-	<parameter name="browser" value="Chrome" />
+	<parameter name="browser"
+		value="Chrome" />
 	<parameter name="DriverPath"
 		value="Drivers\\chromedriver.exe" />
 	<parameter name="siteURL"
 		value="https://qa-ir.wisdmlabs.net/" />
-	<parameter name="username" value="admin" />
+	<parameter name="username"
+		value="admin" />
 	<parameter name="password" value="^SWEE9iEK60TEwrRY#" />
 
 
 	<!-- User Details For Instructor Dashboard  -->
-	<parameter name="Instructor1" value="instructor" />
-	<parameter name="Instructor1Password" value="instructor" />
+	<parameter
+		name="Instructor1" value="instructor" />
+	<parameter
+		name="Instructor1Password" value="instructor" />
 
 	<!-- User Details For Front-End Course Purchase -->
-	<parameter name="Instructor2" value="nolan" />
-	<parameter name="Instructor2Password" value="nolan" />
+	<parameter
+		name="Instructor2" value="nolan" />
+	<parameter name="Instructor2Password"
+		value="nolan" />
 
 	<parameter name="course1" value="Biology" /> <!--This will be Free Course -->
-	<parameter name="course2" value="Database and Filesystem" /><!--This 
+	<parameter
+		name="course2" value="Database and Filesystem" /><!--This 
 		will be Paid Course -->
-	<parameter name="course3" value="Students bookmark" /><!--This 
+	<parameter
+		name="course3" value="Students bookmark" /><!--This 
 		will be Closed Course -->
-	<parameter name="course4" value="DEVELOPER debugging level" /><!--This 
+	<parameter name="course4"
+		value="DEVELOPER debugging level" /><!--This 
 		will be Expire Access Enabled and Free Course -->
-	<parameter name="noOfDaysForExpireAccess" value="5" /><!--For 
+	<parameter
+		name="noOfDaysForExpireAccess" value="5" /><!--For 
 		course4 Expire Access number of Days -->
-	<parameter name="course5" value="Reliability and Performance" /><!--This 
+	<parameter name="course5"
+		value="Reliability and Performance" /><!--This 
 		Course will be used to Check My Courses on User Account Page -->
-	<parameter name="course6" value="Test Course 6" /><!-- THis Course 
+	<parameter name="course6"
+		value="Test Course 6" /><!-- THis Course 
 		will
-	be userd for reccomended course. -->
+	be userd for
+	reccomended course. -->
 	<parameter name="MaxCoursesInRow" value="3" /><!--Max number of 
 		courses in a row on the courses page -->
 
-	<test name="RunProject SetUp First">
+	<test
+		name="RunProject SetUp First">
 		<classes>
 			<class name="setUp.projectSetUp" />
 		</classes>
@@ -53,10 +67,33 @@
 			<class
 	name="IR.IR_Settings_Instructors_Tab" />
 		</classes>
-	</test>-->
-	<test name="Commission Reports Tab in IR Settings">
+	</test> -->
+	<test
+		name="General Settings Tab in IR Settings">
 		<classes>
-			<class name="IR.IR_Settings_Commission_Report" />
+			<class name="IR.IR_Settings_General_Settings" />
+		</classes>
+	</test>
+	<!--<test
+	name="Commission Reports Tab in IR Settings">
+		<classes>
+			<class
+	name="IR.IR_Settings_Commission_Report" />
+		</classes>
+	</test>
+	
+		<test
+	name="FCC Settings in IR Settings">
+		<classes>
+			<class
+	name="IR.IR_Settings_FCC_Settings" />
+		</classes>
+	</test>-->
+	<test
+	name="Other Extensions Tab in IR Settings">
+		<classes>
+			<class
+	name="IR.IR_Settings_Other_Extensions" />
 		</classes>
 	</test>
 

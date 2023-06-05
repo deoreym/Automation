@@ -36,7 +36,7 @@ public class IR_Settings_Instructors_Tab {
 
 		// Setting Admin Details
 		baseURL = siteURL;
-		GS_OB.loginToAdminDashboard(driver, baseURL, username, password);
+		GS_OB.loginToDashboard(driver, baseURL, username, password);
 	}
 
 	/**
