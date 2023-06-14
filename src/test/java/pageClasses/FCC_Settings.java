@@ -21,7 +21,7 @@ public class FCC_Settings {
 
 	// FCC Settings Tab
 	@FindBy(xpath = "//a[contains(text(),'Frontend Course Creator')]")
-	public WebElement Other_Extensions_Tab;
+	public WebElement FCC_Settings_Tab;
 
 	// Enable Frontend Course Creator - Input
 	@FindBy(xpath = "//input[@id='ir_enable_frontend_dashboard']")
