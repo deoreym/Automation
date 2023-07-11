@@ -75,7 +75,7 @@ public class IR_Settings_Menu_Settings {
 		 * Reset Menu Settings
 		 */
 		// Visit_Menu_Settings_Tab in Settings
-		MS_OB.Visit_Menu_Settings_Tab(baseURL);
+		MS_OB.visitBackendSettings(baseURL);
 		MS_OB.Reset_Menu_Setting.click();
 		driver.switchTo().alert().accept();
 		Thread.sleep(500);
@@ -92,7 +92,7 @@ public class IR_Settings_Menu_Settings {
 		// Login As Admin
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 		// Visit_Menu_Settings_Tab in Settings
-		MS_OB.Visit_Menu_Settings_Tab(baseURL);
+		MS_OB.visitBackendSettings(baseURL);
 
 		SoftAssert softAssert = new SoftAssert();
 		MS_OB.Custom_Menu_Title.clear();
@@ -109,6 +109,8 @@ public class IR_Settings_Menu_Settings {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		// Check Menu Item On IR Dashboard
 		softAssert.assertTrue(MS_OB.IR_Dash_Menu_in_List(Custom_Menu).size() > 0,
@@ -134,7 +136,7 @@ public class IR_Settings_Menu_Settings {
 		// Login As Admin
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 		// Visit_Menu_Settings_Tab in Settings
-		MS_OB.Visit_Menu_Settings_Tab(baseURL);
+		MS_OB.visitBackendSettings(baseURL);
 
 		SoftAssert softAssert = new SoftAssert();
 		// Check if Custom Menu is Present
@@ -156,6 +158,8 @@ public class IR_Settings_Menu_Settings {
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
 
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
+
 		// Check Menu Item On IR Dashboard
 		softAssert.assertFalse(MS_OB.IR_Dash_Menu_in_List(Custom_Menu).size() > 0,
 				"Deleted Custom Menu is still Visible on Instructor's Dashboard");
@@ -174,7 +178,7 @@ public class IR_Settings_Menu_Settings {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit_Menu_Settings_Tab in Settings
-		MS_OB.Visit_Menu_Settings_Tab(baseURL);
+		MS_OB.visitBackendSettings(baseURL);
 
 		SoftAssert softAssert = new SoftAssert();
 
@@ -203,6 +207,8 @@ public class IR_Settings_Menu_Settings {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		// Check Sub Menu Item On IR Dashboard
 		softAssert.assertTrue(MS_OB.IR_Dash_Sub_Menu_in_List(Custom_Sub_Menu_1).size() > 0,
@@ -235,7 +241,7 @@ public class IR_Settings_Menu_Settings {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit_Menu_Settings_Tab in Settings
-		MS_OB.Visit_Menu_Settings_Tab(baseURL);
+		MS_OB.visitBackendSettings(baseURL);
 
 		SoftAssert softAssert = new SoftAssert();
 		// Check Sub Menu is Present
@@ -261,6 +267,8 @@ public class IR_Settings_Menu_Settings {
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
 
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
+
 		// Check Sub Menu Item On IR Dashboard
 		softAssert.assertFalse(MS_OB.IR_Dash_Sub_Menu_in_List(Custom_Sub_Menu_1).size() > 0,
 				"Deleted Sub Menu is Visible on Instructor's Dashboard");
@@ -279,7 +287,7 @@ public class IR_Settings_Menu_Settings {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit_Menu_Settings_Tab in Settings
-		MS_OB.Visit_Menu_Settings_Tab(baseURL);
+		MS_OB.visitBackendSettings(baseURL);
 
 		SoftAssert softAssert = new SoftAssert();
 
@@ -297,6 +305,8 @@ public class IR_Settings_Menu_Settings {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		// Check Sub Menu Item On IR Dashboard
 		softAssert.assertFalse(MS_OB.IR_Dash_Menu_in_List(Menu).size() > 0,
@@ -322,7 +332,7 @@ public class IR_Settings_Menu_Settings {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit_Menu_Settings_Tab in Settings
-		MS_OB.Visit_Menu_Settings_Tab(baseURL);
+		MS_OB.visitBackendSettings(baseURL);
 
 		// Reset Menus
 		MS_OB.Reset_Menu_Setting.click();
@@ -345,6 +355,8 @@ public class IR_Settings_Menu_Settings {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		// Check Sub Menu Item On IR Dashboard
 		softAssert.assertFalse(MS_OB.IR_Dash_Menu_in_List(Menu).size() > 0,
@@ -371,7 +383,7 @@ public class IR_Settings_Menu_Settings {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit_Menu_Settings_Tab in Settings
-		MS_OB.Visit_Menu_Settings_Tab(baseURL);
+		MS_OB.visitBackendSettings(baseURL);
 
 		SoftAssert softAssert = new SoftAssert();
 
@@ -391,6 +403,8 @@ public class IR_Settings_Menu_Settings {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		// Check Sub Menu Item On IR Dashboard
 		softAssert.assertFalse(MS_OB.IR_Dash_Sub_Menu_in_List(Sub_Menu).size() > 0,
@@ -417,7 +431,7 @@ public class IR_Settings_Menu_Settings {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit_Menu_Settings_Tab in Settings
-		MS_OB.Visit_Menu_Settings_Tab(baseURL);
+		MS_OB.visitBackendSettings(baseURL);
 
 		// Reset Menus
 		MS_OB.Reset_Menu_Setting.click();
@@ -445,6 +459,8 @@ public class IR_Settings_Menu_Settings {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		// Check Sub Menu Item On IR Dashboard
 		softAssert.assertFalse(MS_OB.IR_Dash_Sub_Menu_in_List(Sub_Menu).size() > 0,

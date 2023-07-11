@@ -63,7 +63,7 @@ public class OverviewSettings {
 	public WebElement menuSettings;
 
 	// Overview Settings Tab
-	@FindBy(xpath = "//*[@class='nav-tab-wrapper']//a[@href='?page=instuctor&tab=overview_settings']")
+	@FindBy(xpath = "//a[@href='#overview_page']")
 	public WebElement overviewSettings;
 
 	// Overview Course Block
@@ -87,7 +87,7 @@ public class OverviewSettings {
 	public WebElement productBlock;
 
 	// Product Block Slider
-	@FindBy(xpath = "//td[text()='Products block							']/..//span[@class='wdm-slider round']")
+	@FindBy(xpath = "//input[@name='ir_overview_settings[product_block]']/..//span[@class='wdm-slider round']")
 	public WebElement productBlockSlider;
 
 	// Overview Product Block
@@ -167,6 +167,15 @@ public class OverviewSettings {
 	 */
 	public void visitInstructorSettings(String baseURL) {
 		driver.get(baseURL + "wp-admin/admin.php?page=instuctor");
+	}
+	
+	/**
+	 * Visit Backend Settings
+	 * 
+	 * @param baseURL
+	 */
+	public void visitBackendSettings(String baseURL) {
+		driver.get(baseURL + "wp-admin/admin.php?page=instuctor&tab=backend-dashboard");
 	}
 
 	// Select All From Listing Page

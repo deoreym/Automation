@@ -67,16 +67,7 @@ public class IR_Settings_Profile {
 
 		// Visit_Profile_Tabin Settings
 		IP_OB.Visit_Profile_Tab(baseURL);
-
-		// Enable Profile Links
-		if (!IP_OB.Profile_Links.isSelected()) {
-			IP_OB.Profile_Links.click();
-		}
-		IP_OB.SaveProfileSettings.click();
-		Thread.sleep(500);
 		SoftAssert softAssert = new SoftAssert();
-
-		softAssert.assertTrue(IP_OB.Profile_Links.isSelected(), "Profile Links Setting is Not getting Enabled");
 
 		// Disable Profile Links
 		if (IP_OB.Profile_Links.isSelected()) {
@@ -86,6 +77,15 @@ public class IR_Settings_Profile {
 		Thread.sleep(500);
 
 		softAssert.assertFalse(IP_OB.Profile_Links.isSelected(), "Profile Links Setting is Not getting Disabled");
+
+		// Enable Profile Links
+		if (!IP_OB.Profile_Links.isSelected()) {
+			IP_OB.Profile_Links.click();
+		}
+		IP_OB.SaveProfileSettings.click();
+		Thread.sleep(500);
+
+		softAssert.assertTrue(IP_OB.Profile_Links.isSelected(), "Profile Links Setting is Not getting Enabled");
 
 		// Assert All
 		softAssert.assertAll();

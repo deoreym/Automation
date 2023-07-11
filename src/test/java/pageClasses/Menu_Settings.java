@@ -175,10 +175,21 @@ public class Menu_Settings {
 	// Restricted Message
 	@FindBy(xpath = "//div[text()='Restricted page']")
 	public List<WebElement> Restricted_Message;
+	
+	// Menu Settings Tab
+		@FindBy(xpath = "//a[@href='#menu_settings']")
+		public WebElement MenuSettings;
+	
 
-	// Visit_Menu_Settings_Tab
-	public void Visit_Menu_Settings_Tab(String BaseURL) {
-		driver.get(BaseURL + "wp-admin/admin.php?page=instuctor&tab=menu_settings");
+	/**
+	 * Visit Backend Settings
+	 * 
+	 * @param baseURL
+	 */
+	public void visitBackendSettings(String baseURL) {
+		driver.get(baseURL + "wp-admin/admin.php?page=instuctor&tab=backend-dashboard");
+		MenuSettings.click();
 	}
+	
 
 }

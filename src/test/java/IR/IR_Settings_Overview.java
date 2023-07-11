@@ -20,7 +20,6 @@ public class IR_Settings_Overview {
 	String IRU;
 	String IRP;
 
-
 	/**
 	 * Before Class: This Method does Admin Login
 	 * 
@@ -55,7 +54,7 @@ public class IR_Settings_Overview {
 	public void EnableCourseBlock() throws Exception {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 		// Visit Settings
-		OS_OB.visitInstructorSettings(baseURL);
+		OS_OB.visitBackendSettings(baseURL);
 
 		OS_OB.overviewSettings.click();
 
@@ -66,6 +65,8 @@ public class IR_Settings_Overview {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		Assert.assertTrue(OS_OB.checkinsightBlock("Courses"), "Course Block Not Visible");
 		// Check response
@@ -81,7 +82,7 @@ public class IR_Settings_Overview {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
-		OS_OB.visitInstructorSettings(baseURL);
+		OS_OB.visitBackendSettings(baseURL);
 
 		OS_OB.overviewSettings.click();
 
@@ -92,6 +93,8 @@ public class IR_Settings_Overview {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		Assert.assertTrue(OS_OB.checkinsightBlock("Students"), "Student Block Not Visible");
 
@@ -107,7 +110,7 @@ public class IR_Settings_Overview {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
-		OS_OB.visitInstructorSettings(baseURL);
+		OS_OB.visitBackendSettings(baseURL);
 
 		OS_OB.overviewSettings.click();
 
@@ -118,6 +121,8 @@ public class IR_Settings_Overview {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		Assert.assertTrue(OS_OB.checkinsightBlock("Products"), "Products Block Not Visible");
 
@@ -133,7 +138,7 @@ public class IR_Settings_Overview {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
-		OS_OB.visitInstructorSettings(baseURL);
+		OS_OB.visitBackendSettings(baseURL);
 
 		OS_OB.overviewSettings.click();
 
@@ -144,6 +149,8 @@ public class IR_Settings_Overview {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		Assert.assertTrue(OS_OB.checkOverviewBlock("Earnings"), "Earnings Block Not Visible");
 
@@ -159,7 +166,7 @@ public class IR_Settings_Overview {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
-		OS_OB.visitInstructorSettings(baseURL);
+		OS_OB.visitBackendSettings(baseURL);
 
 		OS_OB.overviewSettings.click();
 
@@ -170,6 +177,8 @@ public class IR_Settings_Overview {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		Assert.assertTrue(OS_OB.checkOverviewBlock("Course Reports"), "Course Reports Block Not Visible");
 
@@ -185,7 +194,7 @@ public class IR_Settings_Overview {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
-		OS_OB.visitInstructorSettings(baseURL);
+		OS_OB.visitBackendSettings(baseURL);
 
 		OS_OB.overviewSettings.click();
 
@@ -196,6 +205,8 @@ public class IR_Settings_Overview {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		Assert.assertTrue(OS_OB.checkOverviewBlock("Submissions"), "Submissions Block Not Visible");
 
@@ -211,7 +222,7 @@ public class IR_Settings_Overview {
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
 		// Visit Settings
-		OS_OB.visitInstructorSettings(baseURL);
+		OS_OB.visitBackendSettings(baseURL);
 
 		OS_OB.overviewSettings.click();
 
@@ -241,6 +252,8 @@ public class IR_Settings_Overview {
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
+
+		driver.get(baseURL + "wp-admin/admin.php?page=ir_instructor_overview");
 
 		Assert.assertTrue(OS_OB.overviewNoBlocks.getText().equals(NoBlocksMessage), "Submissions Block Not Visible");
 

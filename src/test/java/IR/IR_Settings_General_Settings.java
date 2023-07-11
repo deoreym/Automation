@@ -23,6 +23,7 @@ public class IR_Settings_General_Settings {
 	String adminP;
 	String IRU;
 	String IRP;
+	String GeneralSettings_Tab_URL;
 
 	/**
 	 * Before Class: THis Method does Admin Login
@@ -37,7 +38,6 @@ public class IR_Settings_General_Settings {
 	public void DriverSetUp(String siteURL, String username, String password, String InstructorU, String InstructorP)
 			throws Exception {
 		driver = projectSetUp.driver;
-		System.out.println("Web Driver: " + driver);
 		// Initializing General_Settings Object
 		GS_OB = new General_Settings(driver);
 
@@ -51,6 +51,7 @@ public class IR_Settings_General_Settings {
 		adminP = password;
 		IRU = InstructorU;
 		IRP = InstructorP;
+		GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
 		// Admin Login
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 	}
@@ -63,8 +64,7 @@ public class IR_Settings_General_Settings {
 	@Test(priority = 1)
 	public void Enable_Course_Review() throws Exception {
 
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 		if (!GS_OB.reviewCourse.isSelected()) {
 			GS_OB.reviewCourse.click();
@@ -92,8 +92,7 @@ public class IR_Settings_General_Settings {
 	@Test(priority = 2)
 	public void Enable_Quiz_Completion_Email() throws Exception {
 
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 		if (!GS_OB.QuizCompletionEmail.isSelected()) {
 			GS_OB.QuizCompletionEmail.click();
@@ -120,8 +119,7 @@ public class IR_Settings_General_Settings {
 	@Test(priority = 3)
 	public void Enable_Course_Purchase_Email() throws Exception {
 
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 		if (!GS_OB.coursePurchaseEmail.isSelected()) {
 			GS_OB.coursePurchaseEmail.click();
@@ -149,8 +147,7 @@ public class IR_Settings_General_Settings {
 	@Test(priority = 4)
 	public void Enable_Instructor_Commission() throws Exception {
 
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 		if (!GS_OB.InstructorCommission.isSelected()) {
 			GS_OB.InstructorCommission.click();
@@ -178,8 +175,7 @@ public class IR_Settings_General_Settings {
 	 */
 	@Test(priority = 5)
 	public void Enable_Student_Communication() throws Exception {
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 		if (!GS_OB.studentCommunication.isSelected()) {
 			GS_OB.studentCommunication.click();
@@ -208,10 +204,9 @@ public class IR_Settings_General_Settings {
 	 */
 	@Test(priority = 6)
 	public void LearnDash_Category_Disable_Create_New() throws Exception {
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
-		
+
 		if (!GS_OB.NewLDCategory.isSelected()) {
 			GS_OB.NewLDCategory.click();
 		}
@@ -252,8 +247,7 @@ public class IR_Settings_General_Settings {
 	public void LearnDash_Category_Disable() throws Exception {
 		// Admin Login
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 		if (GS_OB.LDCategories.isSelected()) {
 			GS_OB.LDCategories.click();
@@ -312,8 +306,7 @@ public class IR_Settings_General_Settings {
 	public void Permalinks_Disable() throws Exception {
 		// Admin Login
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 		if (GS_OB.Permalinks.isSelected()) {
 			GS_OB.Permalinks.click();
@@ -373,8 +366,7 @@ public class IR_Settings_General_Settings {
 	public void Enable_Disable_Course_Pricing() throws Exception {
 		// Admin Login
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 
 		if (GS_OB.Open.isSelected()) {
@@ -464,8 +456,7 @@ public class IR_Settings_General_Settings {
 		// Admin Login
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 
 		// Enable Instructor Login Redirect
@@ -476,20 +467,20 @@ public class IR_Settings_General_Settings {
 		// Set Redirection page
 //		GS_OB.RedirectPage.selectByVisibleText("Instructor Dashboard");
 //		// wdm_login_redirect_page :Select Login Redirect Page:
-         Select RedirectPage = new Select(driver.findElement(By.id("wdm_login_redirect_page")));
-         RedirectPage.selectByVisibleText("Instructor Dashboard");
+		Select RedirectPage = new Select(driver.findElement(By.id("wdm_login_redirect_page")));
+		RedirectPage.selectByVisibleText("Instructor Dashboard");
 
 		GS_OB.submit.click();
 		Thread.sleep(500);
 
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
-		String Instructor_Dashboard_URL = baseURL + "wp-admin/admin.php?page=ir_instructor_overview";
+		String Instructor_Dashboard_URL = baseURL + "instructor-dashboard/";
 
 		Assert.assertEquals(driver.getCurrentUrl(), Instructor_Dashboard_URL, "Instructor Login Redirect Not Working");
 
 	}
-	
+
 	/**
 	 * Add the Instructor Dashboard Link to the Primary Header Menu for Instructors
 	 * 
@@ -500,8 +491,7 @@ public class IR_Settings_General_Settings {
 		// Admin Login
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
 
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 
 		// Enable Instructor Dashboard Link to the Primary Header Menu for Instructors
@@ -515,14 +505,16 @@ public class IR_Settings_General_Settings {
 		// Instructor Login
 		OS_OB.loginToDashboard(driver, baseURL, IRU, IRP);
 		driver.get(baseURL);
-		
-		Assert.assertTrue(GS_OB.IR_Dash_Menu_Item_inList.size()>0, "Instructor Dashboard link not added to Primary Header Menu");
+
+		Assert.assertTrue(GS_OB.IR_Dash_Menu_Item_inList.size() > 0,
+				"Instructor Dashboard link not added to Primary Header Menu");
 		GS_OB.IR_Dash_Menu_Item.click();
 		Thread.sleep(500);
-		
+
 		String Instructor_Dashboard_URL = baseURL + "wp-admin/admin.php?page=ir_instructor_overview";
 
-		Assert.assertEquals(driver.getCurrentUrl(), Instructor_Dashboard_URL, "Instructor Dashboard link is not redirecting to correct page.");
+		Assert.assertEquals(driver.getCurrentUrl(), Instructor_Dashboard_URL,
+				"Instructor Dashboard link is not redirecting to correct page.");
 
 	}
 
@@ -535,8 +527,7 @@ public class IR_Settings_General_Settings {
 	public void Enable_Product_Review() throws Exception {
 		// Admin Login
 		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
-		// Visit Istructors Tab in Settings
-		String GeneralSettings_Tab_URL = baseURL + "wp-admin/admin.php?page=instuctor&tab=settings";
+		// Visit General Settings Tab in Settings
 		driver.get(GeneralSettings_Tab_URL);
 		if (!GS_OB.reviewProduct.isSelected()) {
 			GS_OB.reviewProduct.click();
@@ -558,5 +549,18 @@ public class IR_Settings_General_Settings {
 		Assert.assertEquals(GS_OB.publish.getAttribute("value"), "Publish",
 				"Product is Published when Review Product is Enabled");
 
+		/* Reset Review Prodcuct Settings. */
+		// Admin Login
+		OS_OB.loginToDashboard(driver, baseURL, adminU, adminP);
+		driver.get(GeneralSettings_Tab_URL);
+		Thread.sleep(500);
+		if (GS_OB.reviewProduct.isSelected()) {
+			GS_OB.reviewProduct.click();
+		}
+
+		GS_OB.submit.click();
+		Thread.sleep(500);
+		driver.get(GeneralSettings_Tab_URL);
+		Assert.assertFalse(GS_OB.reviewProduct.isSelected(), "Product Review Setting is not getting Disabled");
 	}
 }
