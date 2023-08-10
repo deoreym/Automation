@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.JavascriptExecutor;
 
 import pageClasses.OverviewSettings;
@@ -139,8 +138,9 @@ public class FCC_Create_Course {
 		FCC_Course.Topics_PP.clear();
 		FCC_Course.Topics_PP.sendKeys("15");
 
-		Actions actions = new Actions(driver);
-		actions.moveToElement(FCC_Course.Course_Publish_Button);
+//		Actions actions = new Actions(driver);
+//		actions.moveToElement(FCC_Course.Course_Publish_Button);
+		executor.executeScript("arguments[0].scrollIntoView();", FCC_Course.Course_Publish_Button); 
 		Thread.sleep(1000);
 		// Click Published
 //		FCC_Course.Course_Publish_Button.click();

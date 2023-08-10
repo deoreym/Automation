@@ -12,15 +12,28 @@
 	<parameter name="Instructor1" value="instructor" />
 	<parameter name="Instructor1Password" value="instructor" />
 
-	<!-- User Details For Front-End Course Purchase -->
+	<!-- User Details For Shared Instructor -->
 	<parameter name="Instructor2" value="nolan" />
 	<parameter name="Instructor2Password" value="nolan" />
+
+	<!-- Exisiting Course Content -->
+	<parameter name="Lesson" value="The Scientific Method" />
+	<parameter name="Topic" value="Scientific Study" />
+	<parameter name="Quiz" value="Scientific Study Quiz" />
+	<parameter name="Section" value="Section One" />
+
+	<!-- New Course Content -->
+	<parameter name="Course" value="The Scientific Method: Auto" />
+	<parameter name="Lesson1" value="The Scientific Method: Auto" />
+	<parameter name="Topic1" value="Scientific Study: Auto" />
+	<parameter name="Quiz1" value="Scientific Study Quiz: Auto" />
+	<parameter name="Section1" value="Section One" />
 
 	<test name="RunProject SetUp First">
 		<classes>
 			<class name="setUp.projectSetUp" />
 		</classes>
-	</test>
+	</test><!--
 	<test name="OverView Settings">
 		<classes>
 			<class name="IR.IR_Settings_Overview" />
@@ -51,7 +64,7 @@
 			<class name="IR.IR_Settings_Menu_Settings" />
 		</classes>
 	</test>
-		<test name="Profile Settings in IR Settings">
+	<test name="Profile Settings in IR Settings">
 		<classes>
 			<class name="IR.IR_Settings_Profile" />
 		</classes>
@@ -61,6 +74,21 @@
 			<class name="IR.IR_Settings_Other_Extensions" />
 		</classes>
 	</test>
-
+	<test name="FCC Create Course">
+		<classes>
+			<class name="FCC.FCC_Create_Course" />
+		</classes>
+	</test>
+	<test name="FCC Course Builder">
+		<classes>
+			<class name="FCC.FCC_Course_Builder" />
+		</classes>
+	</test>-->
+	<test name="FCC Create Quiz">
+		<classes>
+			<class name="FCC.FCC_Create_Quiz" />
+		</classes>
+	</test>
 	
+
 </suite>
