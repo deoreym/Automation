@@ -1,11 +1,11 @@
 package FCC;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import org.openqa.selenium.interactions.Actions;
 
 import pageClasses.FCC_Quiz;
 import pageClasses.OverviewSettings;
@@ -63,7 +63,7 @@ public class FCC_Create_Quiz {
 	@Test(priority = 1)
 	public void Create_New_Quiz() throws Exception {
 		SoftAssert softAssert = new SoftAssert();
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		Actions actions = new Actions(driver);
 
 		FCC_Quiz.Visit_Quiz_List(baseURL);
 
@@ -86,18 +86,18 @@ public class FCC_Create_Quiz {
 		Thread.sleep(1000);
 		// Select Category
 		FCC_Quiz.CategoryAccordion.click();
-		FCC_Quiz.SelectCategory("Quiz Cat 01").click();
-		FCC_Quiz.SelectCategory("Quiz Cat Child 01").click();
+		if (FCC_Quiz.DisbaledCategory.size() == 0) {
+			FCC_Quiz.SelectCategory("Quiz Cat 01").click();
+			FCC_Quiz.SelectCategory("Quiz Cat Child 01").click();
+		}
 		Thread.sleep(1000);
-
 		// Visit Settings Tab
-		executor.executeScript("arguments[0].scrollIntoView();", FCC_Quiz.Quiz_Settings_Tab);
-		executor.executeScript("arguments[0].click();", FCC_Quiz.Quiz_Settings_Tab);
+		actions.moveToElement(FCC_Quiz.Quiz_Settings_Tab).perform();
+		FCC_Quiz.Quiz_Settings_Tab.click();
 
-//		FCC_Quiz.Quiz_Settings_Tab.click();
 
 		/**
-		 *  Quiz Access Settings
+		 * Quiz Access Settings
 		 */
 		FCC_Quiz.Quiz_access_settings.click();
 		FCC_Quiz.Enrollment_based.click();
@@ -110,7 +110,7 @@ public class FCC_Create_Quiz {
 		Thread.sleep(1000);
 
 		/**
-		 *  Progression and restriction settings
+		 * Progression and restriction settings
 		 */
 		FCC_Quiz.Progression_and_restriction_settings.click();
 		FCC_Quiz.Passing_score.clear();
@@ -138,8 +138,10 @@ public class FCC_Create_Quiz {
 		Thread.sleep(1000);
 
 		/**
-		 *  Display and Content Options
+		 * Display and Content Options
 		 */
+		FCC_Quiz.Display_and_Content_Option.click();
+		actions.moveToElement(FCC_Quiz.Quiz_material).perform();
 		FCC_Quiz.Quiz_material.click();
 		FCC_Quiz.Auto_start.click();
 		FCC_Quiz.Question_display_Select.click();
@@ -162,8 +164,10 @@ public class FCC_Create_Quiz {
 		FCC_Quiz.Quiz_title_Toggle.click();
 
 		/**
-		 *  Result page Display
+		 * Result page Display
 		 */
+		FCC_Quiz.Result_page_display.click();
+		actions.moveToElement(FCC_Quiz.Result_Message).perform();
 		FCC_Quiz.Result_Message.click();
 		FCC_Quiz.Restart_quiz_button.click();
 		if (FCC_Quiz.Custom_results_Checked.size() == 0) {
@@ -185,9 +189,46 @@ public class FCC_Create_Quiz {
 		 * Administrative and data handling
 		 */
 		FCC_Quiz.Administrative_and_data_handling.click();
-		
+		actions.moveToElement(FCC_Quiz.Custom_fields).perform();
+		FCC_Quiz.Custom_fields.click();
+		FCC_Quiz.Add_field.click();
+		FCC_Quiz.Add_field.click();
+		FCC_Quiz.At_the_end_of_quiz.click();
+		FCC_Quiz.Leaderboard.click();
+		FCC_Quiz.Who_can_apply_Select.click();
+		FCC_Quiz.Select_Who_can_apply("Registered users only").click();
+		FCC_Quiz.Multiple_Applications_per_user.click();
+		FCC_Quiz.Re_apply_after.clear();
+		FCC_Quiz.Re_apply_after.sendKeys("5");
+		FCC_Quiz.Automatic_user_entry.click();
+		FCC_Quiz.Number_of_displayed_entries.clear();
+		FCC_Quiz.Number_of_displayed_entries.sendKeys("5");
+		FCC_Quiz.Sort_list_by.click();
+		FCC_Quiz.Select_Sort_list_by("Newest entry").click();
+		FCC_Quiz.Display_on_quiz_results_page.click();
+		FCC_Quiz.In_a_button.click();
+		if (FCC_Quiz.Quiz_statistics_Checked.size() == 0) {
+			FCC_Quiz.Quiz_statistics.click();
+		}
+		FCC_Quiz.Frontend_profile_display.click();
+		FCC_Quiz.Statistics_IP_lock.click();
+		FCC_Quiz.IP_lock_time_limit.clear();
+		FCC_Quiz.IP_lock_time_limit.sendKeys("15");
+		FCC_Quiz.Email_notifications.click();
+		FCC_Quiz.Admin.click();
+		FCC_Quiz.Email_trigger.click();
+		FCC_Quiz.Select_Email_trigger("Registered users only").click();
+		FCC_Quiz.User.click();
+		FCC_Quiz.Quiz_templates.click();
+		FCC_Quiz.Advanced_settings.click();
+		FCC_Quiz.Browser_cookie_answer_protection.click();
+		FCC_Quiz.Cookie_time_limit.clear();
+		FCC_Quiz.Cookie_time_limit.sendKeys("30");
+
+		// Publish Quiz
 		FCC_Quiz.Quiz_Publish_Button.click();
 		Thread.sleep(10000);
+		// Check Published Modal
 		softAssert.assertTrue(FCC_Quiz.Quiz_Published_Text.size() > 0, "Quiz Is Not getting published");
 
 	}

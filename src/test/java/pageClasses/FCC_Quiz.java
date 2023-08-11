@@ -93,6 +93,10 @@ public class FCC_Quiz {
 	@FindBy(xpath = "//button[contains(@id,'ld_quiz_category')]")
 	public WebElement CategoryAccordion;
 
+	// Disabled Quiz Category message
+	@FindBy(xpath = "//div[text()='Quiz categories are disabled from Learndash settings.']")
+	public List<WebElement> DisbaledCategory;
+
 	// Description iFrame ID = ir-content-editor_ifr
 
 	/**
@@ -434,6 +438,18 @@ public class FCC_Quiz {
 	@FindBy(xpath = "//*[text()='Custom fields']/../..//label[contains(@class,'mantine-Switch-track')]")
 	public WebElement Custom_fields;
 
+	// Add Field
+	@FindBy(xpath = "//span[text()='Add field']")
+	public WebElement Add_field;
+
+	// On the quiz startpage
+	@FindBy(xpath = "//label[text()='On the quiz startpage']/../..//input")
+	public WebElement On_the_quiz_startpage;
+
+	// At the end of the quiz (before the quiz result)
+	@FindBy(xpath = "//label[text()='At the end of the quiz (before the quiz result)']/../..//input")
+	public WebElement At_the_end_of_quiz;
+
 	// Leaderboard - Toggle
 	@FindBy(xpath = "//*[text()='Leaderboard']/../..//label[contains(@class,'mantine-Switch-track')]")
 	public WebElement Leaderboard;
@@ -487,6 +503,10 @@ public class FCC_Quiz {
 	// Really simple CAPTCHA
 	@FindBy(xpath = "//*[text()='Really simple CAPTCHA']/..//input")
 	public WebElement CATPCHA;
+
+	// Checked "Quiz statistics"
+	@FindBy(xpath = "//div[contains(@class,'ir-checked')]//*[text()='Quiz statistics']")
+	public List<WebElement> Quiz_statistics_Checked;
 
 	// Quiz statistics - Toggle
 	@FindBy(xpath = "//*[text()='Quiz statistics']/../..//label[contains(@class,'mantine-Switch-track')]")
