@@ -1,0 +1,131 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Instructor Role Test Suite">
+	<!-- <parameter name="browser" value="Chrome" /> -->
+	<parameter name="browser" value="Chrome" />
+	<parameter name="DriverPath" value="Drivers\\chromedriver.exe" />
+	<parameter name="siteURL" value="https://qa-ir.wisdmlabs.net/" />
+	<parameter name="username" value="admin" />
+	<parameter name="password" value="^SWEE9iEK60TEwrRY#" />
+
+
+	<!-- User Details For Instructor Dashboard  -->
+	<parameter name="Instructor1" value="instructor" />
+	<parameter name="Instructor1Password" value="instructor" />
+
+	<!-- User Details For Shared Instructor -->
+	<parameter name="Instructor2" value="nolan" />
+	<parameter name="Instructor2Password" value="nolan" />
+
+	<!-- Exisiting Course Content -->
+	<parameter name="Lesson" value="The Scientific Method" />
+	<parameter name="Topic" value="Scientific Study" />
+	<parameter name="Quiz" value="Scientific Study Quiz" />
+	<parameter name="Section" value="Section One" />
+
+	<!-- New Course Content -->
+	<parameter name="Course" value="The Scientific Method: IR_Automation" />
+	<parameter name="Lesson1" value="The Scientific Method: IR_Automation" />
+	<parameter name="Topic1" value="Scientific Study: IR_Automation" />
+	<parameter name="Quiz1" value="Scientific Study Quiz: IR_Automation" />
+	<parameter name="Section1" value="Section One" />
+
+	<test name="RunProject SetUp First">
+		<classes>
+			<class name="setUp.projectSetUp" />
+		</classes>
+	</test>
+<!--	<test name="FCC Test Class">
+		<classes>
+			<class name="FCC.FCC_Test_CSS_Properties" />
+		</classes>
+	</test> -->
+	
+	<!--
+	<test name="OverView Settings">
+		<classes>
+			<class name="IR.IR_Settings_Overview" />
+		</classes>
+	</test>
+	<test name="Instructors Tab in IR Settings">
+		<classes>
+			<class name="IR.IR_Settings_Instructors_Tab" />
+		</classes>
+	</test>
+	<test name="General Settings Tab in IR Settings">
+		<classes>
+			<class name="IR.IR_Settings_General_Settings" />
+		</classes>
+	</test>
+	<test name="Commission Reports Tab in IR Settings">
+		<classes>
+			<class name="IR.IR_Settings_Commission_Report" />
+		</classes>
+	</test>
+	<test name="FCC Settings in IR Settings">
+		<classes>
+			<class name="IR.IR_Settings_FCC_Settings" />
+		</classes>
+	</test>
+	<test name="Menu Settings in IR Settings">
+		<classes>
+			<class name="IR.IR_Settings_Menu_Settings" />
+		</classes>
+	</test>
+	<test name="Profile Settings in IR Settings">
+		<classes>
+			<class name="IR.IR_Settings_Profile" />
+		</classes>
+	</test>
+	<test name="Other Extensions Tab in IR Settings">
+		<classes>
+			<class name="IR.IR_Settings_Other_Extensions" />
+		</classes>
+	</test>
+	<test name="FCC Delete Automation Data">
+		<classes>
+			<class name="FCC.FCC_Delete_Automation_Data" />
+		</classes>
+	</test>
+		<test name="LD Create Course">
+		<classes>
+			<class name="LD.LD_Create_Course" />
+		</classes>
+	</test>
+	<test name="LD Create Lesson">
+		<classes>
+			<class name="LD.LD_Create_Lesson" />
+		</classes>
+	</test>
+	<test name="LD Create Topic">
+		<classes>
+			<class name="LD.LD_Create_Topic" />
+		</classes>
+	</test>
+		<test name="LD Create Quiz">
+		<classes>
+			<class name="LD.LD_Create_Quiz" />
+		</classes>
+	</test>
+	<test name="FCC Create Course">
+		<classes>
+			<class name="FCC.FCC_Create_Course" />
+		</classes>
+	</test>
+	<test name="FCC Course Builder">
+		<classes>
+			<class name="FCC.FCC_Course_Builder" />
+		</classes>
+	</test>
+	<test name="FCC Create Quiz">
+		<classes>
+			<class name="FCC.FCC_Create_Quiz" />
+		</classes>
+	</test>-->
+	<test name="FCC Create Questions">
+		<classes>
+			<class name="FCC.FCC_Create_Questions" />
+		</classes>
+	</test>
+
+
+</suite>
