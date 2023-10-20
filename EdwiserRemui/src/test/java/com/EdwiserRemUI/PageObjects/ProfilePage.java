@@ -16,6 +16,14 @@ public class ProfilePage extends BasePage{
 	@FindBy(xpath="//a[@data-text='General']")
 	public WebElement generaltab;
 	
+	@FindBy(xpath="//a[@href='#usercourses']")
+	public WebElement CoursesTab;
+	
+	@FindBy(xpath="//div[contains(@class,'course-card')]")
+	public List<WebElement> CoursesCards;
+	
+
+	
 	@FindBy(xpath="//a[text()='Advanced features']")
 	public WebElement advancedfeaturemenu;
 	

@@ -38,7 +38,9 @@
 			
 			
 			<!-- New  -->
-			<class name="com.EdwiserRemUI.TestCases.QuickMenuTest" />
+			<!-- <class name="com.EdwiserRemUI.TestCases.QuickMenuTest" /> -->
+			<class name="com.EdwiserRemUI.TestCases.MyCoursesTest" />
+			
 			
 			
 		</classes>

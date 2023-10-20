@@ -28,6 +28,7 @@ public class BaseClass {
 	public String remuifootersetting = siteurl + "admin/settings.php?section=themesettingremui#theme_remui_footer";
 	public String mycourses = siteurl + "my/courses.php";
 	public String coursepage = siteurl + "course/view.php?id=21";
+	public String courseName = "Testing Course - 18 - Automation Course - 1";
 	public String coursepage1 = siteurl + "course/view.php?id=22";
 	public String homepage = siteurl + "?redirect=0";
 //	public String RemUISettings = siteurl + "admin/settings.php?section=themesettingremui";
@@ -49,7 +50,6 @@ public class BaseClass {
 		Thread.sleep(2000);
 	}
 
-	@Parameters({ "siteURL", "StudentUser", "StudentPassword" })
 	public void studentLogin(String siteURL, String username, String password) throws InterruptedException {
 
 		driver.get(siteurl);
@@ -92,8 +92,6 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		// maximize the window
 		driver.manage().window().maximize();
-
-		driver.get(siteurl);
 	}
 
 	@AfterSuite
