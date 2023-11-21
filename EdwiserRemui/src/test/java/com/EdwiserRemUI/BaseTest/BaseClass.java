@@ -30,6 +30,9 @@ public class BaseClass {
 	public String coursepage = siteurl + "course/view.php?id=21";
 	public String courseName = "Testing Course - 18 - Automation Course - 1";
 	public String coursepage1 = siteurl + "course/view.php?id=22";
+	public String EnrolmentTestCourse = siteurl + "course/view.php?id=40";
+	public String CourseEnrolmentPage = siteurl + "enrol/index.php?id=40";
+	public String CourseIntroVideo = "https://www.youtube.com/embed/MIWu2FCPnIQ";
 	public String homepage = siteurl + "?redirect=0";
 //	public String RemUISettings = siteurl + "admin/settings.php?section=themesettingremui";
 

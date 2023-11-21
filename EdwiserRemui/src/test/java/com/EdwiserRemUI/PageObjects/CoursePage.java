@@ -2,102 +2,159 @@ package com.EdwiserRemUI.PageObjects;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CoursePage extends BasePage{
+public class CoursePage extends BasePage {
 
 	public CoursePage(WebDriver driver) {
 		super(driver);
-		
+
 	}
-	
-	@FindBy(xpath="//li[contains(@title,'Site administration')]//a[contains(@role,'menuitem')]")
+
+	@FindBy(xpath = "//li[contains(@title,'Site administration')]//a[contains(@role,'menuitem')]")
 	WebElement clicksiteadmin;
-	
-	@FindBy(xpath="//a[normalize-space()='Appearance']")
+
+	@FindBy(xpath = "//a[normalize-space()='Appearance']")
 	WebElement clickappearence;
-	
-	@FindBy(xpath="//div[@id='linkappearance']//div[2]//div[2]//ul[1]//li[5]//a[1]")
+
+	@FindBy(xpath = "//div[@id='linkappearance']//div[2]//div[2]//ul[1]//li[5]//a[1]")
 	WebElement clickremui;
-	
-	@FindBy(xpath="//ul[@role='tablist']//li//a[text()='Course Page']")
+
+	@FindBy(xpath = "//ul[@role='tablist']//li//a[text()='Course Page']")
 	WebElement coursepagemenu;
-	
-	@FindBy(xpath="//select[@id='id_s_theme_remui_courseperpage']//option")
+
+	@FindBy(xpath = "//select[@id='id_s_theme_remui_courseperpage']//option")
 	List<WebElement> courseselectcount;
-	
-	@FindBy(xpath="//button[@class='btn btn-primary']")
+
+	@FindBy(xpath = "//button[@class='btn btn-primary']")
 	public WebElement savechanges;
-	
-	@FindBy(xpath="//div[@class='course-cards list-view list-group edw-course-list-container']//li")
+
+	@FindBy(xpath = "//div[@class='course-cards list-view list-group edw-course-list-container']//li")
 	List<WebElement> countonap;
-	
-	@FindBy(xpath="//input[@id='id_s_theme_remui_enablecoursestats']")
+
+	@FindBy(xpath = "//input[@id='id_s_theme_remui_enablecoursestats']")
 	WebElement coursestatsonsp;
-	
-	@FindBy(xpath="//label[@for='id_s_theme_remui_enablecoursestats']")
+
+	@FindBy(xpath = "//label[@for='id_s_theme_remui_enablecoursestats']")
 	public WebElement coursestatlabel;
-	
-	@FindBy(xpath="//input[@id='id_s_theme_remui_enablefocusmode']")
+
+	@FindBy(xpath = "//input[@id='id_s_theme_remui_enablefocusmode']")
 	WebElement enablefocusmodechbx;
-	
-	@FindBy(xpath="//label[@for='id_s_theme_remui_enablefocusmode']")
+
+	@FindBy(xpath = "//label[@for='id_s_theme_remui_enablefocusmode']")
 	public WebElement focusmodelabel;
-	
-	@FindBy(xpath="//button[@id='focusmodebutton']")
+
+	@FindBy(xpath = "//button[@id='focusmodebutton']")
 	public List<WebElement> focusmodebuttononcp;
-	
-	@FindBy(xpath="//div[@id='wdm_course-stats']")
+
+	@FindBy(xpath = "//div[@id='wdm_course-stats']")
 	public List<WebElement> coursestatsoncp;
-	
-	@FindBy(xpath="//span[@class='edw-icon edw-icon-List-View-08']")
+
+	@FindBy(xpath = "//span[@class='edw-icon edw-icon-List-View-08']")
 	public WebElement selectlistview;
-	
-	@FindBy(xpath="//select[@id='id_s_theme_remui_courseheaderdesign']//option")
+
+	@FindBy(xpath = "//select[@id='id_s_theme_remui_courseheaderdesign']//option")
 	List<WebElement> courseheader;
-	
-	@FindBy(xpath="//header[@id='page-header' and contains(@class,'design-1')]")
+
+	@FindBy(xpath = "//header[@id='page-header' and contains(@class,'design-1')]")
 	public List<WebElement> headerdesignoncp;
-	
-	@FindBy(xpath="//select[@id='id_s_theme_remui_activitynextpreviousbutton']//option")
+
+	@FindBy(xpath = "//select[@id='id_s_theme_remui_activitynextpreviousbutton']//option")
 	List<WebElement> activitybutton;
-	
-	@FindBy(id="prev-activity-link")
+
+	@FindBy(id = "prev-activity-link")
 	public List<WebElement> prevactivity;
-	
-	@FindBy(id="next-activity-link")
+
+	@FindBy(id = "next-activity-link")
 	public List<WebElement> nextactivity;
-	
-	@FindBy(xpath="//ul[@class='topics']//li[@id='section-0']//div//ul//li[2]//span[@class='instancename']")
+
+	@FindBy(xpath = "//ul[@class='topics']//li[@id='section-0']//div//ul//li[2]//span[@class='instancename']")
 	public WebElement clickonanyactivity;
-	
-	@FindBy(xpath="//ul[@class='topics']//li[@id='section-0']//div//ul//li[1]//span[@class='instancename']")
+
+	@FindBy(xpath = "//ul[@class='topics']//li[@id='section-0']//div//ul//li[1]//span[@class='instancename']")
 	WebElement prevactivityname;
-	
-	@FindBy(xpath="//ul[@class='topics']//li[@id='section-0']//div//ul//li[3]//span[@class='instancename']")
+
+	@FindBy(xpath = "//ul[@class='topics']//li[@id='section-0']//div//ul//li[3]//span[@class='instancename']")
 	WebElement nextactivityname;
-	
-	@FindBy(xpath="(//a[@id='prev-activity-link'])[1]")
+
+	@FindBy(xpath = "(//a[@id='prev-activity-link'])[1]")
 	public WebElement prevactivitynameap;
-	
-	
-	@FindBy(xpath="(//a[@id='next-activity-link'])[1]")
+
+	@FindBy(xpath = "(//a[@id='next-activity-link'])[1]")
 	public WebElement nextactivitynameap;
-	
-	@FindBy(xpath="//h1[@class='h2 header-heading']")
+
+	@FindBy(xpath = "//h1[@class='h2 header-heading']")
 	public WebElement activitytitle;
-	
+
+	// Header Category
+	@FindBy(xpath = "//*[@class='category']//div")
+	public WebElement CourseCategory;
+
+	// Course Settings Tab
+	@FindBy(xpath = "//li[@title='Settings']/a")
+	public WebElement CourseSettings;
+
+	// REMUI Custom Fields Accordion
+	@FindBy(xpath = "//*[contains(text(),'RemUI Custom Fields')]/../a")
+	public WebElement RemUI_CF;
+
+	// Course Duration in Hours
+	@FindBy(id = "id_customfield_edwcoursedurationinhours")
+	public WebElement Duration;
+
+	// Course Intro Video Url (Embedded)
+	@FindBy(id = "id_customfield_edwcourseintrovideourlembedded")
+	public WebElement IntroVideo;
+
+	// Skill Level
+	@FindBy(id = "id_customfield_edwskilllevel")
+	public WebElement Skill_Level;
+
+	// Course Summary - Take Attribute "data-initial-value" for value coparison on
+	// Overview Page
+	@FindBy(id = "id_summary_editor")
+	public WebElement Course_Summary;
+
+	// Start Date - DAY
+	@FindBy(id = "id_startdate_day")
+	public WebElement StartDate_Day;
+
+	// Start Date - Month
+	@FindBy(id = "id_startdate_month")
+	public WebElement StartDate_Month;
+
+	public String GetStartMonth() {
+		System.out.println(StartDate_Month.getAttribute("data-data-initial-value-value"));
+		return driver.findElement(By.xpath("//Select[@id='id_startdate_month']//option[@value='"
+				+ StartDate_Month.getAttribute("data-data-initial-value-value") + "']")).getText();
+
+	}
+
+	// Start Date - Year
+	@FindBy(id = "id_startdate_year")
+	public WebElement StartDate_Year;
+
+	// Enrolled Student Count
+	@FindBy(xpath = "//*[contains(@class,'stats-enrolledusers')]")
+	public WebElement EnrolledStudents;
+
+	// Save and display
+	@FindBy(id = "id_saveanddisplay")
+	public WebElement Save_and_Display;
+
+	// Click On Course Page Menu in RemUI Settings
 	public void clickoncoursepagemenu() {
 		clicksiteadmin.click();
 		clickappearence.click();
 		clickremui.click();
 		coursepagemenu.click();
 	}
-	
+
 	public String selectcoursecount() {
-		String count="9";
+		String count = "9";
 		coursepagemenu.click();
 		for (int i = 0; i < courseselectcount.size(); i++) {
 			WebElement ele = courseselectcount.get(i);
@@ -111,29 +168,29 @@ public class CoursePage extends BasePage{
 	}
 
 	public String coursecountonap() {
-		int coursecount=countonap.size();
-		String s=String.valueOf(coursecount);
+		int coursecount = countonap.size();
+		String s = String.valueOf(coursecount);
 		return s;
 	}
-	
+
 	public boolean coursestatsstatus() {
-		String present=coursestatsonsp.getAttribute("checked");
-		//System.out.println("present "+present);
+		String present = coursestatsonsp.getAttribute("checked");
+		// System.out.println("present "+present);
 		boolean status = Boolean.parseBoolean(present);
-		//System.out.println("present "+status);
+		// System.out.println("present "+status);
 		return status;
 	}
-	
+
 	public boolean focusmodestatus() {
-		String present=enablefocusmodechbx.getAttribute("checked");
-		//System.out.println("present "+present);
+		String present = enablefocusmodechbx.getAttribute("checked");
+		// System.out.println("present "+present);
 		boolean status = Boolean.parseBoolean(present);
-		//System.out.println("present "+status);
+		// System.out.println("present "+status);
 		return status;
 	}
-	
+
 	public String selectcourseheaderdesign1() {
-		String design="Header design 1";
+		String design = "Header design 1";
 		for (int i = 0; i < courseheader.size(); i++) {
 			WebElement ele = courseheader.get(i);
 			String innerHTML = ele.getAttribute("innerHTML");
@@ -142,11 +199,11 @@ public class CoursePage extends BasePage{
 			}
 		}
 		return design;
-		
+
 	}
-	
+
 	public String selectcourseheaderdefault() {
-		String design1="Default";
+		String design1 = "Default";
 		for (int i = 0; i < courseheader.size(); i++) {
 			WebElement ele = courseheader.get(i);
 			String innerHTML = ele.getAttribute("innerHTML");
@@ -155,10 +212,11 @@ public class CoursePage extends BasePage{
 			}
 		}
 		return design1;
-		
+
 	}
+
 	public String selectdisablebuttonoption() {
-		String option="Disable";
+		String option = "Disable";
 		for (int i = 0; i < activitybutton.size(); i++) {
 			WebElement ele = activitybutton.get(i);
 			String innerHTML = ele.getAttribute("innerHTML");
@@ -167,11 +225,11 @@ public class CoursePage extends BasePage{
 			}
 		}
 		return option;
-		
+
 	}
-	
+
 	public String selectenablebuttonoption() {
-		String option="Enable";
+		String option = "Enable";
 		for (int i = 0; i < activitybutton.size(); i++) {
 			WebElement ele = activitybutton.get(i);
 			String innerHTML = ele.getAttribute("innerHTML");
@@ -180,11 +238,11 @@ public class CoursePage extends BasePage{
 			}
 		}
 		return option;
-		
+
 	}
-	
+
 	public String selectenablewithactivitybuttonoption() {
-		String option="Enable with Activity name";
+		String option = "Enable with Activity name";
 		for (int i = 0; i < activitybutton.size(); i++) {
 			WebElement ele = activitybutton.get(i);
 			String innerHTML = ele.getAttribute("innerHTML");
@@ -193,30 +251,30 @@ public class CoursePage extends BasePage{
 			}
 		}
 		return option;
-		
+
 	}
-	
+
 	public String getprevactivityname() {
-		String actnameprev1=prevactivityname.getAttribute("data-activityname");
-		String actnameprev =actnameprev1.replaceAll("\\s", "");
+		String actnameprev1 = prevactivityname.getAttribute("data-activityname");
+		String actnameprev = actnameprev1.replaceAll("\\s", "");
 		return actnameprev;
 	}
-	
+
 	public String getpreviousactivitynameap() {
-		String prevactap1=prevactivitynameap.getText();
-		String prevactap =prevactap1.replaceAll("\\s", "");
+		String prevactap1 = prevactivitynameap.getText();
+		String prevactap = prevactap1.replaceAll("\\s", "");
 		return prevactap;
 	}
-	
+
 	public String getnextactivityname() {
-		String actnamenext1=nextactivityname.getAttribute("data-activityname");
-		String actnamenext =actnamenext1.replaceAll("\\s", "");
+		String actnamenext1 = nextactivityname.getAttribute("data-activityname");
+		String actnamenext = actnamenext1.replaceAll("\\s", "");
 		return actnamenext;
 	}
-	
+
 	public String getnextactivitynameap() {
-		String nextactap1=nextactivitynameap.getText();
-		String nextactap =nextactap1.replaceAll("\\s", "");
+		String nextactap1 = nextactivitynameap.getText();
+		String nextactap = nextactap1.replaceAll("\\s", "");
 		return nextactap;
 	}
 }
