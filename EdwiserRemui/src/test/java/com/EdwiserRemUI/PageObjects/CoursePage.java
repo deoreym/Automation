@@ -126,10 +126,8 @@ public class CoursePage extends BasePage {
 	@FindBy(id = "id_startdate_month")
 	public WebElement StartDate_Month;
 
-	public String GetStartMonth() {
-		System.out.println(StartDate_Month.getAttribute("data-data-initial-value-value"));
-		return driver.findElement(By.xpath("//Select[@id='id_startdate_month']//option[@value='"
-				+ StartDate_Month.getAttribute("data-data-initial-value-value") + "']")).getText();
+	public String GetStartMonth(String Month) {
+		return driver.findElement(By.xpath("//Select[@id='id_startdate_month']//option[@value='" + Month + "']")).getText();
 
 	}
 

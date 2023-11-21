@@ -62,38 +62,49 @@ public class CourseEnrolmentPageTest extends BaseClass {
 		driver.get(EnrolmentTestCourse);
 		Thread.sleep(500);
 		String Enrolled_Students = CP.EnrolledStudents.getText();
+		System.out.println("CP Enrolled_Students : " + Enrolled_Students);
 		String Course_Category = CP.CourseCategory.getText();
 		CP.CourseSettings.click();
-		String Overview_Text = CP.Course_Summary.getAttribute("data-initial-value");
-		System.out.println("CP : StartDate Day" + CP.StartDate_Day.getAttribute("data-initial-value"));
+		Thread.sleep(3000);
+//		String Overview_Text = (String) js.executeScript("return arguments[0].getAttribute('data-initial-value');", CP.Course_Summary);
+		String Overview_Text = CP.Course_Summary.getText();
+		System.out.println("CP Overview" + Overview_Text);
+//		String Day = (String) js.executeScript("return arguments[0].getAttribute('data-initial-value');", CP.StartDate_Day);
 
-		String StartDate = CP.StartDate_Day.getAttribute("data-initial-value") + " " + CP.GetStartMonth() + " "
-				+ CP.StartDate_Year.getAttribute("data-initial-value");
+		Select dropdownDay = new Select(CP.StartDate_Day);
+		// Get the selected option
+		String Day = dropdownDay.getFirstSelectedOption().getText();
+
+		Select dropdownMonth = new Select(CP.StartDate_Month);
+		// Get the selected option
+		String Month = dropdownMonth.getFirstSelectedOption().getText();
+
+		Select dropdownYear = new Select(CP.StartDate_Year);
+		// Get the selected option
+		String Year = dropdownYear.getFirstSelectedOption().getText();
+
+		String StartDate = Day + " " + Month + " " + Year;
 		System.out.println("CP : StartDate " + StartDate);
-		
+
 		driver.get(CourseEnrolmentPage);
 		Thread.sleep(500);
-		
+
 		sf.assertTrue(EP.Course_Overview.getText().contains(Overview_Text),
 				"Course Overview Text not Available OR Not Matching");
+		System.out.println("EP Enrolled_Students : " + EP.StudentsCount.getText());
 		sf.assertEquals(EP.StudentsCount.getText(), Enrolled_Students,
 				"Course Enrolled Students Count not Matching on Enrolment Page");
-		sf.assertEquals(EP.Category.getText(), Course_Category,
-				"Course Category not Matching on Enrolment Page");
-		sf.assertEquals(EP.LessonsCount.getText(), "2",
-				"Course Lesson Count not Matching on Enrolment Page");
-		sf.assertEquals(EP.Lecture.getText(), "2",
-				"Course Lecture Count not Matching on Enrolment Page");
+		sf.assertEquals(EP.Category.getText(), Course_Category, "Course Category not Matching on Enrolment Page");
+		sf.assertEquals(EP.LessonsCount.getText(), "2", "Course Lesson Count not Matching on Enrolment Page");
+		sf.assertEquals(EP.Lecture.getText(), "2", "Course Lecture Count not Matching on Enrolment Page");
 		System.out.println("EP : StartDate " + EP.Course_Start_Date.getText());
-		sf.assertEquals(EP.Course_Start_Date.getText(), StartDate,
-				"Course Start Date not Matching on Enrolment Page");
+		sf.assertEquals(EP.Course_Start_Date.getText(), StartDate, "Course Start Date not Matching on Enrolment Page");
 		sf.assertTrue(EP.Course_Language.getText().contains("English"),
 				"Course Language not Available OR Not Matching");
-		
+
 		EP.InstructorTab.click();
 		Thread.sleep(500);
-		sf.assertEquals(EP.InstructorList.size(), 2,
-				"Course Category not Matching on Enrolment Page");
+		sf.assertEquals(EP.InstructorList.size(), 2, "Course Category not Matching on Enrolment Page");
 		sf.assertAll();
 	}
 
