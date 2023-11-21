@@ -24,7 +24,7 @@ public class CourseEnrolmentPageTest extends BaseClass {
 	 * 
 	 * @throws InterruptedException
 	 */
-//	@Test(priority = 1)
+	@Test(priority = 1)
 	public void Set_RemUI_CutomFields_Data() throws InterruptedException {
 		SoftAssert sf = new SoftAssert();
 		driver.get(EnrolmentTestCourse);
@@ -65,11 +65,10 @@ public class CourseEnrolmentPageTest extends BaseClass {
 		System.out.println("CP Enrolled_Students : " + Enrolled_Students);
 		String Course_Category = CP.CourseCategory.getText();
 		CP.CourseSettings.click();
-		Thread.sleep(3000);
-//		String Overview_Text = (String) js.executeScript("return arguments[0].getAttribute('data-initial-value');", CP.Course_Summary);
+		Thread.sleep(1000);
+
 		String Overview_Text = CP.Course_Summary.getText();
 		System.out.println("CP Overview" + Overview_Text);
-//		String Day = (String) js.executeScript("return arguments[0].getAttribute('data-initial-value');", CP.StartDate_Day);
 
 		Select dropdownDay = new Select(CP.StartDate_Day);
 		// Get the selected option

@@ -1,8 +1,6 @@
 package com.EdwiserRemUI.PageObjects;
 
 import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -125,11 +123,6 @@ public class CoursePage extends BasePage {
 	// Start Date - Month
 	@FindBy(id = "id_startdate_month")
 	public WebElement StartDate_Month;
-
-	public String GetStartMonth(String Month) {
-		return driver.findElement(By.xpath("//Select[@id='id_startdate_month']//option[@value='" + Month + "']")).getText();
-
-	}
 
 	// Start Date - Year
 	@FindBy(id = "id_startdate_year")
