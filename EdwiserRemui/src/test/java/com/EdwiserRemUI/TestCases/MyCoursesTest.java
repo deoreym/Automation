@@ -36,9 +36,10 @@ public class MyCoursesTest extends BaseClass {
 		pp.CoursesTab.click();
 		int Courses = pp.CoursesCards.size();
 		driver.get(mycourses);
+		Thread.sleep(1000);
 		MC.ShowIcon.click();
 		MC.AllCourses.click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		Assert.assertEquals(MC.CourseCards.size(), Courses,
 				"Courses Count not matching on Profile and My Course Pages");
 	}
@@ -53,7 +54,7 @@ public class MyCoursesTest extends BaseClass {
 		driver.get(mycourses);
 		MC.ShowIcon.click();
 		MC.Courses12.click();
-		Thread.sleep(2000);
+		Thread.sleep(3500);
 		System.out.println(MC.CourseCards.size());
 		Assert.assertEquals(MC.CourseCards.size(), 12,
 				"Courses Count not matching as per selected filter on My Course Pages");
@@ -69,7 +70,7 @@ public class MyCoursesTest extends BaseClass {
 		driver.get(mycourses);
 		MC.SearchCourse.clear();
 		MC.SearchCourse.sendKeys("Testing Course - 18 - Automation Course - 1");
-		Thread.sleep(1000);
+		Thread.sleep(2500);
 		Assert.assertEquals(MC.CourseCards.size(), 1, "Course is Not getting Searched");
 	}
 

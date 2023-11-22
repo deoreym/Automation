@@ -2,6 +2,7 @@ package com.EdwiserRemUI.TestCases;
 
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import com.EdwiserRemUI.BaseTest.BaseClass;
@@ -13,10 +14,13 @@ public class CourseEnrolmentPageTest extends BaseClass {
 	CoursePage CP;
 	EnrollmentPage EP;
 
+	@Parameters({ "siteURL", "username", "password" })
 	@BeforeClass
-	public void Before_class() throws InterruptedException {
+	public void Before_class(String siteURL, String username, String password) throws InterruptedException {
 		CP = new CoursePage(driver);
 		EP = new EnrollmentPage(driver);
+		adminbackendlogout();
+		studentLogin(siteURL, username, password);
 	}
 
 	/**

@@ -17,7 +17,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 	public String siteurl = "http://localhost/v43/";
-	public String profilepage = siteurl + "user/profile.php#usercourses";
+	public String profilepage = siteurl + "user/profile.php";
 	public String blogpage = siteurl + "blog/index.php?userid=2";
 	public String forumpage = siteurl + "mod/forum/discuss.php?d=1#p2";
 	public String siteadminurl = siteurl + "admin/search.php";
