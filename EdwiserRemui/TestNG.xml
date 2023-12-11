@@ -18,7 +18,11 @@
 			<class name="com.EdwiserRemUI.TestCases.CustomizerTest" />
 			<class name="com.EdwiserRemUI.TestCases.FooterCustomizerTest" />
 			<class name="com.EdwiserRemUI.TestCases.BackgroundColorSettingTest" />
-			<class name="com.EdwiserRemUI.TestCases.BorderColorTest" /> -->
+			<class name="com.EdwiserRemUI.TestCases.BorderColorTest" />
+			
+			
+			
+			 -->
 			
 			
 			
@@ -38,9 +42,10 @@
 			
 			
 			<!-- New  -->
-			<!-- <class name="com.EdwiserRemUI.TestCases.QuickMenuTest" />
-			     <class name="com.EdwiserRemUI.TestCases.MyCoursesTest" />-->
+			<class name="com.EdwiserRemUI.TestCases.QuickMenuTest" />
 			<class name="com.EdwiserRemUI.TestCases.CourseEnrolmentPageTest" />
+			<class name="com.EdwiserRemUI.TestCases.MyCoursesTest" />
+			<class name="com.EdwiserRemUI.TestCases.ProfilePageTest" />
 			
 			
 			
