@@ -5,17 +5,40 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class FooterSettingsPage extends BasePage {
 
 	public FooterSettingsPage(WebDriver driver) {
 		super(driver);
-
 	}
 
-	// Footer Column DropDown
+	// Visit Settings tab
+	public void siteVisit(String BaseURL) {
+		driver.get(BaseURL + "admin/settings.php?section=themesettingremui");
+	}
+
+	// DropDown
+	public Select DropDown(WebElement e) {
+		  return new Select(e);
+	}
+	
+	// Editor
+	@FindBy(tagName = "body")
+	public WebElement editor;
+	
+	// Save Settings
+	@FindBy(xpath = "//button[text()='Save changes']")
+	public WebElement savebutton;
+
+	// Footer Tab in RemUI Settings
+	@FindBy(xpath = "//a[@href='#theme_remui_footer']")
+	public WebElement footerTab;
+
+	// Footer Column DropDown (Adjust widget width)
 	@FindBy(id = "id_s_theme_remui_footercolumn")
-	public WebElement footermenu;
+	public WebElement footerColumn;
+	
 
 	// Footer Column 1 - Type
 	@FindBy(id = "id_s_theme_remui_footercolumn1type")
@@ -101,7 +124,7 @@ public class FooterSettingsPage extends BasePage {
 	@FindBy(id = "id_s_theme_remui_footercopyrights")
 	public WebElement Show_Copyrights_Content_Content;
 
-// Show Logo -Checkbox
+	// Show Logo -Checkbox
 	@FindBy(id = "id_s_theme_remui_footershowlogo")
 	public WebElement ShowLogo_Checkbox;
 
@@ -168,29 +191,40 @@ public class FooterSettingsPage extends BasePage {
 	public WebElement FC_3_Title;
 
 	// Footer Column 4 - Title
-	@FindBy(xpath = "(//div[@id='footer-column-4']//h6[contains(@class,'ftr-column-title')])[2]")
+	@FindBy(xpath = "(//div[@id='footer-column-4']//h6[contains(@class,'ftr-column-title')])[1]")
 	public WebElement FC_4_Title;
 
 	// Footer 1 Content
 	@FindBy(xpath = "//div[@id='footer-column-1']//*[@class='section-html-content']")
+	public WebElement FC_1_Content_D;
+	
+	// Footer 1 Content
+	@FindBy(xpath = "//div[@id='footer-column-1']//*[@class='section-html-content']//p[2]")
 	public WebElement FC_1_Content;
 
 	// Footer 2 Content
-	@FindBy(xpath = "//div[@id='footer-column-2']//*[@class='section-html-content']")
+	@FindBy(xpath = "//div[@id='footer-column-2']//*[@class='section-html-content']//p[2]")
 	public WebElement FC_2_Content;
 
 	// Footer 3 Content
-	@FindBy(xpath = "//div[@id='footer-column-3']//*[@class='section-html-content']")
+	@FindBy(xpath = "//div[@id='footer-column-3']//*[@class='section-html-content']//p[2]")
 	public WebElement FC_3_Content;
 
 	// Footer 4 Content
-	@FindBy(xpath = "//div[@id='footer-column-4']//*[@class='section-html-content']")
+	@FindBy(xpath = "//div[@id='footer-column-4']//*[@class='section-html-content']//p[2]")
 	public WebElement FC_4_Content;
 
-	// Footer 4 Content - Menu
-	@FindBy(xpath = "//div[@id='footer-column-4']//*[@class='footer-menu-list']//a")
-	public WebElement FC_4_Content_Menu;
-
+	// Footer 4 Content - Menu Link 1
+	@FindBy(xpath = "(//div[@id='footer-column-4']//*[@class='footer-menu-list']//a)[1]")
+	public WebElement FC_4_Content_Menu_1;
+	
+	// Footer 4 Content - Menu Link 2
+	@FindBy(xpath = "(//div[@id='footer-column-4']//*[@class='footer-menu-list']//a)[2]")
+	public WebElement FC_4_Content_Menu_2;
+	
+/**
+ * Bottom Footer
+ */
 	// Footer Bottom Left Link
 	@FindBy(xpath = "//a[@class='footer-bottomtext']")
 	public WebElement F_Bottom_Left_Link;
@@ -199,17 +233,17 @@ public class FooterSettingsPage extends BasePage {
 	@FindBy(xpath = "//a[@class='footer-bottomtext']/div")
 	public WebElement F_Bottom_Left_Text;
 
-	@FindBy(id = "id_footercopyrights")
-	public WebElement c_copyrighttext;
-
-	@FindBy(xpath = "//div[@class='d-flex align-items-center flex-gap-d5']//label[@for='id_poweredbyedwiser']")
-	public WebElement c_poweredbyed;
-
-	@FindBy(xpath = "//a[text()='Privacy Policy']")
-	public List<WebElement> f_privacypolicy;
-
-	@FindBy(linkText = "Privacy Policy")
-	public WebElement f_privacypolicy1;
+//	@FindBy(xpath = "//div[@class='copyright-content secondary-footer-copyright ']/p")
+//	public WebElement c_copyrighttext;
+//
+//	@FindBy(xpath = "//div[@class='d-flex align-items-center flex-gap-d5']//label[@for='id_poweredbyedwiser']")
+//	public WebElement c_poweredbyed;
+//
+//	@FindBy(xpath = "//a[text()='Privacy Policy']")
+//	public List<WebElement> f_privacypolicy;
+//
+//	@FindBy(linkText = "Privacy Policy")
+//	public WebElement f_privacypolicy1;
 
 	// Footer Terms and Condition
 	@FindBy(xpath = "//a[contains(@class,'footer-terms-and-conditions')]")

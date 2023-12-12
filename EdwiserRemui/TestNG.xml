@@ -42,12 +42,14 @@
 			
 			
 			<!-- New  -->
+			<!--
 			<class name="com.EdwiserRemUI.TestCases.QuickMenuTest" />
 			<class name="com.EdwiserRemUI.TestCases.CourseEnrolmentPageTest" />
 			<class name="com.EdwiserRemUI.TestCases.MyCoursesTest" />
 			<class name="com.EdwiserRemUI.TestCases.ProfilePageTest" />
-			
-			
+			-->
+			<class name="com.EdwiserRemUI.TestCases.FooterFromThemeSettings" />
+						
 			
 		</classes>
 		</test> <!--Test -->
