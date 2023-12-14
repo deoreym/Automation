@@ -62,4 +62,9 @@ public class ColorConversion {
 
 		return null; // Return null if no match
 	}
+	
+	public static String convertRGBtoRGBA(String rgbColor) {
+        // Convert RGB to RGBA by adding alpha value (assuming alpha is 1.0 for fully opaque)
+        return rgbColor.replace("rgb", "rgba").replace(")", ", 1.0)");
+    }
 }

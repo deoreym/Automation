@@ -20,13 +20,13 @@ public class FooterSettingsPage extends BasePage {
 
 	// DropDown
 	public Select DropDown(WebElement e) {
-		  return new Select(e);
+		return new Select(e);
 	}
-	
+
 	// Editor
 	@FindBy(tagName = "body")
 	public WebElement editor;
-	
+
 	// Save Settings
 	@FindBy(xpath = "//button[text()='Save changes']")
 	public WebElement savebutton;
@@ -38,7 +38,6 @@ public class FooterSettingsPage extends BasePage {
 	// Footer Column DropDown (Adjust widget width)
 	@FindBy(id = "id_s_theme_remui_footercolumn")
 	public WebElement footerColumn;
-	
 
 	// Footer Column 1 - Type
 	@FindBy(id = "id_s_theme_remui_footercolumn1type")
@@ -120,6 +119,9 @@ public class FooterSettingsPage extends BasePage {
 	@FindBy(id = "id_s_theme_remui_footercopyrightsshow")
 	public WebElement Show_Copyrights_Content_Checkbox;
 
+	@FindBy(xpath = "//input[@id='id_s_theme_remui_footercopyrightsshow']/..")
+	public WebElement Show_Copyrights_Content_Checkbox_ele;
+
 	// Show Copyrights Content - Content
 	@FindBy(id = "id_s_theme_remui_footercopyrights")
 	public WebElement Show_Copyrights_Content_Content;
@@ -128,9 +130,15 @@ public class FooterSettingsPage extends BasePage {
 	@FindBy(id = "id_s_theme_remui_footershowlogo")
 	public WebElement ShowLogo_Checkbox;
 
+	@FindBy(xpath = "//input[@id='id_s_theme_remui_footershowlogo']/..")
+	public WebElement ShowLogo_Checkbox_ele;
+
 	// Show Terms & Conditions - Checkbox
 	@FindBy(id = "id_s_theme_remui_footertermsandconditionsshow")
 	public WebElement Show_TermsConditions;
+
+	@FindBy(xpath = "//input[@id='id_s_theme_remui_footertermsandconditionsshow']/..")
+	public WebElement Show_TermsConditions_ele;
 
 	// Show Terms & Conditions - Link
 	@FindBy(id = "id_s_theme_remui_footertermsandconditions")
@@ -139,6 +147,8 @@ public class FooterSettingsPage extends BasePage {
 	// Show Privacy Policy - Checkbox
 	@FindBy(id = "id_s_theme_remui_footerprivacypolicyshow")
 	public WebElement Show_PrivacyPolicy;
+	@FindBy(xpath = "//input[@id='id_s_theme_remui_footerprivacypolicyshow']/..")
+	public WebElement Show_PrivacyPolicy_ele;
 
 	// Show Privacy Policy - Link
 	@FindBy(id = "id_s_theme_remui_footerprivacypolicy")
@@ -147,6 +157,9 @@ public class FooterSettingsPage extends BasePage {
 	// Powered by Edwiser
 	@FindBy(id = "id_s_theme_remui_poweredbyedwiser")
 	public WebElement Show_PoweredByEdwiser;
+
+	@FindBy(xpath = "//input[@id='id_s_theme_remui_poweredbyedwiser']/..")
+	public WebElement Show_PoweredByEdwiser_ele;
 
 	/**
 	 * Social Media Links Settings
@@ -197,7 +210,7 @@ public class FooterSettingsPage extends BasePage {
 	// Footer 1 Content
 	@FindBy(xpath = "//div[@id='footer-column-1']//*[@class='section-html-content']")
 	public WebElement FC_1_Content_D;
-	
+
 	// Footer 1 Content
 	@FindBy(xpath = "//div[@id='footer-column-1']//*[@class='section-html-content']//p[2]")
 	public WebElement FC_1_Content;
@@ -217,14 +230,14 @@ public class FooterSettingsPage extends BasePage {
 	// Footer 4 Content - Menu Link 1
 	@FindBy(xpath = "(//div[@id='footer-column-4']//*[@class='footer-menu-list']//a)[1]")
 	public WebElement FC_4_Content_Menu_1;
-	
+
 	// Footer 4 Content - Menu Link 2
 	@FindBy(xpath = "(//div[@id='footer-column-4']//*[@class='footer-menu-list']//a)[2]")
 	public WebElement FC_4_Content_Menu_2;
-	
-/**
- * Bottom Footer
- */
+
+	/**
+	 * Bottom Footer
+	 */
 	// Footer Bottom Left Link
 	@FindBy(xpath = "//a[@class='footer-bottomtext']")
 	public WebElement F_Bottom_Left_Link;
@@ -232,6 +245,10 @@ public class FooterSettingsPage extends BasePage {
 	// Footer Bottom Left Text
 	@FindBy(xpath = "//a[@class='footer-bottomtext']/div")
 	public WebElement F_Bottom_Left_Text;
+
+	// Footer Bottom Left Text
+	@FindBy(xpath = "//a[@class='footer-bottomtext']/div")
+	public List<WebElement> F_Bottom_Left_Text_size;
 
 //	@FindBy(xpath = "//div[@class='copyright-content secondary-footer-copyright ']/p")
 //	public WebElement c_copyrighttext;
@@ -266,9 +283,12 @@ public class FooterSettingsPage extends BasePage {
 	public WebElement Copyrights_Content_Text;
 
 	// Copyrights Content
-	@FindBy(xpath = "//div[contains(@class,'copyright-content')]/p")
-	public List<WebElement> Copyrights_Content;
+	@FindBy(xpath = "//div[contains(@class,'copyright-content')]")
+	public WebElement Copyrights_Content;
 
+	// Footer Logo
+	@FindBy(xpath = "//*[contains(@class,' secondary-footer-logo')]//div[2]")
+	public WebElement Footer_Logo_img;
 	// Footer Logo
 	@FindBy(xpath = "//*[contains(@class,' secondary-footer-logo')]")
 	public List<WebElement> Footer_Logo;

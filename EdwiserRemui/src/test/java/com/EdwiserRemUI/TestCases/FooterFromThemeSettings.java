@@ -16,12 +16,13 @@ public class FooterFromThemeSettings extends BaseClass {
 	public void Before_class() {
 		FSP = new FooterSettingsPage(driver);
 	}
-	
+
 	/**
 	 * Test Footer Column With Content and Menus
+	 * 
 	 * @throws InterruptedException
 	 */
-//	@Test(priority = 1)
+	@Test(priority = 1)
 	public void Test_Footer_Columns_With_Content_And_Menu() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		// Visit Footer Settings
@@ -130,12 +131,88 @@ public class FooterFromThemeSettings extends BaseClass {
 		softAssert.assertAll();
 
 	}
+
 	/**
-	 * Test Bottom Footer Setting
+	 * Test Bottom Footer Setting - Diabled All
+	 * 
 	 * @throws InterruptedException
 	 */
 	@Test(priority = 2)
-	public void Test_Bottom_Footer_Setting() throws InterruptedException {
+	public void Test_Bottom_Footer_Setting_All_Disabled() throws InterruptedException {
+		SoftAssert softAssert = new SoftAssert();
+		// Visit Footer Settings
+		FSP.siteVisit(siteurl);
+		FSP.footerTab.click();
+		Thread.sleep(1000);
+
+		// Set Footer Bottom Left as Empty
+		FSP.FooterBottomLeftText.clear();
+		FSP.FooterBottomLeftLink.clear();
+
+		// hide Copyrights Content
+		if (FSP.Show_Copyrights_Content_Checkbox.isSelected()) {
+			FSP.Show_Copyrights_Content_Checkbox_ele.click();
+		}
+
+		// hide Show Logo
+		if (FSP.ShowLogo_Checkbox.isSelected()) {
+			FSP.ShowLogo_Checkbox_ele.click();
+		}
+
+		// Hide Show Terms & Conditions
+		if (FSP.Show_TermsConditions.isSelected()) {
+			FSP.Show_TermsConditions_ele.click();
+		}
+
+		// Hide Privacy Policy
+		if (FSP.Show_PrivacyPolicy.isSelected()) {
+			FSP.Show_PrivacyPolicy_ele.click();
+		}
+
+		// Disable Powered by Edwiser
+		if (FSP.Show_PoweredByEdwiser.isSelected()) {
+			FSP.Show_PoweredByEdwiser_ele.click();
+		}
+
+		Thread.sleep(500);
+		FSP.savebutton.click();
+		try {
+			// Check for the unexpected alert
+			Alert alert = driver.switchTo().alert();
+
+			// Handle the alert (accept or dismiss)
+			alert.accept();
+		} catch (Exception e) {
+			// No unexpected alert, continue with other actions
+			System.out.println("No unexpected alert present");
+		}
+		driver.get(profilepage);
+
+		softAssert.assertEquals(FSP.F_Bottom_Left_Text.getText(), "", "Footer Bottom Left Text is not getting removed");
+		softAssert.assertTrue(FSP.Copyrights_Content.getAttribute("class").contains("d-none"),
+				"Footer Bottom CopyRight Content is Visible when disabled ");
+		softAssert.assertTrue(FSP.Footer_Logo_img.getAttribute("class").contains("d-none"),
+				"Footer Bottom Logo Visible when disabled ");
+		softAssert.assertTrue(FSP.Footer_Terms_Conditions_link.getAttribute("class").contains("d-none"),
+				"Footer Terms and Condition Visible when disabled  ");
+
+		softAssert.assertTrue(FSP.Footer_Privacy_Policy_link.getAttribute("class").contains("d-none"),
+				"Footer Terms and Condition Visible when disabled ");
+
+		FSP.f_helpicon.click();
+		softAssert.assertTrue(FSP.Powered_By_Edwiser.size() == 0,
+				"Footer Powered By Edwiser is Visible when disabled ");
+
+		softAssert.assertAll();
+	}
+
+	/**
+	 * Test Bottom Footer Setting - Enabled All
+	 * 
+	 * @throws InterruptedException
+	 */
+	@Test(priority = 3)
+	public void Test_Bottom_Footer_Setting_All_Enabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		// Visit Footer Settings
 		FSP.siteVisit(siteurl);
@@ -151,7 +228,7 @@ public class FooterFromThemeSettings extends BaseClass {
 		// Show Copyrights Content
 		if (!FSP.Show_Copyrights_Content_Checkbox.isSelected()) {
 			Thread.sleep(500);
-			FSP.Show_Copyrights_Content_Checkbox.click();
+			FSP.Show_Copyrights_Content_Checkbox_ele.click();
 		}
 		FSP.Show_Copyrights_Content_Content.clear();
 		FSP.Show_Copyrights_Content_Content.sendKeys("[site] © [year]. All rights reserved.");
@@ -159,13 +236,13 @@ public class FooterFromThemeSettings extends BaseClass {
 		// Enable Show Logo
 		if (!FSP.ShowLogo_Checkbox.isSelected()) {
 			Thread.sleep(500);
-			FSP.ShowLogo_Checkbox.click();
+			FSP.ShowLogo_Checkbox_ele.click();
 		}
 
 		// Enable Show Terms & Conditions
 		if (!FSP.Show_TermsConditions.isSelected()) {
 			Thread.sleep(500);
-			FSP.Show_TermsConditions.click();
+			FSP.Show_TermsConditions_ele.click();
 		}
 		FSP.Show_TermsConditions_Link.clear();
 		String Tnc = "http://localhost/v43/TnC";
@@ -174,18 +251,18 @@ public class FooterFromThemeSettings extends BaseClass {
 		// Show Privacy Policy
 		if (!FSP.Show_PrivacyPolicy.isSelected()) {
 			Thread.sleep(500);
-			FSP.Show_PrivacyPolicy.click();
+			FSP.Show_PrivacyPolicy_ele.click();
 		}
 		FSP.Show_PrivacyPolicy_link.clear();
 		String PP = "http://localhost/v43/PP";
 		FSP.Show_PrivacyPolicy_link.sendKeys(PP);
-		
+
 		// Enable Powered by Edwiser
 		if (!FSP.Show_PoweredByEdwiser.isSelected()) {
 			Thread.sleep(500);
-			FSP.Show_PoweredByEdwiser.click();
+			FSP.Show_PoweredByEdwiser_ele.click();
 		}
-		
+
 		Thread.sleep(500);
 		FSP.savebutton.click();
 		try {
@@ -204,22 +281,21 @@ public class FooterFromThemeSettings extends BaseClass {
 				"Footer Bottom Left Text is not getting changed");
 		softAssert.assertEquals(FSP.F_Bottom_Left_Link.getAttribute("href"), "http://localhost/v43/FBL/",
 				"Footer Bottom Left Link Address is not getting changed");
-		softAssert.assertTrue(FSP.Copyrights_Content.size() > 0, "Footer Bottom CopyRight Content Not Visible ");
 		softAssert.assertEquals(FSP.Copyrights_Content_Text.getText(), "QA Site v43 © 2023. All rights reserved.",
 				"Footer Bottom CopyRight Content Not Matching ");
 		softAssert.assertTrue(FSP.Footer_Logo.size() > 0, "Footer Bottom Logo Not Visible ");
-		softAssert.assertTrue(FSP.Footer_Terms_Conditions.size() > 0, "Footer Terms and Condition Not Visible ");
+
 		softAssert.assertTrue(FSP.Footer_Terms_Conditions_link.getAttribute("href").contains(Tnc),
 				"Footer Terms and Condition Link address not matching");
-		softAssert.assertTrue(FSP.Footer_Privacy_Policy.size() > 0, "Footer Terms and Condition Not Visible ");
+
 		softAssert.assertTrue(FSP.Footer_Privacy_Policy_link.getAttribute("href").contains(PP),
 				"Footer Privacy Policy Link address not matching");
-		
+
 		FSP.f_helpicon.click();
 		softAssert.assertTrue(FSP.Powered_By_Edwiser.size() > 0, "Footer Powered By Edwiser Not Visible ");
 		softAssert.assertTrue(FSP.Powered_By_Edwiser_link.getAttribute("href").contains("https://edwiser.org/remui/"),
 				"Footer Privacy Policy Link address not matching");
-		
+
 		softAssert.assertAll();
 	}
 
