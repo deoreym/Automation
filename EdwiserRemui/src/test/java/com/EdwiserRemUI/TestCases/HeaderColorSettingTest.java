@@ -17,7 +17,7 @@ import com.EdwiserRemUI.PageObjects.SecondaryButtonColorPage;
 
 public class HeaderColorSettingTest extends BaseClass {
 
-	public String logobgcolor = "#FFC107";
+	public String logobgcolor = "#CEF7FD";
 
 	DashBoardPage dp;
 	CustomizerPage cpp;
@@ -47,14 +47,18 @@ public class HeaderColorSettingTest extends BaseClass {
 	public void Verify_Logo_Background_And_Site_Name_Color() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 
-		String sitenamecolor = "#17A2B8";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		if (hcsp.QuickMenuCollapsed.size() == 0) {
-			hcsp.QuickMenu.click();
-		}
-		Thread.sleep(500);
-		cpp.customizerbutton.click();
+		String sitenamecolor = "#2471A3";
+
+		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
+//		dp.remuimenu();
+//		cpp.customizertab.click();
+//		if (hcsp.QuickMenuCollapsed.size() == 0) {
+//			hcsp.QuickMenu.click();
+//		}
+//		Thread.sleep(500);
+//		cpp.customizerbutton.click();
 		hcsp.headermenu.click();
 		hcsp.headerlogosetting.click();
 		hcsp.logobgcolor.click();
@@ -101,13 +105,9 @@ public class HeaderColorSettingTest extends BaseClass {
 	 */
 	@Test(priority = 2)
 	public void Verify_HeaderBackground_Color_When_Same_As_Logo_Background_Color() throws InterruptedException {
-		dp.remuimenu();
-		cpp.customizertab.click();
-		if (hcsp.QuickMenuCollapsed.size() == 0) {
-			hcsp.QuickMenu.click();
-		}
-		Thread.sleep(500);
-		cpp.customizerbutton.click();
+		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
 		hcsp.headermenu.click();
 		hcsp.headerdesignsettingmenu.click();
 		hcsp.headercolormenu.click();
@@ -143,19 +143,15 @@ public class HeaderColorSettingTest extends BaseClass {
 	@Test(priority = 3)
 	public void Verify_Header_Colors_From_Customizer() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		String headerbgcolor1 = "#EAC2B8";
-		String menuitemcolor = "#101620";
-		String menuitemhovercolor = "#B3A225";
-		String menuitemactivecolor = "#101620";
-		String elementbgcolor = "#FF7272";
-		String elementdividercolor = "#343A40";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		if (hcsp.QuickMenuCollapsed.size() == 0) {
-			hcsp.QuickMenu.click();
-		}
-		Thread.sleep(500);
-		cpp.customizerbutton.click();
+		String headerbgcolor1 = "#D6EAF8";
+		String menuitemcolor = "#85929E";
+		String menuitemhovercolor = "#E59866";
+		String menuitemactivecolor = "#2C3E50";
+		String elementbgcolor = "#C3F7FF";
+		String elementdividercolor = "#34495E";
+		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
 		hcsp.headermenu.click();
 		hcsp.headerdesignsettingmenu.click();
 		hcsp.headercolormenu.click();
@@ -256,16 +252,12 @@ public class HeaderColorSettingTest extends BaseClass {
 	public void Verify_Header_Icon_Color_Settings() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		String iconcolor = "#28A745";
-		String iconhovercolor = "#07FDFF";
+		String iconhovercolor = "#7FB3D5";
 		String iconactivecolor = "#9432B9";
 
-		dp.remuimenu();
-		cpp.customizertab.click();
-		if (hcsp.QuickMenuCollapsed.size() == 0) {
-			hcsp.QuickMenu.click();
-		}
-		Thread.sleep(500);
-		cpp.customizerbutton.click();
+		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
 		hcsp.headermenu.click();
 		hcsp.headerdesignsettingmenu.click();
 		hcsp.headericonmenu.click();
@@ -323,17 +315,15 @@ public class HeaderColorSettingTest extends BaseClass {
 	@Test(priority = 5)
 	public void Verify_Header_box_shadow() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		String BoxShadowColor = "#FCF3CF";
+		String BoxShadowColor = "#D1F2EB";
 		String Box_shadow_size = "0.7";
 		String Box_shadow_blur = "1.2";
 
-		dp.remuimenu();
-		cpp.customizertab.click();
-		if (hcsp.QuickMenuCollapsed.size() == 0) {
-			hcsp.QuickMenu.click();
-		}
-		Thread.sleep(500);
-		cpp.customizerbutton.click();
+		driver.get(profilepage);
+		System.out.println("Box Shadow before settings: " + hcsp.SiteHeaderNav.getCssValue("box-shadow"));
+		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
 		hcsp.headermenu.click();
 		hcsp.headerdesignsettingmenu.click();
 		hcsp.headerBoxShadowmenu.click();
@@ -362,7 +352,9 @@ public class HeaderColorSettingTest extends BaseClass {
 		Thread.sleep(2000);
 		// Visit Dashboard
 		driver.get(dashboard);
+		System.out.println("Box Shadow After settings: " + hcsp.SiteHeaderNav.getCssValue("box-shadow"));
 
+		Assert.assertFalse(hcsp.SiteHeaderNav.getCssValue("box-shadow").contains("none"),"Header Box Shadow is not getting Set");
 		softAssert.assertAll();
 	}
 
