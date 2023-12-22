@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class HeaderColorSettingPage extends BasePage {
 
@@ -22,8 +23,32 @@ public class HeaderColorSettingPage extends BasePage {
 	@FindBy(xpath = "//div[@id='fitem_id_logo-bg-color']//div[@class='sp-preview-inner']")
 	public WebElement logobgcolor;
 
+	@FindBy(id = "id_logoorsitename")
+	public WebElement LogoType;
+
+	public Select LogoType(WebElement LogoType) {
+		Select type = new Select(LogoType);
+		return type;
+	}
+	
+	@FindBy(xpath="//nav[contains(@class,'navbar fixed-top')]//*[contains(@class,'navbar-brand-logo')]")
+	public WebElement SiteLogoFormat;
+	
+	@FindBy(xpath="//*[@class='navbar-brand-logo iconsitename']/i")
+	public WebElement SiteIcon;
+	
+
 	@FindBy(xpath = "//select[@id='id_logoorsitename']//option[@value='iconsitename']")
 	public WebElement iconsiteformat;
+
+	@FindBy(id = "id_siteicon")
+	public WebElement SiteIconInput;
+
+	@FindBy(id = "id_header-site-identity-fontsize")
+	public WebElement HeaderIconFontSize;
+
+	@FindBy(id = "id_header-site-identity-fontsize-tablet")
+	public WebElement HeaderIconFontSizeTablet;
 
 	@FindBy(xpath = "//a[@class='navbar-brand d-none d-md-flex align-items-center m-0 aabtn']")
 	public WebElement logobgcolorelement;
@@ -123,15 +148,14 @@ public class HeaderColorSettingPage extends BasePage {
 
 	@FindBy(id = "id_header-primary-border-bottom-blur")
 	public WebElement headerBoxShadowBlur;
-	
+
 	@FindBy(xpath = "//div[@id='fitem_id_header-primary-border-bottom-color']//div[@class='sp-preview-inner']")
 	public WebElement HeaderBorderShadowColor;
-	
+
 	@FindBy(id = "edw-quick-menu")
 	public WebElement QuickMenu;
 
 	@FindBy(xpath = "//div[@id='edw-quick-menu' and contains(@class,'collapsed')]")
 	public List<WebElement> QuickMenuCollapsed;
-	
-	
+
 }

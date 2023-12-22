@@ -39,63 +39,189 @@ public class HeaderColorSettingTest extends BaseClass {
 	}
 
 	/**
-	 * Verify Logo Background And Site Name Color
+	 * Set Site Logo Format To Logo Only
 	 * 
 	 * @throws InterruptedException
 	 */
 	@Test(priority = 1)
-	public void Verify_Logo_Background_And_Site_Name_Color() throws InterruptedException {
+	public void SetLogoFormat_Logo_Only() throws InterruptedException {
+		// Visit Customizer
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
+		// Visit Header logo settings
+		hcsp.headermenu.click();
+		hcsp.headerlogosetting.click();
+
+		// Set Logo Type to "Logo Only"
+		hcsp.LogoType(hcsp.LogoType).selectByValue("logo");
+
+		// Save Settings
+		bcp.save.click();
+		Thread.sleep(2000);
+
+		// Visit Site
+		driver.get(dashboard);
+
+		// Check Logo on Site
+		String LogoClass = hcsp.SiteLogoFormat.getAttribute("class");
+
+		Assert.assertTrue(LogoClass.contains("navbar-brand-logo logo"),
+				"The selected site logo format (Logo Only) is not getting applied on the Header");
+	}
+
+	/**
+	 * Set Site Logo Format To Logo Mini
+	 * 
+	 * @throws InterruptedException
+	 */
+	@Test(priority = 2)
+	public void SetLogoFormat_Logo_Mini() throws InterruptedException {
+		// Visit Customizer
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
+		// Visit Header logo settings
+		hcsp.headermenu.click();
+		hcsp.headerlogosetting.click();
+
+		// Set Logo Type to "Logo Mini"
+		hcsp.LogoType(hcsp.LogoType).selectByValue("logomini");
+
+		// Save Settings
+		bcp.save.click();
+		Thread.sleep(2000);
+
+		// Visit Site
+		driver.get(dashboard);
+
+		// Check Logo on Site
+		String LogoClass = hcsp.SiteLogoFormat.getAttribute("class");
+
+		Assert.assertTrue(LogoClass.contains("navbar-brand-logo logomini"),
+				"The selected site logo format (Logo Mini) is not getting applied on the Header");
+	}
+
+	/**
+	 * Set Site Logo Format To Icon Only
+	 * 
+	 * @throws InterruptedException
+	 */
+	@Test(priority = 3)
+	public void SetLogoFormat_Icon_Only() throws InterruptedException {
+		// Visit Customizer
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
+		// Visit Header logo settings
+		hcsp.headermenu.click();
+		hcsp.headerlogosetting.click();
+
+		// Set Logo Type to "Icon Only"
+		hcsp.LogoType(hcsp.LogoType).selectByValue("icononly");
+
+		// Save Settings
+		bcp.save.click();
+		Thread.sleep(2000);
+
+		// Visit Site
+		driver.get(dashboard);
+
+		// Check Logo on Site
+		String LogoClass = hcsp.SiteLogoFormat.getAttribute("class");
+
+		Assert.assertTrue(LogoClass.contains("navbar-brand-logo icononly"),
+				"The selected site logo format (Icon Only) is not getting applied on the Header");
+	}
+
+	/**
+	 * Set Site Logo Format To Icon and sitename
+	 * 
+	 * @throws InterruptedException
+	 */
+	@Test(priority = 4)
+	public void SetLogoFormat_Icon_and_Sitename() throws InterruptedException {
+		// Visit Customizer
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
+		// Visit Header logo settings
+		hcsp.headermenu.click();
+		hcsp.headerlogosetting.click();
+
+		// Set Logo Type to "Icon and sitename"
+		hcsp.LogoType(hcsp.LogoType).selectByValue("iconsitename");
+
+		// Save Settings
+		bcp.save.click();
+		Thread.sleep(2000);
+
+		// Visit Site
+		driver.get(dashboard);
+
+		// Check Logo on Site
+		String LogoClass = hcsp.SiteLogoFormat.getAttribute("class");
+
+		Assert.assertTrue(LogoClass.contains("navbar-brand-logo iconsitename"),
+				"The selected site logo format (Icon and Sitename) is not getting applied on the Header");
+	}
+
+	/**
+	 * Verify Logo Background And Site Name Color
+	 * 
+	 * @throws InterruptedException
+	 */
+	@Test(priority = 5)
+	public void Verify_Logo_Background_And_Site_Name_Icon_Settings() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 
 		String sitenamecolor = "#2471A3";
+		String Site_fa_Icon = "book";
+		String SiteNameFontSize = "1.2";
 
 		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
 		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
 		Thread.sleep(1500);
-//		dp.remuimenu();
-//		cpp.customizertab.click();
-//		if (hcsp.QuickMenuCollapsed.size() == 0) {
-//			hcsp.QuickMenu.click();
-//		}
-//		Thread.sleep(500);
-//		cpp.customizerbutton.click();
 		hcsp.headermenu.click();
 		hcsp.headerlogosetting.click();
 		hcsp.logobgcolor.click();
 		bcp.colorinputfield.clear();
 		bcp.colorinputfield.sendKeys(logobgcolor);
-		String present = hcsp.iconsiteformat.getAttribute("selected");
-		boolean status = Boolean.parseBoolean(present);
-		System.out.println(status);
-		if (status == true) {
-			hcsp.sitenamecolor.click();
-			bcp.colorinputfield.clear();
-			bcp.colorinputfield.sendKeys(sitenamecolor);
 
-			bcp.save.click();
-			Thread.sleep(2000);
-			driver.get(dashboard);
-			String Expected = ColorConversion.Color(hcsp.logobgcolorelement.getCssValue("background-color"));
-			System.out.println(Expected);
-			softAssert.assertEquals(logobgcolor, Expected,
-					"The selected logo bg color is not getting applied on the element");
+		// Set Logo Type to "Icon and sitename"
+		hcsp.LogoType(hcsp.LogoType).selectByValue("iconsitename");
+		hcsp.sitenamecolor.click();
+		bcp.colorinputfield.clear();
+		bcp.colorinputfield.sendKeys(sitenamecolor);
 
-			String Expectedsitenamecolor = ColorConversion.Color(hcsp.sitenamecolorelement.getCssValue("color"));
-			System.out.println(Expectedsitenamecolor);
-			softAssert.assertEquals(sitenamecolor, Expectedsitenamecolor,
-					"The selected SiteName Color is not getting applied on the element");
+		hcsp.SiteIconInput.clear();
+		hcsp.SiteIconInput.sendKeys(Site_fa_Icon);
 
-			softAssert.assertAll();
-		} else {
-			bcp.save.click();
-			Thread.sleep(2000);
-			driver.get(dashboard);
-			String Expected = ColorConversion.Color(hcsp.logobgcolorelement.getCssValue("background-color"));
-			System.out.println(Expected);
-			Assert.assertEquals(logobgcolor, Expected,
-					"The selected logo bg color is not getting applied on the element");
-		}
+		hcsp.HeaderIconFontSize.clear();
+		hcsp.HeaderIconFontSize.sendKeys(SiteNameFontSize);
 
+		hcsp.HeaderIconFontSizeTablet.clear();
+		hcsp.HeaderIconFontSizeTablet.sendKeys(SiteNameFontSize);
+
+		// Save Settings
+		bcp.save.click();
+		Thread.sleep(2000);
+
+		// Visit Site
+		driver.get(dashboard);
+
+		softAssert.assertEquals(ColorConversion.Color(hcsp.logobgcolorelement.getCssValue("background-color")),
+				logobgcolor, "The selected logo bg color is not getting applied on the element");
+
+		softAssert.assertEquals(ColorConversion.Color(hcsp.sitenamecolorelement.getCssValue("color")), sitenamecolor,
+				"The selected SiteName Color is not getting applied on the element");
+
+		String FontSize = hcsp.SiteLogoFormat.getCssValue("font-size");
+		String convetedRM = ColorConversion.convertPxToRem(FontSize);
+		
+		softAssert.assertEquals(convetedRM, SiteNameFontSize,
+				"The selected SiteName Font Size is not getting applied");
+
+		softAssert.assertTrue(hcsp.SiteIcon.getAttribute("class").contains(Site_fa_Icon),
+				"The selected Site Icon is not getting applied");
+
+		softAssert.assertAll();
 	}
 
 	/**
@@ -103,7 +229,7 @@ public class HeaderColorSettingTest extends BaseClass {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(priority = 2)
+	@Test(priority = 6)
 	public void Verify_HeaderBackground_Color_When_Same_As_Logo_Background_Color() throws InterruptedException {
 		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
 		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
@@ -140,7 +266,7 @@ public class HeaderColorSettingTest extends BaseClass {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(priority = 3)
+	@Test(priority = 7)
 	public void Verify_Header_Colors_From_Customizer() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		String headerbgcolor1 = "#D6EAF8";
@@ -248,7 +374,7 @@ public class HeaderColorSettingTest extends BaseClass {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(priority = 4)
+	@Test(priority = 8)
 	public void Verify_Header_Icon_Color_Settings() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		String iconcolor = "#28A745";
@@ -312,7 +438,7 @@ public class HeaderColorSettingTest extends BaseClass {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(priority = 5)
+	@Test(priority = 9)
 	public void Verify_Header_box_shadow() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		String BoxShadowColor = "#D1F2EB";
@@ -354,7 +480,8 @@ public class HeaderColorSettingTest extends BaseClass {
 		driver.get(dashboard);
 		System.out.println("Box Shadow After settings: " + hcsp.SiteHeaderNav.getCssValue("box-shadow"));
 
-		Assert.assertFalse(hcsp.SiteHeaderNav.getCssValue("box-shadow").contains("none"),"Header Box Shadow is not getting Set");
+		Assert.assertFalse(hcsp.SiteHeaderNav.getCssValue("box-shadow").contains("none"),
+				"Header Box Shadow is not getting Set");
 		softAssert.assertAll();
 	}
 

@@ -67,4 +67,11 @@ public class ColorConversion {
         // Convert RGB to RGBA by adding alpha value (assuming alpha is 1.0 for fully opaque)
         return rgbColor.replace("rgb", "rgba").replace(")", ", 1.0)");
     }
+	
+    public static String convertPxToRem(String fontSizeInPx) {
+        // Assuming 1rem is equivalent to the root font size (16px), you can adjust this value accordingly
+    	float rootFontSizeInPx = (float) 16.0;
+    	float fontSizeInPxValue = Float.parseFloat(fontSizeInPx.replaceAll("[^0-9.]", ""));
+        return String.valueOf( fontSizeInPxValue / rootFontSizeInPx);
+    }
 }

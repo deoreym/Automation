@@ -19,6 +19,7 @@
 			<class name="com.EdwiserRemUI.TestCases.FooterCustomizerTest" />
 			<class name="com.EdwiserRemUI.TestCases.BackgroundColorSettingTest" />
 			<class name="com.EdwiserRemUI.TestCases.BorderColorTest" />
+			<class name="com.EdwiserRemUI.TestCases.HeaderColorSettingTest" />
 			
 			
 			
