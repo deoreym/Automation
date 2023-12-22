@@ -9,32 +9,21 @@ import org.testng.asserts.SoftAssert;
 import com.EdwiserRemUI.BaseTest.BaseClass;
 import com.EdwiserRemUI.PageObjects.BrandColorPage;
 import com.EdwiserRemUI.PageObjects.ColorConversion;
-import com.EdwiserRemUI.PageObjects.CustomizerPage;
-import com.EdwiserRemUI.PageObjects.DashBoardPage;
 import com.EdwiserRemUI.PageObjects.HeaderColorSettingPage;
-import com.EdwiserRemUI.PageObjects.PrimaryButtonColorPage;
-import com.EdwiserRemUI.PageObjects.SecondaryButtonColorPage;
 
 public class HeaderColorSettingTest extends BaseClass {
 
 	public String logobgcolor = "#CEF7FD";
 
-	DashBoardPage dp;
-	CustomizerPage cpp;
 	BrandColorPage bcp;
-	ColorConversion cc;
-	PrimaryButtonColorPage pbcp;
-	SecondaryButtonColorPage sbcp;
+
 	HeaderColorSettingPage hcsp;
 
 	@BeforeClass
 	public void Before_class() {
-		dp = new DashBoardPage(driver);
-		cpp = new CustomizerPage(driver);
+
 		bcp = new BrandColorPage(driver);
-		cc = new ColorConversion();
-		pbcp = new PrimaryButtonColorPage(driver);
-		sbcp = new SecondaryButtonColorPage(driver);
+
 		hcsp = new HeaderColorSettingPage(driver);
 	}
 
@@ -214,9 +203,8 @@ public class HeaderColorSettingTest extends BaseClass {
 
 		String FontSize = hcsp.SiteLogoFormat.getCssValue("font-size");
 		String convetedRM = ColorConversion.convertPxToRem(FontSize);
-		
-		softAssert.assertEquals(convetedRM, SiteNameFontSize,
-				"The selected SiteName Font Size is not getting applied");
+
+		softAssert.assertEquals(convetedRM, SiteNameFontSize, "The selected SiteName Font Size is not getting applied");
 
 		softAssert.assertTrue(hcsp.SiteIcon.getAttribute("class").contains(Site_fa_Icon),
 				"The selected Site Icon is not getting applied");
