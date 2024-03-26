@@ -16,7 +16,7 @@ import com.EdwiserRemUI.PageObjects.LoginLogoutPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	public String siteurl = "http://localhost/v43/";
+	public String siteurl = "https://qa-remui80.edwiser.org/m43/";
 	public String profilepage = siteurl + "user/profile.php";
 	public String blogpage = siteurl + "blog/index.php?userid=2";
 	public String forumpage = siteurl + "mod/forum/discuss.php?d=1#p2";
@@ -27,11 +27,13 @@ public class BaseClass {
 	public String managecoursecategory = siteurl + "course/management.php";
 	public String remuifootersetting = siteurl + "admin/settings.php?section=themesettingremui#theme_remui_footer";
 	public String mycourses = siteurl + "my/courses.php";
-	public String coursepage = siteurl + "course/view.php?id=21";
+	public String coursepage = siteurl + "course/view.php?id=26";
 	public String courseName = "Testing Course - 18 - Automation Course - 1";
-	public String coursepage1 = siteurl + "course/view.php?id=22";
-	public String EnrolmentTestCourse = siteurl + "course/view.php?id=40";
-	public String CourseEnrolmentPage = siteurl + "enrol/index.php?id=40";
+	public String coursepage1 = siteurl + "course/view.php?id=27";
+	public String EnrolmentTestCourse = siteurl + "course/view.php?id=12";
+	public String CourseEnrolmentPage = siteurl + "enrol/index.php?id=12";
+	public String FocusModeCoursePage = siteurl + "course/view.php?id=28";
+	public String FocusModeCourse = "Focus Mode Testing Course";
 	public String CourseIntroVideo = "https://www.youtube.com/embed/MIWu2FCPnIQ";
 	public String homepage = siteurl + "?redirect=0";
 //	public String RemUISettings = siteurl + "admin/settings.php?section=themesettingremui";
@@ -78,6 +80,8 @@ public class BaseClass {
 	public void setup() throws InterruptedException {
 
 		WebDriverManager.chromedriver().setup();
+//		WebDriverManager.chromedriver().clearDriverCache().setup();
+//		WebDriverManager.chromedriver().clearResolutionCache().setup();
 
 		ChromeOptions options = new ChromeOptions();
 
