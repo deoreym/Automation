@@ -50,9 +50,10 @@
 			<class name="com.EdwiserRemUI.TestCases.ProfilePageTest" />
 			<class name="com.EdwiserRemUI.TestCases.FooterFromThemeSettings" />
 			<class name="com.EdwiserRemUI.TestCases.HeaderColorSettingTest" />
+			<class name="com.EdwiserRemUI.TestCases.FocusModeTest" />
 			<class name="com.EdwiserRemUI.TestCases.CustomCSS_Test" />
 			-->
-			<class name="com.EdwiserRemUI.TestCases.FocusModeTest" />
+			<class name="com.EdwiserRemUI.TestCases.CourseArchivePageTest" />
 						
 			
 		</classes>

@@ -87,6 +87,14 @@ public class CoursePage extends BasePage {
 	@FindBy(xpath = "//h1[@class='h2 header-heading']")
 	public WebElement activitytitle;
 
+	// Setions in Course Page
+	@FindBy(xpath = "//h3[contains(@class,'sectionname')]")
+	public List<WebElement> CourseSections;
+
+	// Activities In Course
+	@FindBy(xpath = "//div[contains(@class,'activity-grid')]")
+	public List<WebElement> CourseActivities;
+
 	// Header Category
 	@FindBy(xpath = "//*[@class='category']//div")
 	public WebElement CourseCategory;

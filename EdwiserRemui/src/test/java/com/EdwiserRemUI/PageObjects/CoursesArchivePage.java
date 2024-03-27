@@ -24,11 +24,20 @@ public class CoursesArchivePage extends BasePage {
 	@FindBy(xpath = "//button[@class='btn btn-primary']")
 	public WebElement savechanges;
 
+	// Course Cards Container
 	@FindBy(xpath = "//div[contains(@class,'course-cards')]")
 	public WebElement CourseCardsFrame;
+	// Card View : grid-view edw-course-card-grid
+	// List View : list-view list-group edw-course-list-container
+	// Summary View : summary-view edw-course-summary-container
+	
+	// Course Summary Description
+	@FindBy(xpath = "(//p[contains(@class,'coursesummary ')])[1]")
+	public WebElement CourseSummary;
+	
 
 	@FindBy(xpath = "//div[contains(@class,'course-cards')]/*")
-	public WebElement CourseCards;
+	public List<WebElement> CourseCards;
 
 	@FindBy(xpath = "//span[@class='edw-icon edw-icon-Card-View']")
 	public WebElement CardViewIcon;
@@ -36,22 +45,28 @@ public class CoursesArchivePage extends BasePage {
 	@FindBy(xpath = "//span[@class='edw-icon edw-icon-List-View-08']")
 	public WebElement ListViewIcon;
 
-	@FindBy(xpath = "edw-icon edw-icon-Topic-View")
+	@FindBy(xpath = "//span[@class='edw-icon edw-icon-Topic-View']")
 	public WebElement SummaryViewIcon;
 
-	@FindBy(xpath = "(//div[contains(@class,'enrolled-users-count')])[1]")
+	@FindBy(xpath = "//div[contains(@class,'enrolled-users-count')]")
 	public List<WebElement> EnrolledUserOptionList;
 
 	@FindBy(xpath = "(//div[contains(@class,'enrolled-users-count')])[1]")
 	public WebElement EnrolledUserOption;
 
-	@FindBy(xpath = "(//div[contains(@class,'lesson-count')])[1]")
+	@FindBy(xpath = "(//div[contains(@class,'enrolled-users-count')])[1]//span[2]")
+	public WebElement EnrolledUserOptionText;
+
+	@FindBy(xpath = "//div[contains(@class,'lesson-count')]")
 	public List<WebElement> LessonsOptionList;
 
 	@FindBy(xpath = "(//div[contains(@class,'lesson-count')])[1]")
 	public WebElement LessonsOption;
 
-	@FindBy(xpath = "(//div[contains(@class,'updated-date')])[1]")
+	@FindBy(xpath = "(//div[contains(@class,'lesson-count')])[1]//span[2]")
+	public WebElement LessonsOptionText;
+
+	@FindBy(xpath = "//div[contains(@class,'updated-date')]")
 	public List<WebElement> UpdatedDateOptionList;
 
 	@FindBy(xpath = "(//div[contains(@class,'updated-date')])[1]")
@@ -60,13 +75,19 @@ public class CoursesArchivePage extends BasePage {
 	@FindBy(xpath = "//input[@aria-label='Search courses']")
 	public WebElement Search_Courses;
 
-	@FindBy(xpath = "(//button[contains(@class,'categoryfilter')])[1]")
+	@FindBy(xpath = "//input[@aria-label='Search courses']/..//span[contains(@class,'edw-icon-Search')]")
+	public WebElement Search_Courses_Icon;
+
+	@FindBy(xpath = "//div[contains(@class,'categoryfiltermenu')]//button[@id='dropdownMenuButton']")
 	public WebElement CategoryFilter;
+
+	@FindBy(xpath = "(//div[contains(@class,'categoryfiltermenu')]//a[contains(@class,'category-link')])[2]")
+	public WebElement FirstCategoryFromFilter;
 
 	@FindBy(xpath = "(//button[contains(@class,'sortfilter')])[1]")
 	public WebElement SortingFilter;
 
-	@FindBy(xpath = "//span[contains(@class,'categoryname')]")
+	@FindBy(xpath = "(//span[contains(@class,'categoryname')])[1]")
 	public WebElement CourseCard_Category_Name;
 
 	@FindBy(xpath = "//a[contains(@class,'coursename')]")
@@ -75,8 +96,36 @@ public class CoursesArchivePage extends BasePage {
 	@FindBy(xpath = "//a[contains(@class,'view-course-btn')]")
 	public WebElement CourseCard_ViewCourse_Button;
 
-	
-	
+	// Course Settings
+	@FindBy(xpath = "//a[@href='#theme_remui_course']")
+	public WebElement RemUICourseSettings;
+
+	// Show ‘Date’ on the course DropDown
+	@FindBy(id = "id_s_theme_remui_coursedatevisibility")
+	public WebElement ShowDate;
+
+	// Show ‘Enrolled students’ information : Checkbox
+	@FindBy(id = "id_s_theme_remui_enrolleduserscountvisibility")
+	public WebElement EnrolledStudentsVisibilityCheckbox;
+
+	@FindBy(xpath = "//input[@id='id_s_theme_remui_enrolleduserscountvisibility']/..")
+	public WebElement EnrolledStudentsVisibility;
+
+	// Show ‘Enrolled students’ information : Text Imput
+	@FindBy(id = "id_s_theme_remui_showenrolledtextinput")
+	public WebElement EnrolledStudentsText;
+
+	// Show ‘Lessons’ information : Checkbox
+	@FindBy(id = "id_s_theme_remui_lessonsvisiblityoncoursecard")
+	public WebElement LessonsVisibilityCheckbox;
+
+	@FindBy(xpath = "//input[@id='id_s_theme_remui_lessonsvisiblityoncoursecard']/..")
+	public WebElement LessonsVisibility;
+
+	// Show ‘Lessons’ information : Text Input
+	@FindBy(id = "id_s_theme_remui_showlessontextinput")
+	public WebElement LessonsVisibilityText;
+
 	/*** OLD ***/
 
 	@FindBy(id = "next-activity-link")
@@ -148,8 +197,6 @@ public class CoursesArchivePage extends BasePage {
 	// Save and display
 	@FindBy(id = "id_saveanddisplay")
 	public WebElement Save_and_Display;
-
-
 
 	public String getprevactivityname() {
 		String actnameprev1 = prevactivityname.getAttribute("data-activityname");
