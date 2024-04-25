@@ -17,6 +17,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 	public String siteurl = "https://qa-remui80.edwiser.org/m43/";
+	public String loginpage = siteurl + "/login/index.php";
 	public String profilepage = siteurl + "user/profile.php";
 	public String blogpage = siteurl + "blog/index.php?userid=2";
 	public String forumpage = siteurl + "mod/forum/discuss.php?d=1#p2";
@@ -44,12 +45,13 @@ public class BaseClass {
 	@BeforeTest
 	public void adminbackendLogin(String siteURL, String username, String password) throws InterruptedException {
 
-		driver.get(siteurl);
+		driver.get(loginpage);
 		Thread.sleep(1500);
 		LoginLogoutPage ll = new LoginLogoutPage(driver);
-		ll.clickonlogin.click();
-
+//		ll.clickonlogin.click();
+		ll.username.clear();
 		ll.username.sendKeys(username);
+		ll.password.clear();
 		ll.password.sendKeys(password);
 		ll.loginbtn.click();
 		Thread.sleep(2000);
@@ -57,11 +59,13 @@ public class BaseClass {
 
 	public void studentLogin(String siteURL, String username, String password) throws InterruptedException {
 
-		driver.get(siteurl);
+		driver.get(loginpage);
 		Thread.sleep(1500);
 		LoginLogoutPage ll = new LoginLogoutPage(driver);
-		ll.clickonlogin.click();
+//		ll.clickonlogin.click();
+		ll.username.clear();
 		ll.username.sendKeys(username);
+		ll.password.clear();
 		ll.password.sendKeys(password);
 		ll.loginbtn.click();
 		Thread.sleep(2000);

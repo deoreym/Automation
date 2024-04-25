@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -25,7 +26,7 @@ public class DarkModeTests extends BaseClass {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(priority = 2)
+	@Test(priority = 1)
 	public void Enable_Dark_Mode_Specific_On_Pages_From_Settings() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 
@@ -262,6 +263,34 @@ public class DarkModeTests extends BaseClass {
 				"Light Mode State Not Maintained After Navigating to Other Pages - Profile Page");
 
 		softAssert.assertAll();
+	}
+
+	/**
+	 * Check Dark Mode with non Logged In User
+	 * 
+	 * @throws InterruptedException
+	 */
+	@Parameters({ "siteURL", "username", "password" })
+	@Test(priority = 5)
+	public void Check_Dark_Mode_Option_with_Non_LoggedIn_User(String siteURL, String username, String password)
+			throws InterruptedException {
+		// LogOut From Site
+		adminbackendlogout();
+		Thread.sleep(1500);
+
+		// Check Dark Mode menu on HomePage
+		Assert.assertTrue(DM.DarkModeNavMenu.size() == 0, "Dark Mode Option Present for Non Logged In User - Nav Menu");
+		Assert.assertNull(DM.HTML.getAttribute("nighteyeplgn"),
+				"Dark Mode Option Present for Non Logged In User - DOM HTML");
+
+		// Check Dark Mode menu on Course Archive (Category) Page
+		driver.get(coursearchive);
+		Assert.assertTrue(DM.DarkModeNavMenu.size() == 0,
+				"Dark Mode Option Present for Non Logged In User - Course Archive Page");
+		
+		// Login to Admin
+		studentLogin(siteURL, username, password);
+
 	}
 
 	/**
