@@ -30,14 +30,12 @@ public class ProfilePageTest extends BaseClass {
 		hsp = new HeaderHideShowMenuPage(driver);
 		cc = new ColorConversion();
 		pp = new ProfilePage(driver);
-		adminbackendlogout();
-		studentLogin(siteURL, username, password);
 	}
 
 	@Test(priority = 1)
 	public void verifyblogentrieswhenenabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.clicksiteadmin.click();
+		driver.get(siteadminurl);
 		pp.generaltab.click();
 		pp.advancedfeaturemenu.click();
 		Thread.sleep(2000);
@@ -74,7 +72,7 @@ public class ProfilePageTest extends BaseClass {
 	@Test(priority = 2)
 	public void verifyblogentrieswhendisabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.clicksiteadmin.click();
+		driver.get(siteadminurl);
 		pp.generaltab.click();
 		pp.advancedfeaturemenu.click();
 		Thread.sleep(2000);
@@ -100,7 +98,7 @@ public class ProfilePageTest extends BaseClass {
 	@Test(priority = 3)
 	public void VerifyBadgewhenenabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.clicksiteadmin.click();
+		driver.get(siteadminurl);
 		pp.generaltab.click();
 		pp.advancedfeaturemenu.click();
 		Thread.sleep(2000);
@@ -134,7 +132,7 @@ public class ProfilePageTest extends BaseClass {
 	@Test(priority = 4)
 	public void verifybadgewhendisabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.clicksiteadmin.click();
+		driver.get(siteadminurl);
 		pp.generaltab.click();
 		pp.advancedfeaturemenu.click();
 		Thread.sleep(2000);
@@ -183,6 +181,7 @@ public class ProfilePageTest extends BaseClass {
 		SoftAssert softAssert = new SoftAssert();
 
 		driver.get(profilepage);
+		Thread.sleep(1000);
 		String FirstName = "Yogesh";
 		String LastName = "Deore";
 		String PhNumber = "9876543210";

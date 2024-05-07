@@ -1,6 +1,7 @@
 package com.EdwiserRemUI.TestCases;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -23,6 +24,11 @@ public class MyCoursesTest extends BaseClass {
 		adminbackendlogout();
 		studentLogin(siteURL, username, password);
 	}
+	
+//	@AfterClass
+//	public void Afer_class() throws InterruptedException {
+//		adminbackendlogout();
+//	}
 
 	/**
 	 * Test Total Enrolled Courses Count on My courses Page
@@ -54,7 +60,7 @@ public class MyCoursesTest extends BaseClass {
 		driver.get(mycourses);
 		MC.ShowIcon.click();
 		MC.Courses12.click();
-		Thread.sleep(3500);
+		Thread.sleep(5000);
 		System.out.println(MC.CourseCards.size());
 		Assert.assertEquals(MC.CourseCards.size(), 12,
 				"Courses Count not matching as per selected filter on My Course Pages");

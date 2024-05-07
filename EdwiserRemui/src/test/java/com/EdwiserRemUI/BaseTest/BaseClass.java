@@ -16,8 +16,8 @@ import com.EdwiserRemUI.PageObjects.LoginLogoutPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	public String siteurl = "https://qa-remui80.edwiser.org/m43/";
-	public String loginpage = siteurl + "/login/index.php";
+	public String siteurl = "https://qa-remui81.edwiser.org/m44/";
+	public String loginpage = siteurl + "login/index.php";
 	public String profilepage = siteurl + "user/profile.php";
 	public String blogpage = siteurl + "blog/index.php?userid=2";
 	public String forumpage = siteurl + "mod/forum/discuss.php?d=1#p2";

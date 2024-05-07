@@ -45,9 +45,8 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 	public void Verifyenteredfooterlinkswithcustomizerandremuisetting() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
 		fsmlp.footermenu.click();
 		fsmlp.socialmedialink.click();
 		fsmlp.fb.clear();
@@ -112,9 +111,8 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 		SoftAssert softAssert = new SoftAssert();
 		String title = "Title 1";
 		String content = "Lorem ipsum dolor sit amet consectetur adipiscing elit r";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
 		fsmlp.footermenu.click();
 		fsmlp.mainfooterareamenu.click();
 		fsmlp.widget1menu.click();
@@ -230,9 +228,8 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 		String menutext2 = "Contact Us";
 		String menutext3 = "Privacy Policy1";
 		String menuaddress = "https://www.google.com/";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		Thread.sleep(1500);
 		fsmlp.footermenu.click();
 		fsmlp.mainfooterareamenu.click();
 		fsmlp.widget2menu.click();

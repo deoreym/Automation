@@ -26,7 +26,7 @@ public class MyCourses extends BaseClass {
 
 
 	public WebElement ViewCourseButton(String Course) {
-		return driver.findElement(By.xpath("//span[contains(@title,'"+Course+"')]/../../../../..//a[contains(@class,'view-course-btn')]"));
+		return driver.findElement(By.xpath("//a[contains(@title,'"+Course+"')]/../../../../..//a[contains(@class,'view-course-btn')]"));
 	};
 	
 	public WebElement ActivityCompletedCount(String Course) {

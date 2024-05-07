@@ -179,12 +179,12 @@ public class CourseArchivePageTest extends BaseClass {
 		SoftAssert softAssert = new SoftAssert();
 		// Visit Course Archive (Categories) Page
 		driver.get(coursearchive);
-
+		Thread.sleep(2500);
 		// Search for Course
 		CAP.Search_Courses.click();
 		CAP.Search_Courses.sendKeys(courseName);
 		CAP.Search_Courses_Icon.click();
-		Thread.sleep(500);
+		Thread.sleep(2000);
 
 		softAssert.assertTrue(CAP.CourseCards.size() == 1, "Searched Course Not Found");
 		softAssert.assertAll();

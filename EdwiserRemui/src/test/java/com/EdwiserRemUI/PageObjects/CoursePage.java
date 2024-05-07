@@ -108,7 +108,7 @@ public class CoursePage extends BasePage {
 	public WebElement RemUI_CF;
 
 	// Course Duration in Hours
-	@FindBy(id = "id_customfield_edwcoursedurationinhours")
+	@FindBy(id = "id_customfield_edwcourseduration")
 	public WebElement Duration;
 
 	// Course Intro Video Url (Embedded)

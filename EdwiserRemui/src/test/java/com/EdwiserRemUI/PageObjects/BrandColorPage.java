@@ -42,5 +42,8 @@ public class BrandColorPage extends BasePage {
 	@FindBy(xpath="//span[normalize-space()='Courses']")
 	public WebElement textcolorelement;
 	
+	@FindBy(xpath="//div[@id='fitem_id_themecolors-bordercolor']//div[@class='sp-preview-inner']")
+	public WebElement bordercolor;
+	
 	
 }

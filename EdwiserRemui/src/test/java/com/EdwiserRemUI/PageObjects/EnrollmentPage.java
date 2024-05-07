@@ -17,11 +17,11 @@ public class EnrollmentPage extends BaseClass {
 	}
 
 	// Duration
-	@FindBy(xpath = "//*[text()='Length']/../..//*[contains(@class,'sub-label')]")
+	@FindBy(xpath = "//span[contains(@class,'edw-icon-Length-01')]/../..//*[contains(@class,'sub-label')]")
 	public WebElement Duration;
 
 	// Skill Level
-	@FindBy(xpath = "//*[text()='Skill Level']/../..//*[contains(@class,'sub-label')]")
+	@FindBy(xpath = "//span[contains(@class,'edw-icon-Skill-level-01')]/../..//*[contains(@class,'sub-label')]")
 	public WebElement Skill_Level;
 
 	// Intro Video Frame
@@ -37,11 +37,11 @@ public class EnrollmentPage extends BaseClass {
 	public WebElement Category;
 
 	// Lesson Count
-	@FindBy(xpath = "//span[contains(@class,'edw-icon-Book')]/..//*[contains(@class,'count')]")
+	@FindBy(xpath = "//span[contains(@class,'edw-icon-Book')]/../..//*[contains(@class,'sub-label')]")
 	public WebElement LessonsCount;
 
 	// Student Count
-	@FindBy(xpath = "(//span[contains(@class,'edw-icon-Group-user')]/..//*[contains(@class,'count')])[1]")
+	@FindBy(xpath = "//span[contains(@class,'edw-icon-Group-user')]/../..//span[contains(@class,'sub-label')]")
 	public WebElement StudentsCount;
 
 	// Lecture Count
@@ -49,11 +49,11 @@ public class EnrollmentPage extends BaseClass {
 	public WebElement Lecture;
 
 	// Start Date
-	@FindBy(xpath = "//*[text()='Start Date']/../..//*[contains(@class,'sub-label')]")
+	@FindBy(xpath = "//span[contains(@class,'edw-icon-Calendar')]/../..//*[contains(@class,'sub-label')]")
 	public WebElement Course_Start_Date;
 
 	// Language
-	@FindBy(xpath = "//*[text()='Language']/../..//*[contains(@class,'sub-label')]")
+	@FindBy(xpath = "//span[contains(@class,'edw-icon-Language')]/../..//*[contains(@class,'sub-label')]")
 	public WebElement Course_Language;
 
 	// Instructor Tab
