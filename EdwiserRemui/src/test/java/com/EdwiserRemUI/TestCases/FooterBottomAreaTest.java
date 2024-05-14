@@ -19,7 +19,7 @@ public class FooterBottomAreaTest extends BaseClass {
 	
 	@Test(priority = 1)
 	public void showLogo_SameLogoAsHeader() throws InterruptedException {
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		fbap.footerMenu.click();
 		fbap.footerBottomArea.click();
 
@@ -41,7 +41,7 @@ public class FooterBottomAreaTest extends BaseClass {
 	
 	@Test(priority = 2)
 	public void showLogo_DifferentLogoForFooter() throws InterruptedException {
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		fbap.footerMenu.click();
 		fbap.footerBottomArea.click();
 
@@ -64,7 +64,7 @@ public class FooterBottomAreaTest extends BaseClass {
 	@Test(priority = 3)
 	public void showPrivacyPolicy() throws InterruptedException {
 		String PPLink = "https://edwiser.org/privacy-policy/";
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		fbap.footerMenu.click();
 		fbap.footerBottomArea.click();
 		
@@ -85,7 +85,7 @@ public class FooterBottomAreaTest extends BaseClass {
 	@Test(priority = 4)
 	public void showTermsAndConditions() throws InterruptedException {
 		String TCLink = "https://edwiser.org/terms-and-conditions/";
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		fbap.footerMenu.click();
 		fbap.footerBottomArea.click();
 		
@@ -106,7 +106,7 @@ public class FooterBottomAreaTest extends BaseClass {
 	
 	@Test(priority = 5)
 	public void showCopyrightContent() throws InterruptedException {
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		fbap.footerMenu.click();
 		fbap.footerBottomArea.click();
 		
@@ -126,7 +126,7 @@ public class FooterBottomAreaTest extends BaseClass {
 	
 	@Test(priority = 6)
 	public void poweredByEdwiser() throws InterruptedException {
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		fbap.footerMenu.click();
 		fbap.footerBottomArea.click();
 		

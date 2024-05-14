@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class SettingsPage extends BasePage {
 
@@ -65,6 +66,13 @@ public class SettingsPage extends BasePage {
 	@FindBy(id="id_s_theme_remui_sitenamecolor")
 	public WebElement colorinput;
 	
+	@FindBy(id="id_s_theme_remui_pagewidth")
+	public WebElement Theme_Layout;
+	
+	public Select ThemeLayout() {
+		Select TL = new Select(Theme_Layout);
+		return TL;
+	}
 	
 	@FindBy(xpath = "//select[@name='s_theme_remui_pagewidth']//option")
 	public List<WebElement> layout_option;

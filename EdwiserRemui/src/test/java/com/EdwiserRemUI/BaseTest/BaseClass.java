@@ -17,6 +17,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 	public String siteurl = "https://qa-remui81.edwiser.org/m44/";
+	public String LisenceKey = "d8939029e2b51c81285fc2bbbaa4370f";
 	public String loginpage = siteurl + "login/index.php";
 	public String profilepage = siteurl + "user/profile.php";
 	public String blogpage = siteurl + "blog/index.php?userid=2";
@@ -25,18 +26,20 @@ public class BaseClass {
 	public String dashboard = siteurl + "my/";
 	public String coursearchive = siteurl + "course/index.php?categoryid=all";
 	public String remuisetting = siteurl + "admin/settings.php?section=themesettingremui";
+	public String customizer = siteurl + "theme/remui/customizer.php?url=" + dashboard;
 	public String managecoursecategory = siteurl + "course/management.php";
 	public String remuifootersetting = siteurl + "admin/settings.php?section=themesettingremui#theme_remui_footer";
 	public String mycourses = siteurl + "my/courses.php";
 	public String coursepage = siteurl + "course/view.php?id=26";
 	public String courseName = "Testing Course - 18 - Automation Course - 1";
 	public String coursepage1 = siteurl + "course/view.php?id=27";
-	public String EnrolmentTestCourse = siteurl + "course/view.php?id=12";
-	public String CourseEnrolmentPage = siteurl + "enrol/index.php?id=12";
+	public String EnrolmentTestCourse = siteurl + "course/view.php?id=49";
+	public String CourseEnrolmentPage = siteurl + "enrol/index.php?id=49";
 	public String FocusModeCoursePage = siteurl + "course/view.php?id=28";
 	public String FocusModeCourse = "Focus Mode Testing Course";
 	public String CourseIntroVideo = "https://www.youtube.com/embed/MIWu2FCPnIQ";
 	public String homepage = siteurl + "?redirect=0";
+	public String CopyRightText = "QA Site v44 © 2024. All rights reserved.";
 //	public String RemUISettings = siteurl + "admin/settings.php?section=themesettingremui";
 
 	public static WebDriver driver;

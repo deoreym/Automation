@@ -34,9 +34,7 @@ public class BrandColorTest extends BaseClass{
 	@Test(priority=1)
 	public void verifybrandPrimarycolor() throws InterruptedException {
 		String primarycolor="#FFE5B4";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		driver.get(customizer);
 		bcp.globalmenu.click();
 		bcp.themecolorsmenu.click();
 		bcp.primarycolor.click();
@@ -54,9 +52,7 @@ public class BrandColorTest extends BaseClass{
 	@Test(priority=2)
 	public void verifyAscentColor() throws InterruptedException {
 		String ascentcolor="#FFFF00";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		driver.get(customizer);
 		bcp.globalmenu.click();
 		bcp.themecolorsmenu.click();
 		bcp.ascentcolor.click();
@@ -75,9 +71,7 @@ public class BrandColorTest extends BaseClass{
 	@Test(priority=3)
 	public void VerifyTextColor() throws InterruptedException {
 		String textcolor="#FFC0CB";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		driver.get(customizer);
 		bcp.globalmenu.click();
 		bcp.themecolorsmenu.click();
 		bcp.textcolor.click();

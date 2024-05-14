@@ -17,7 +17,7 @@ import com.EdwiserRemUI.PageObjects.SecondaryButtonColorPage;
 
 public class FooterSocialMediaLinkTest extends BaseClass {
 
-	public String URL = "https://www.google.com/";
+	public String URL = "https://www.example.com/";
 
 	DashBoardPage dp;
 	CustomizerPage cpp;
@@ -45,7 +45,7 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 	public void Verifyenteredfooterlinkswithcustomizerandremuisetting() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		fsmlp.footermenu.click();
 		fsmlp.socialmedialink.click();
@@ -111,7 +111,7 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 		SoftAssert softAssert = new SoftAssert();
 		String title = "Title 1";
 		String content = "Lorem ipsum dolor sit amet consectetur adipiscing elit r";
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		fsmlp.footermenu.click();
 		fsmlp.mainfooterareamenu.click();
@@ -228,7 +228,7 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 		String menutext2 = "Contact Us";
 		String menutext3 = "Privacy Policy1";
 		String menuaddress = "https://www.google.com/";
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		fsmlp.footermenu.click();
 		fsmlp.mainfooterareamenu.click();

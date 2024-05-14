@@ -7,90 +7,85 @@ import org.testng.asserts.SoftAssert;
 
 import com.EdwiserRemUI.BaseTest.BaseClass;
 import com.EdwiserRemUI.PageObjects.ActivationDeactivationPage;
-import com.EdwiserRemUI.PageObjects.DashBoardPage;
 
-public class ActivationDeactivationTest extends BaseClass{
+public class ActivationDeactivationTest extends BaseClass {
 
-	DashBoardPage dp;
 	ActivationDeactivationPage adp;
-	
+
 	@BeforeClass
 	public void Before_class() {
-		adp= new ActivationDeactivationPage(driver);
-		dp =new DashBoardPage(driver);
+		adp = new ActivationDeactivationPage(driver);
 	}
-	
-	//Check the status of remui license key
-	@Test(priority=1)
+
+	// Check the status of remui license key
+	@Test(priority = 1)
 	public void verifystatusofremui() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		if(adp.dangeralert.size()==1) {
-			dp.remuimenu();
+		if (adp.dangeralert.size() == 1) {
+			driver.get(remuisetting);
 			adp.infotab.click();
 			Assert.assertEquals(adp.checkstatus(), "Deactivated", "plugin status is still active");
-			adp.licensekey.click();	
+			adp.licensekey.click();
 			adp.licensekey.clear();
-				adp.licensekey.sendKeys("6d09466f915996ae572c156eeeb2a0ee");
-				adp.activatebutton.click();
-				Assert.assertEquals(adp.checkstatus(), "Active", "plugin status is still deactive");
-				
-			}
-		
+			adp.licensekey.sendKeys(LisenceKey);
+			adp.activatebutton.click();
+			Assert.assertEquals(adp.checkstatus(), "Active", "plugin status is still deactive");
+
+		}
+
 		else {
-			dp.remuimenu();
+			driver.get(remuisetting);
 			adp.infotab.click();
 			Assert.assertEquals(adp.checkstatus(), "Active", "plugin status is still deactive");
-			}
-		softAssert.assertAll();	
+		}
+		softAssert.assertAll();
 	}
-	
-	//Check when invalid license key is entered
-	@Test(priority=2)
+
+	// Check when invalid license key is entered
+	@Test(priority = 2)
 	public void verifywheninvalidlicensekeyisentered() {
-		if(adp.dangeralert.size()==1) {
-		dp.remuimenu();
-		adp.infotab.click();
-		adp.licensekey.click();	
-		adp.licensekey.clear();
+		if (adp.dangeralert.size() == 1) {
+			driver.get(remuisetting);
+			adp.infotab.click();
+			adp.licensekey.click();
+			adp.licensekey.clear();
 			adp.licensekey.sendKeys("6d09466f915996ae572c156eeeb2a0eef");
 			adp.activatebutton.click();
 			Assert.assertEquals(adp.checkstatus(), "Invalid", "plugin status is still deactive");
-		}	
-		else {
+		} else {
 			System.out.println("Edwiser remui license key is active");
 		}
 	}
-	
-	//Check when license key is deactivated
-	@Test(priority=3)
-	public void verifybydeactivatingthelicensekey() {
-		if(adp.dangeralert.size()==0) {
-			dp.remuimenu();
+
+	// Check when license key is deactivated
+	@Test(priority = 3)
+	public void verifybydeactivatingthelicensekey() throws Exception {
+		if (adp.dangeralert.size() == 0) {
+			driver.get(remuisetting);
 			adp.infotab.click();
+			Thread.sleep(1000);
 			adp.deactivatebutton.click();
 			Assert.assertEquals(adp.checkstatus(), "Deactivated", "plugin status is still active");
-		}
-		else {
+		} else {
 			System.out.println("Edwiser remui license key is deactivated");
 		}
 	}
-	
-	//Check when license key is activated 
-	
-	@Test(priority=4)
+
+	// Check when license key is activated
+
+	@Test(priority = 4)
 	public void verifybyactivatingthelicensekey() {
-		if(adp.dangeralert.size()==1) {
-			dp.remuimenu();
+		if (adp.dangeralert.size() == 1) {
+			driver.get(remuisetting);
 			adp.infotab.click();
-			adp.licensekey.click();	
+			adp.licensekey.click();
 			adp.licensekey.clear();
-				adp.licensekey.sendKeys("6d09466f915996ae572c156eeeb2a0ee");
-				adp.activatebutton.click();
-				Assert.assertEquals(adp.checkstatus(), "Active", "plugin status is still deactive");
-			}
-		else {
+			adp.licensekey.sendKeys(LisenceKey);
+			adp.activatebutton.click();
+			Assert.assertEquals(adp.checkstatus(), "Active", "plugin status is still deactive");
+		} else {
 			System.out.println("Edwiser remui license key is deactivated");
 		}
 	}
-	
+
 }

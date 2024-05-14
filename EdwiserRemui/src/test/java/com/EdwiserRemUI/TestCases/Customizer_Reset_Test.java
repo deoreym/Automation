@@ -7,7 +7,6 @@ import org.testng.asserts.SoftAssert;
 
 import com.EdwiserRemUI.BaseTest.BaseClass;
 import com.EdwiserRemUI.PageObjects.BrandColorPage;
-import com.EdwiserRemUI.PageObjects.ColorConversion;
 import com.EdwiserRemUI.PageObjects.CustomizerCustomCSS;
 import com.EdwiserRemUI.PageObjects.FooterBottomAreaPage;
 import com.EdwiserRemUI.PageObjects.FooterSocialMediaLinkPage;
@@ -47,7 +46,7 @@ public class Customizer_Reset_Test extends BaseClass {
 	}
 
 	/**
-	 * Test Simple Reset from Customizer
+	 * Test Simple Reset from customizer
 	 * 
 	 * @throws InterruptedException
 	 */
@@ -57,7 +56,7 @@ public class Customizer_Reset_Test extends BaseClass {
 		// Set Data
 		Set_Non_Reset_Field_Data();
 
-		// Reset Customizer
+		// Reset customizer
 		CC.ResetCustomizer.click();
 		Thread.sleep(500);
 
@@ -65,13 +64,13 @@ public class Customizer_Reset_Test extends BaseClass {
 		CC.Reset.click();
 		Thread.sleep(2000);
 
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 
 		// Check Login Description
 		lsp.loginMenu.click();
 		lsp.loginPageSettings.click();
-		System.out.println("Login Message : "+lsp.siteLoginDescription.getText());
-		softAssert.assertTrue(lsp.siteLoginDescription.getText()!= null,
+		System.out.println("Login Message : " + lsp.siteLoginDescription.getText());
+		softAssert.assertTrue(lsp.siteLoginDescription.getText() != null,
 				"On Simple Reset Login Description is Getting Removed");
 
 		CC.CustomizerHome.click();
@@ -129,18 +128,18 @@ public class Customizer_Reset_Test extends BaseClass {
 	}
 
 	/**
-	 * Test Reset All From Customizer
+	 * Test Reset All From customizer
 	 * 
 	 * @throws InterruptedException
 	 */
 	@Test(priority = 2)
-	public void Reset_All_From_Customizer() throws InterruptedException {
+	public void Reset_All_From_customizer() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 
 		// Set Data
 		Set_Non_Reset_Field_Data();
 
-		// Reset Customizer
+		// Reset customizer
 		CC.ResetCustomizer.click();
 		Thread.sleep(500);
 
@@ -148,7 +147,7 @@ public class Customizer_Reset_Test extends BaseClass {
 		CC.Reset_All.click();
 		Thread.sleep(2000);
 
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 
 		// Check Login Description
 		lsp.loginMenu.click();
@@ -200,7 +199,6 @@ public class Customizer_Reset_Test extends BaseClass {
 		// Check Custom CSS
 		CC.CustomCSS_Menu.click();
 
-
 		softAssert.assertFalse(CC.CustomCSS_Input.getText().contains("li[title='Dashboard']"),
 				"On Reset All Custom CSS is Not Getting Removed 2");
 
@@ -211,14 +209,14 @@ public class Customizer_Reset_Test extends BaseClass {
 	}
 
 	/**
-	 * Check Theme Default Values on Customizer Reset.
+	 * Check Theme Default Values on customizer Reset.
 	 * 
 	 * @throws InterruptedException
 	 */
 	public void Check_Default_Theme_Values() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		bcp.globalmenu.click();
 		bcp.themecolorsmenu.click();
 		System.out.println("Primary : " + bcp.primarycolor.getCssValue("background-color"));
@@ -276,7 +274,7 @@ public class Customizer_Reset_Test extends BaseClass {
 	 */
 	public void Set_Non_Reset_Field_Data() throws InterruptedException {
 		// Set Custom CSS
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 
 		// Visit Custom CSS Page

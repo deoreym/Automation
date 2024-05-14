@@ -87,6 +87,22 @@ public class FooterSettingsPage extends BasePage {
 	@FindBy(xpath = "//iframe[@id='id_s_theme_remui_footercolumn4customhtml_ifr']")
 	public WebElement FooterColumn_4_iFrame;
 
+	// Footer Content 1
+	@FindBy(id = "id_s_theme_remui_footercolumn1customhtmleditable")
+	public WebElement FooterColumn_1_Div;
+
+	// Footer Content 2
+	@FindBy(id = "id_s_theme_remui_footercolumn2customhtmleditable")
+	public WebElement FooterColumn_2_Div;
+
+	// Footer Content 3
+	@FindBy(id = "id_s_theme_remui_footercolumn3customhtmleditable")
+	public WebElement FooterColumn_3_Div;
+
+	// Footer Content 4
+	@FindBy(id = "id_s_theme_remui_footercolumn4customhtmleditable")
+	public WebElement FooterColumn_4_Div;
+
 	// Footer Content 1 Menu Text Area
 	@FindBy(xpath = "//textarea[@id='id_s_theme_remui_footercolumn1menu']")
 	public WebElement FooterColumn_1_TextArea;
@@ -212,19 +228,19 @@ public class FooterSettingsPage extends BasePage {
 	public WebElement FC_1_Content_D;
 
 	// Footer 1 Content
-	@FindBy(xpath = "//div[@id='footer-column-1']//*[@class='section-html-content']//p[2]")
+	@FindBy(xpath = "//div[@id='footer-column-1']//*[@class='section-html-content']//p")
 	public WebElement FC_1_Content;
 
 	// Footer 2 Content
-	@FindBy(xpath = "//div[@id='footer-column-2']//*[@class='section-html-content']//p[2]")
+	@FindBy(xpath = "//div[@id='footer-column-2']//*[@class='section-html-content']//p")
 	public WebElement FC_2_Content;
 
 	// Footer 3 Content
-	@FindBy(xpath = "//div[@id='footer-column-3']//*[@class='section-html-content']//p[2]")
+	@FindBy(xpath = "//div[@id='footer-column-3']//*[@class='section-html-content']//p")
 	public WebElement FC_3_Content;
 
 	// Footer 4 Content
-	@FindBy(xpath = "//div[@id='footer-column-4']//*[@class='section-html-content']//p[2]")
+	@FindBy(xpath = "//div[@id='footer-column-4']//*[@class='section-html-content']//p")
 	public WebElement FC_4_Content;
 
 	// Footer 4 Content - Menu Link 1
@@ -287,8 +303,9 @@ public class FooterSettingsPage extends BasePage {
 	public WebElement Copyrights_Content;
 
 	// Footer Logo
-	@FindBy(xpath = "//*[contains(@class,' secondary-footer-logo')]//div[2]")
+	@FindBy(xpath = "//*[contains(@class,' secondary-footer-logo')]//div[1]")
 	public WebElement Footer_Logo_img;
+
 	// Footer Logo
 	@FindBy(xpath = "//*[contains(@class,' secondary-footer-logo')]")
 	public List<WebElement> Footer_Logo;

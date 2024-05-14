@@ -20,7 +20,7 @@ public class CustomCSS_Test extends BaseClass {
 	@Test(priority = 1)
 	public void Set_Custom_CSS() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 
 		// Visit Custom CSS Page
@@ -62,7 +62,7 @@ public class CustomCSS_Test extends BaseClass {
 	@Test(priority = 2)
 	public void Remove_Custom_CSS() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 
 		// Visit Custom CSS Page

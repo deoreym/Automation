@@ -35,7 +35,7 @@ public class HeaderColorSettingTest extends BaseClass {
 	@Test(priority = 1)
 	public void SetLogoFormat_Logo_Only() throws InterruptedException {
 		// Visit Customizer
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		// Visit Header logo settings
 		hcsp.headermenu.click();
@@ -66,7 +66,7 @@ public class HeaderColorSettingTest extends BaseClass {
 	@Test(priority = 2)
 	public void SetLogoFormat_Logo_Mini() throws InterruptedException {
 		// Visit Customizer
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		// Visit Header logo settings
 		hcsp.headermenu.click();
@@ -97,7 +97,7 @@ public class HeaderColorSettingTest extends BaseClass {
 	@Test(priority = 3)
 	public void SetLogoFormat_Icon_Only() throws InterruptedException {
 		// Visit Customizer
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		// Visit Header logo settings
 		hcsp.headermenu.click();
@@ -128,7 +128,7 @@ public class HeaderColorSettingTest extends BaseClass {
 	@Test(priority = 4)
 	public void SetLogoFormat_Icon_and_Sitename() throws InterruptedException {
 		// Visit Customizer
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		// Visit Header logo settings
 		hcsp.headermenu.click();
@@ -165,7 +165,7 @@ public class HeaderColorSettingTest extends BaseClass {
 		String SiteNameFontSize = "1.2";
 
 		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		hcsp.headermenu.click();
 		hcsp.headerlogosetting.click();
@@ -220,7 +220,7 @@ public class HeaderColorSettingTest extends BaseClass {
 	@Test(priority = 6)
 	public void Verify_HeaderBackground_Color_When_Same_As_Logo_Background_Color() throws InterruptedException {
 		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		hcsp.headermenu.click();
 		hcsp.headerdesignsettingmenu.click();
@@ -264,7 +264,7 @@ public class HeaderColorSettingTest extends BaseClass {
 		String elementbgcolor = "#C3F7FF";
 		String elementdividercolor = "#34495E";
 		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		hcsp.headermenu.click();
 		hcsp.headerdesignsettingmenu.click();
@@ -370,7 +370,7 @@ public class HeaderColorSettingTest extends BaseClass {
 		String iconactivecolor = "#9432B9";
 
 		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		hcsp.headermenu.click();
 		hcsp.headerdesignsettingmenu.click();
@@ -436,7 +436,7 @@ public class HeaderColorSettingTest extends BaseClass {
 		driver.get(profilepage);
 		System.out.println("Box Shadow before settings: " + hcsp.SiteHeaderNav.getCssValue("box-shadow"));
 		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		Thread.sleep(1500);
 		hcsp.headermenu.click();
 		hcsp.headerdesignsettingmenu.click();

@@ -28,7 +28,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Test(priority = 1)
 	public void showLogo_disable() throws InterruptedException {
 		
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		lsp.loginMenu.click();
 		lsp.loginSetting.click();
 		
@@ -49,7 +49,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Test(priority = 2)
 	public void showLogo_OnLoginCard() throws InterruptedException {
 		
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		lsp.loginMenu.click();
 		lsp.loginSetting.click();
 		
@@ -71,7 +71,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Test(priority = 3)
 	public void showLogo_OnCentralRegion() throws InterruptedException {
 		
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		lsp.loginMenu.click();
 		lsp.loginSetting.click();
 		
@@ -93,7 +93,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Test(priority = 4)
 	public void loginFormPosition_Center() throws InterruptedException {
 		
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		lsp.loginMenu.click();
 		lsp.loginFromSettings.click();
 		
@@ -115,7 +115,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Test(priority = 5)
 	public void loginFormPosition_LeftSide() throws InterruptedException {
 		
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		lsp.loginMenu.click();
 		lsp.loginFromSettings.click();
 		
@@ -137,7 +137,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Test(priority = 6)
 	public void loginFormPosition_RightSide() throws InterruptedException {
 		
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		lsp.loginMenu.click();
 		lsp.loginFromSettings.click();
 		
@@ -160,7 +160,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Test(priority = 7)
 	public void welcomeTextColor() throws InterruptedException {
 		
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		lsp.loginMenu.click();
 		lsp.loginFromSettings.click();
 		Thread.sleep(1000);
@@ -225,7 +225,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Test(priority = 8)
 	public void pageBackgroundStyle_Image() throws InterruptedException {
 		
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		lsp.loginMenu.click();
 		lsp.loginPageSettings.click();
 		Thread.sleep(1000);
@@ -252,7 +252,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Test(priority = 9)
 	public void pageBackgroundStyle_Color() throws InterruptedException {
 		
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		lsp.loginMenu.click();
 		lsp.loginPageSettings.click();
 		Thread.sleep(1000);
@@ -281,7 +281,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Test(priority = 11)
 	public void siteDescription_siteDescriptionColor() throws InterruptedException {
 		
-		driver.get(siteurl + "theme/remui/customizer.php?url=" + dashboard);
+		driver.get(customizer);
 		lsp.loginMenu.click();
 		lsp.loginPageSettings.click();
 		Thread.sleep(1000);

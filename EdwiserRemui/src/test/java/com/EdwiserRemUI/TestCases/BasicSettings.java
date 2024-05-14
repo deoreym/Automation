@@ -6,21 +6,19 @@ import org.testng.asserts.SoftAssert;
 
 import com.EdwiserRemUI.BaseTest.BaseClass;
 import com.EdwiserRemUI.PageObjects.ColorConversion;
-import com.EdwiserRemUI.PageObjects.DashBoardPage;
+
 import com.EdwiserRemUI.PageObjects.HeaderHideShowMenuPage;
 import com.EdwiserRemUI.PageObjects.SettingsPage;
 
 public class BasicSettings extends BaseClass {
 
 	SettingsPage sp;
-	DashBoardPage dp;
 	HeaderHideShowMenuPage hsp;
 	ColorConversion cc;
 
 	@BeforeClass
 	public void Before_class() {
 		sp = new SettingsPage(driver);
-		dp = new DashBoardPage(driver);
 		hsp = new HeaderHideShowMenuPage(driver);
 		cc = new ColorConversion();
 	}
@@ -28,7 +26,7 @@ public class BasicSettings extends BaseClass {
 	@Test(priority = 1)
 	public void verifysitewideannouncementwhenenabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.remuimenu();
+		driver.get(remuisetting);
 		sp.basictab.click();
 		Thread.sleep(2000);
 		String present = sp.siteannouncementchbk.getAttribute("Checked");
@@ -55,7 +53,7 @@ public class BasicSettings extends BaseClass {
 	@Test(priority = 2)
 	public void verifysitewideannouncementwhendisabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.remuimenu();
+		driver.get(remuisetting);
 		sp.basictab.click();
 		Thread.sleep(2000);
 		String present = sp.siteannouncementchbk.getAttribute("Checked");
@@ -75,7 +73,7 @@ public class BasicSettings extends BaseClass {
 	@Test(priority = 3)
 	public void verifydismissannouncementwhenenabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.remuimenu();
+		driver.get(remuisetting);
 		sp.basictab.click();
 		Thread.sleep(2000);
 		String present = sp.siteannouncementchbk.getAttribute("Checked");
@@ -111,7 +109,7 @@ public class BasicSettings extends BaseClass {
 //	@Test(priority=4)
 //	public void verifydismissannouncementwhendisabled() throws InterruptedException {
 //		SoftAssert softAssert = new SoftAssert();
-//		dp.remuimenu();
+//		driver.get(remuisetting);
 //		sp.basictab.click();
 //		Thread.sleep(2000);
 //		String present=sp.siteannouncementchbk.getAttribute("Checked");
@@ -159,7 +157,7 @@ public class BasicSettings extends BaseClass {
 	@Test(priority = 5)
 	public void verifyfeedbackisenabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.remuimenu();
+		driver.get(remuisetting);
 		sp.basictab.click();
 		Thread.sleep(2000);
 		String present = sp.chbk_feedback.getAttribute("Checked");
@@ -181,7 +179,7 @@ public class BasicSettings extends BaseClass {
 	@Test(priority = 6)
 	public void verifyfeedbackwhendisabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.remuimenu();
+		driver.get(remuisetting);
 		sp.basictab.click();
 		Thread.sleep(2000);
 		String present = sp.chbk_feedback.getAttribute("Checked");
@@ -204,7 +202,7 @@ public class BasicSettings extends BaseClass {
 	@Test(priority = 7)
 	public void verifyQuicklinkwhenenabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.remuimenu();
+		driver.get(remuisetting);
 		sp.basictab.click();
 		Thread.sleep(2000);
 		String present = sp.chbk_quicklink.getAttribute("Checked");
@@ -226,7 +224,7 @@ public class BasicSettings extends BaseClass {
 	@Test(priority = 8)
 	public void verifyQuickLinkwhendisabled() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
-		dp.remuimenu();
+		driver.get(remuisetting);
 		sp.basictab.click();
 		Thread.sleep(2000);
 		String present = sp.chbk_quicklink.getAttribute("Checked");
@@ -250,7 +248,7 @@ public class BasicSettings extends BaseClass {
 	public void verifysitename() throws InterruptedException {
 		String actual = "#698DFC";
 		SoftAssert softAssert = new SoftAssert();
-		dp.remuimenu();
+		driver.get(remuisetting);
 		sp.basictab.click();
 		sp.colorinput.clear();
 		sp.colorinput.sendKeys(actual);

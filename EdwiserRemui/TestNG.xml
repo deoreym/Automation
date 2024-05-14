@@ -19,46 +19,39 @@
 			<class name="com.EdwiserRemUI.TestCases.FooterCustomizerTest" />
 			<class name="com.EdwiserRemUI.TestCases.BackgroundColorSettingTest" />
 			<class name="com.EdwiserRemUI.TestCases.BorderColorTest" />
-			
-			
-			
-			
-			 -->
-
-
-			<!-- Non Tested
-			
+			<class name="com.EdwiserRemUI.TestCases.FooterSocialMediaLinkTest" />
 			<class name="com.EdwiserRemUI.TestCases.BrandColorTest" />
 			<class name="com.EdwiserRemUI.TestCases.LayoutTest" />
 			<class name="com.EdwiserRemUI.TestCases.PrimaryButtonColorTest" />
 			<class name="com.EdwiserRemUI.TestCases.SecondaryButtonColorTest" />
 			<class name="com.EdwiserRemUI.TestCases.TypographyColorTest" />
-			<class name="com.EdwiserRemUI.TestCases.ProfilePageTest" />
 			<class name="com.EdwiserRemUI.TestCases.FooterColorSettingTest" />
-			<class name="com.EdwiserRemUI.TestCases.HeaderColorSettingTest" />
-			<class name="com.EdwiserRemUI.TestCases.FooterSocialMediaLinkTest" />
 			<class name="com.EdwiserRemUI.TestCases.DashBoardTest" />
-			<class name="com.EdwiserRemUI.TestCases.HideShowHeaderMenuTest" />-->
+			FooterBottomAreaTest - Sanket
+			LoginSettingsTest - Sanket
+			
+			 -->
 
 
 			<!-- New  -->
-			<!--
+			<!-- 
 			<class name="com.EdwiserRemUI.TestCases.QuickMenuTest" />
-			<class name="com.EdwiserRemUI.TestCases.CourseEnrolmentPageTest" />
-			<class name="com.EdwiserRemUI.TestCases.MyCoursesTest" />
-			<class name="com.EdwiserRemUI.TestCases.CourseArchivePageTest" />
 			<class name="com.EdwiserRemUI.TestCases.ProfilePageTest" />
+			<class name="com.EdwiserRemUI.TestCases.CourseArchivePageTest" />
+			<class name="com.EdwiserRemUI.TestCases.MyCoursesTest" />
+			<class name="com.EdwiserRemUI.TestCases.CourseEnrolmentPageTest" />
 			<class name="com.EdwiserRemUI.TestCases.DarkModeTests" />
+			<class name="com.EdwiserRemUI.TestCases.HideShowHeaderMenuTest" />\
 			<class name="com.EdwiserRemUI.TestCases.FooterFromThemeSettings" />
 			<class name="com.EdwiserRemUI.TestCases.HeaderColorSettingTest" />
 			<class name="com.EdwiserRemUI.TestCases.CustomCSS_Test" />
 			<class name="com.EdwiserRemUI.TestCases.FocusModeTest" />
-			<class name="com.EdwiserRemUI.TestCases.Customizer_Reset_Test" />-->
-			
-			
+			<class name="com.EdwiserRemUI.TestCases.Customizer_Reset_Test" />
+			-->
 
 			<!-- For Single Testing  -->
 			<class name="com.EdwiserRemUI.TestCases.Customizer_Reset_Test" />
+
 
 		</classes>
 	</test> <!--Test -->

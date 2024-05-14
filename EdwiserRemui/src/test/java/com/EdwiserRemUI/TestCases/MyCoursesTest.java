@@ -1,7 +1,6 @@
 package com.EdwiserRemUI.TestCases;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -24,11 +23,6 @@ public class MyCoursesTest extends BaseClass {
 		adminbackendlogout();
 		studentLogin(siteURL, username, password);
 	}
-	
-//	@AfterClass
-//	public void Afer_class() throws InterruptedException {
-//		adminbackendlogout();
-//	}
 
 	/**
 	 * Test Total Enrolled Courses Count on My courses Page
@@ -37,15 +31,14 @@ public class MyCoursesTest extends BaseClass {
 	 */
 	@Test(priority = 1)
 	public void TestTotalEnrolledCoursesCount() throws InterruptedException {
-		driver.get(profilepage);
+		driver.get(profilepage+"#usercourses");
 		Thread.sleep(1500);
-		pp.CoursesTab.click();
 		int Courses = pp.CoursesCards.size();
 		driver.get(mycourses);
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		MC.ShowIcon.click();
 		MC.AllCourses.click();
-		Thread.sleep(3000);
+		Thread.sleep(7000);
 		Assert.assertEquals(MC.CourseCards.size(), Courses,
 				"Courses Count not matching on Profile and My Course Pages");
 	}
@@ -58,6 +51,7 @@ public class MyCoursesTest extends BaseClass {
 	@Test(priority = 2)
 	public void TestCoursesPerPageFilter() throws InterruptedException {
 		driver.get(mycourses);
+		Thread.sleep(5000);
 		MC.ShowIcon.click();
 		MC.Courses12.click();
 		Thread.sleep(5000);
@@ -74,9 +68,10 @@ public class MyCoursesTest extends BaseClass {
 	@Test(priority = 3)
 	public void SearchCourses() throws InterruptedException {
 		driver.get(mycourses);
+		Thread.sleep(5000);
 		MC.SearchCourse.clear();
 		MC.SearchCourse.sendKeys("Testing Course - 18 - Automation Course - 1");
-		Thread.sleep(2500);
+		Thread.sleep(5000);
 		Assert.assertEquals(MC.CourseCards.size(), 1, "Course is Not getting Searched");
 	}
 
@@ -88,12 +83,13 @@ public class MyCoursesTest extends BaseClass {
 	@Test(priority = 4)
 	public void CheckViewCourseLink() throws InterruptedException {
 		driver.get(mycourses);
+		Thread.sleep(5000);
 		MC.SearchCourse.clear();
 		MC.SearchCourse.sendKeys(courseName);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		Assert.assertEquals(MC.CourseCards.size(), 1, "Course is Not getting Searched");
 		MC.ViewCourseButton(courseName).click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		Assert.assertEquals(driver.getCurrentUrl(), coursepage, "View Course button is not working.");
 	}
 

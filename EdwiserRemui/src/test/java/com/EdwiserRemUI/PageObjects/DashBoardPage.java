@@ -45,69 +45,121 @@ public class DashBoardPage extends BaseClass {
 	@FindBy(xpath = "//button[@class='btn btn-primary']")
 	public WebElement savechanges;
 
-	@FindBy(xpath = "//div[@class='stats-mb-devices']//span[@class='h-exbold-2 dashboard-stats-coursesenrolled']")
+	@FindBy(xpath = "(//span[contains(@class,'dashboard-stats-coursesenrolled')])[1]")
 	public WebElement courseenrolleddp;
 
-	@FindBy(xpath = "//div[@class='stats-mb-devices']//span[@class='h-exbold-2 dashboard-stats-coursescompleted']")
+	@FindBy(xpath = "(//span[contains(@class,'dashboard-stats-coursescompleted')])[1]")
 	public WebElement coursecompleted;
 
-	@FindBy(xpath = "//div[@class='stats-mb-devices']//span[@class='h-exbold-2 dashboard-stats-activitiescompleted']")
+	@FindBy(xpath = "(//span[contains(@class,'dashboard-stats-activitiescompleted')])[1]")
 	public WebElement activitiescompleted;
 
-	@FindBy(xpath = "//div[@class='stats-mb-devices']//span[@class='h-exbold-2 dashboard-stats-activitiesdue']")
+	@FindBy(xpath = "(//span[contains(@class,'dashboard-stats-activitiesdue')])[1]")
 	public WebElement activitiesdue;
+	
+	@FindBy(xpath = "//a[@aria-controls='usercourses']")
+	public WebElement CoursesTab;
+	
 
-	@FindBy(xpath = "//div[@class='course-card hor-1 list-group-item course-listitem  d-flex edw-course-list ']")
+	@FindBy(xpath = "//div[contains(@class,'edw-course-list-container')]//div[contains(@class,'edw-course-list')]")
 	public List<WebElement> coursesfromprofilepage;
 
-	@FindBy(xpath = "//div[@class='course-card hor-1 list-group-item course-listitem  d-flex edw-course-list ']//div[2]//div[@class='edw-card-design-ft d-flex justify-content-between flex-gap-4']//div[1]//span[@class='small-info-regular m-0']")
+	@FindBy(xpath = "//div[contains(@class,'progress-data-wrapper')]/span")
 	List<WebElement> actcompletedfrompp;
 
-	@FindBy(xpath = "//div[@class='progress-text h-regular-6']//span")
+	@FindBy(xpath = "//div[contains(@class,'progress-text')]/span")
 	List<WebElement> coursecompletedperct;
 
 	// Actions
 
-	public void remuimenu() {
-		driver.get(remuisetting);
-//		clicksiteadmin.click();
-//		clickappearence.click();
-//		clickremui.click();
+//	public boolean dashboardstatsstatus() {
+//		String present = dashboardstatschbk.getAttribute("checked");
+//		// System.out.println("present "+present);
+//		boolean status = Boolean.parseBoolean(present);
+//		// System.out.println("present "+status);
+//		return status;
+//	}
 
-	}
+//	public String coursecountfrompp() {
+//		int count = coursesfromprofilepage.size();
+//		String coursecount = String.valueOf(count);
+//		// System.out.println("coursecount "+coursecount);
+//		return coursecount;
+//
+//	}
 
-	public boolean dashboardstatsstatus() {
-		String present = dashboardstatschbk.getAttribute("checked");
-		// System.out.println("present "+present);
-		boolean status = Boolean.parseBoolean(present);
-		// System.out.println("present "+status);
-		return status;
-	}
-
-	public String coursecountfrompp() {
-		int count = coursesfromprofilepage.size();
-		String coursecount = String.valueOf(count);
-		// System.out.println("coursecount "+coursecount);
-		return coursecount;
-
-	}
-
-	public String additionofactivitiescompleted() {
+	public String CompletedActivities() {
+		String Totalactcount = null;
 		int sum = 0;
-		String Totalactcount;
-		for (int i = 0; i < actcompletedfrompp.size(); i++) {
-			WebElement ele = actcompletedfrompp.get(i);
+		for (WebElement ele : actcompletedfrompp) {
 			String innerHTML = ele.getAttribute("title");
 			String[] splited = innerHTML.split(" ");
-			// System.out.println(splited[0]);
-			String actual = (splited[0]);
-			int a = Integer.parseInt(actual);
-			sum = a + sum;
+			if (!splited[0].contains("No")) {
+				sum = sum + Integer.parseInt(splited[0]);
+			}
 		}
-		// System.out.println("sum "+sum);
 		Totalactcount = Integer.toString(sum);
-		System.out.println("Totalactcount  " + Totalactcount);
 		return Totalactcount;
+	}
+
+
+//	public String additionofactivitiescompleted() {
+//		int sum = 0;
+//		String Totalactcount;
+//		for (int i = 0; i < actcompletedfrompp.size(); i++) {
+//			WebElement ele = actcompletedfrompp.get(i);
+//			String innerHTML = ele.getAttribute("title");
+//			String[] splited = innerHTML.split(" ");
+//			// System.out.println(splited[0]);
+//			String actual = (splited[0]);
+//			int a = Integer.parseInt(actual);
+//			sum = a + sum;
+//		}
+//		// System.out.println("sum "+sum);
+//		Totalactcount = Integer.toString(sum);
+//		System.out.println("Totalactcount  " + Totalactcount);
+//		return Totalactcount;
+//	}
+	
+	public String TotalActivities() {
+		String Totalactcount = null;
+		int sum = 0;
+		for (WebElement ele : actcompletedfrompp) {
+			String innerHTML = ele.getAttribute("title");
+			String[] splited = innerHTML.split(" ");
+			if (!splited[3].contains("the")) {
+				sum = sum + Integer.parseInt(splited[3]);
+			}
+		}
+		Totalactcount = Integer.toString(sum);
+		return Totalactcount;
+	}
+//	public String totalfactivitiescount() {
+//		int sum = 0;
+//		String Totalactcount;
+//		for (int i = 0; i < actcompletedfrompp.size(); i++) {
+//			WebElement ele = actcompletedfrompp.get(i);
+//			String innerHTML = ele.getAttribute("title");
+//			String[] splited = innerHTML.split(" ");
+//			// System.out.println(splited[0]);
+//			String actual = (splited[3]);
+//			int a = Integer.parseInt(actual);
+//			sum = a + sum;
+//		}
+//		// System.out.println("sum "+sum);
+//		Totalactcount = Integer.toString(sum);
+//		System.out.println("Totalactcount  " + Totalactcount);
+//		return Totalactcount;
+//	}
+
+	public int Completed_Course_Count() {
+		int cnt = 0;
+		for (WebElement pgr : coursecompletedperct) {
+			if(pgr.getText().equals("100")) {
+				cnt++;
+			}
+		}
+		return cnt;
 	}
 
 	public int coursecompletedcount() {
@@ -129,21 +181,5 @@ public class DashBoardPage extends BaseClass {
 		return counter;
 	}
 
-	public String totalfactivitiescount() {
-		int sum = 0;
-		String Totalactcount;
-		for (int i = 0; i < actcompletedfrompp.size(); i++) {
-			WebElement ele = actcompletedfrompp.get(i);
-			String innerHTML = ele.getAttribute("title");
-			String[] splited = innerHTML.split(" ");
-			// System.out.println(splited[0]);
-			String actual = (splited[3]);
-			int a = Integer.parseInt(actual);
-			sum = a + sum;
-		}
-		// System.out.println("sum "+sum);
-		Totalactcount = Integer.toString(sum);
-		System.out.println("Totalactcount  " + Totalactcount);
-		return Totalactcount;
-	}
+
 }

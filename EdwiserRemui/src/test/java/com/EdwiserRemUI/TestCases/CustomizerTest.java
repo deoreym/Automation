@@ -6,22 +6,20 @@ import org.testng.annotations.Test;
 
 import com.EdwiserRemUI.BaseTest.BaseClass;
 import com.EdwiserRemUI.PageObjects.CustomizerPage;
-import com.EdwiserRemUI.PageObjects.DashBoardPage;
 
 public class CustomizerTest extends BaseClass {
 	String expected = "Customizer";
-	DashBoardPage dp;
+
 	CustomizerPage cpp;
 
 	@BeforeClass
 	public void Before_class() {
-		dp = new DashBoardPage(driver);
 		cpp = new CustomizerPage(driver);
 	}
 
 	@Test
 	public void verifyonclickingvisualpersonalizer() {
-		dp.remuimenu();
+		driver.get(remuisetting);
 		cpp.customizertab.click();
 		boolean status = cpp.customizerbutton.isDisplayed();
 		if (status == true) {

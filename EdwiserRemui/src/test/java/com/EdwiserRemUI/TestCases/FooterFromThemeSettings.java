@@ -37,46 +37,54 @@ public class FooterFromThemeSettings extends BaseClass {
 		FSP.DropDown(FSP.footerColumn_1_Type).selectByValue("customhtml");
 		FSP.footerColumn_1_Title.clear();
 		FSP.footerColumn_1_Title.sendKeys("Footer Column 01");
+		
+		FSP.FooterColumn_1_Div.clear();
+		FSP.FooterColumn_1_Div.sendKeys("Content For Footer Column 01.");
 
-		// Switch to the iframe
-		driver.switchTo().frame(FSP.FooterColumn_1_iFrame);
-		Thread.sleep(1000);
-		// Clear existing content (optional) and Type in content
-		FSP.editor.clear();
-		FSP.editor.sendKeys("Content For Footer Column 01.");
-
-		// Switch back to the main frame (outside the iframe)
-		driver.switchTo().defaultContent();
+//		// Switch to the iframe
+//		driver.switchTo().frame(FSP.FooterColumn_1_iFrame);
+//		Thread.sleep(1000);
+//		// Clear existing content (optional) and Type in content
+//		FSP.editor.clear();
+//		FSP.editor.sendKeys("Content For Footer Column 01.");
+//
+//		// Switch back to the main frame (outside the iframe)
+//		driver.switchTo().defaultContent();
 
 		// Set Second Column
 		FSP.DropDown(FSP.footerColumn_2_Type).selectByValue("customhtml");
 		FSP.footerColumn_2_Title.clear();
 		FSP.footerColumn_2_Title.sendKeys("Footer Column 02");
 
-		// Switch to the iframe
-		driver.switchTo().frame(FSP.FooterColumn_2_iFrame);
-		Thread.sleep(1000);
-		// Clear existing content (optional) and Type in content
-		FSP.editor.clear();
-		FSP.editor.sendKeys("Content For Footer Column 02.");
-
-		// Switch back to the main frame (outside the iframe)
-		driver.switchTo().defaultContent();
+		FSP.FooterColumn_2_Div.clear();
+		FSP.FooterColumn_2_Div.sendKeys("Content For Footer Column 02.");
+		
+//		// Switch to the iframe
+//		driver.switchTo().frame(FSP.FooterColumn_2_iFrame);
+//		Thread.sleep(1000);
+//		// Clear existing content (optional) and Type in content
+//		FSP.editor.clear();
+//		FSP.editor.sendKeys("Content For Footer Column 02.");
+//
+//		// Switch back to the main frame (outside the iframe)
+//		driver.switchTo().defaultContent();
 
 		// Set Third Column
 		FSP.DropDown(FSP.footerColumn_3_Type).selectByValue("customhtml");
 		FSP.footerColumn_3_Title.clear();
 		FSP.footerColumn_3_Title.sendKeys("Footer Column 03");
 
-		// Switch to the iframe
-		driver.switchTo().frame(FSP.FooterColumn_3_iFrame);
-		Thread.sleep(1000);
-		// Clear existing content (optional) and Type in content
-		FSP.editor.clear();
-		FSP.editor.sendKeys("Content For Footer Column 03.");
-
-		// Switch back to the main frame (outside the iframe)
-		driver.switchTo().defaultContent();
+		FSP.FooterColumn_3_Div.clear();
+		FSP.FooterColumn_3_Div.sendKeys("Content For Footer Column 03.");
+//		// Switch to the iframe
+//		driver.switchTo().frame(FSP.FooterColumn_3_iFrame);
+//		Thread.sleep(1000);
+//		// Clear existing content (optional) and Type in content
+//		FSP.editor.clear();
+//		FSP.editor.sendKeys("Content For Footer Column 03.");
+//
+//		// Switch back to the main frame (outside the iframe)
+//		driver.switchTo().defaultContent();
 
 		// Set Fourth Column with Menu
 		FSP.DropDown(FSP.footerColumn_4_Type).selectByValue("menu");
@@ -188,7 +196,7 @@ public class FooterFromThemeSettings extends BaseClass {
 		}
 		driver.get(profilepage);
 
-		softAssert.assertEquals(FSP.F_Bottom_Left_Text.getText(), "", "Footer Bottom Left Text is not getting removed");
+		softAssert.assertTrue(FSP.F_Bottom_Left_Text_size.size()==0, "Footer Bottom Left Text is not getting removed");
 		softAssert.assertTrue(FSP.Copyrights_Content.getAttribute("class").contains("d-none"),
 				"Footer Bottom CopyRight Content is Visible when disabled ");
 		softAssert.assertTrue(FSP.Footer_Logo_img.getAttribute("class").contains("d-none"),
@@ -281,7 +289,7 @@ public class FooterFromThemeSettings extends BaseClass {
 				"Footer Bottom Left Text is not getting changed");
 		softAssert.assertEquals(FSP.F_Bottom_Left_Link.getAttribute("href"), "http://localhost/v43/FBL/",
 				"Footer Bottom Left Link Address is not getting changed");
-		softAssert.assertEquals(FSP.Copyrights_Content_Text.getText(), "QA Site v43 © 2023. All rights reserved.",
+		softAssert.assertEquals(FSP.Copyrights_Content_Text.getText(), CopyRightText,
 				"Footer Bottom CopyRight Content Not Matching ");
 		softAssert.assertTrue(FSP.Footer_Logo.size() > 0, "Footer Bottom Logo Not Visible ");
 
