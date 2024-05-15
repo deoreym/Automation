@@ -287,9 +287,9 @@ public class DarkModeTests extends BaseClass {
 		driver.get(coursearchive);
 		Assert.assertTrue(DM.DarkModeNavMenu.size() == 0,
 				"Dark Mode Option Present for Non Logged In User - Course Archive Page");
-		
+
 		// Login to Admin
-		studentLogin(siteURL, username, password);
+		studentLogin(username, password);
 
 	}
 

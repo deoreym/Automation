@@ -11,7 +11,7 @@
 	<test name="Edwiser Remui Automation Testing">
 		<classes>
 			<class name="com.EdwiserRemUI.BaseTest.BaseClass" />
-			<!--    Tested 
+			
 			<class name="com.EdwiserRemUI.TestCases.ActivationDeactivationTest" />
 			<class name="com.EdwiserRemUI.TestCases.BasicSettings" />
 			<class name="com.EdwiserRemUI.TestCases.CoursePageTest" />
@@ -27,30 +27,27 @@
 			<class name="com.EdwiserRemUI.TestCases.TypographyColorTest" />
 			<class name="com.EdwiserRemUI.TestCases.FooterColorSettingTest" />
 			<class name="com.EdwiserRemUI.TestCases.DashBoardTest" />
-			FooterBottomAreaTest - Sanket
-			LoginSettingsTest - Sanket
-			
-			 -->
-
-
+			<class name="com.EdwiserRemUI.TestCases.FooterBottomAreaTest" />
+			<class name="com.EdwiserRemUI.TestCases.LoginSettingsTest" />
+		
 			<!-- New  -->
-			<!-- 
 			<class name="com.EdwiserRemUI.TestCases.QuickMenuTest" />
 			<class name="com.EdwiserRemUI.TestCases.ProfilePageTest" />
 			<class name="com.EdwiserRemUI.TestCases.CourseArchivePageTest" />
 			<class name="com.EdwiserRemUI.TestCases.MyCoursesTest" />
 			<class name="com.EdwiserRemUI.TestCases.CourseEnrolmentPageTest" />
 			<class name="com.EdwiserRemUI.TestCases.DarkModeTests" />
-			<class name="com.EdwiserRemUI.TestCases.HideShowHeaderMenuTest" />\
+			<class name="com.EdwiserRemUI.TestCases.HideShowHeaderMenuTest" />
 			<class name="com.EdwiserRemUI.TestCases.FooterFromThemeSettings" />
 			<class name="com.EdwiserRemUI.TestCases.HeaderColorSettingTest" />
 			<class name="com.EdwiserRemUI.TestCases.CustomCSS_Test" />
 			<class name="com.EdwiserRemUI.TestCases.FocusModeTest" />
 			<class name="com.EdwiserRemUI.TestCases.Customizer_Reset_Test" />
-			-->
+			
 
 			<!-- For Single Testing  -->
-			<class name="com.EdwiserRemUI.TestCases.Customizer_Reset_Test" />
+			
+			
 
 
 		</classes>

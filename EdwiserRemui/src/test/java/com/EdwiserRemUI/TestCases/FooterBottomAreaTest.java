@@ -38,8 +38,11 @@ public class FooterBottomAreaTest extends BaseClass {
 				"The Footer icon is not same as Header icon even after 'Use the same logo from header' is enabled");
 		
 	}
-	
-	@Test(priority = 2)
+	/**
+	 *     FIle Upload Not added so Commented this test
+	 * @throws InterruptedException
+	 */
+//	@Test(priority = 2)
 	public void showLogo_DifferentLogoForFooter() throws InterruptedException {
 		driver.get(customizer);
 		fbap.footerMenu.click();
@@ -56,7 +59,7 @@ public class FooterBottomAreaTest extends BaseClass {
 		Thread.sleep(3000);
 		driver.get(siteurl);
 		
-		Assert.assertTrue(fbap.differentFooterLogo.getAttribute("src").contains("/edwiser-logoalternate.png"), 
+		Assert.assertTrue(fbap.differentFooterLogo.getAttribute("src").contains("/logo-web.png"), 
 				"The Footer icon is not getting displayed or the icon is not same as selected in customization when 'Use the same logo from header' is disabled.");
 		
 	}
@@ -114,12 +117,12 @@ public class FooterBottomAreaTest extends BaseClass {
 			fbap.showCopyrightContentToggle.click();
 		}
 		fbap.copyrightContent.clear();
-		fbap.copyrightContent.sendKeys("[site] Copyright © [year]. All rights reserved.");
+		fbap.copyrightContent.sendKeys("[site] © [year]. All rights reserved.");
 		fbap.saveButton.click();
 		Thread.sleep(3000);
 		driver.get(siteurl);
 		
-		Assert.assertTrue(fbap.Copyright.getText().contains("QA M43 Copyright © 2024. All rights reserved."), 
+		Assert.assertTrue(fbap.Copyright.getText().contains(CopyRightText), 
 				"The Text Added for Copyright is not same on home page as mentioned in customizer");
 		
 	}

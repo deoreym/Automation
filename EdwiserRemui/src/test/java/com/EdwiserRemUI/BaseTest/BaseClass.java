@@ -44,9 +44,9 @@ public class BaseClass {
 
 	public static WebDriver driver;
 
-	@Parameters({ "siteURL", "username", "password" })
+	@Parameters({ "username", "password" })
 	@BeforeTest
-	public void adminbackendLogin(String siteURL, String username, String password) throws InterruptedException {
+	public void adminbackendLogin(String username, String password) throws InterruptedException {
 
 		driver.get(loginpage);
 		Thread.sleep(1500);
@@ -60,7 +60,7 @@ public class BaseClass {
 		Thread.sleep(2000);
 	}
 
-	public void studentLogin(String siteURL, String username, String password) throws InterruptedException {
+	public void studentLogin(String username, String password) throws InterruptedException {
 
 		driver.get(loginpage);
 		Thread.sleep(1500);

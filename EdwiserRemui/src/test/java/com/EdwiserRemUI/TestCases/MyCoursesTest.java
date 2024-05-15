@@ -15,13 +15,13 @@ public class MyCoursesTest extends BaseClass {
 	MyCourses MC;
 	ProfilePage pp;
 
-	@Parameters({ "siteURL", "StudentUser", "StudentPassword" })
+	@Parameters({"StudentUser", "StudentPassword" })
 	@BeforeClass
-	public void Before_class(String siteURL, String username, String password) throws InterruptedException {
+	public void Before_class(String username, String password) throws InterruptedException {
 		MC = new MyCourses(driver);
 		pp = new ProfilePage(driver);
 		adminbackendlogout();
-		studentLogin(siteURL, username, password);
+		studentLogin(username, password);
 	}
 
 	/**
