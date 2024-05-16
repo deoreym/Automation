@@ -4,39 +4,21 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import com.EdwiserRemUI.BaseTest.BaseClass;
 import com.EdwiserRemUI.PageObjects.BrandColorPage;
-import com.EdwiserRemUI.PageObjects.ColorConversion;
-import com.EdwiserRemUI.PageObjects.CustomizerPage;
-import com.EdwiserRemUI.PageObjects.DashBoardPage;
 import com.EdwiserRemUI.PageObjects.FooterSocialMediaLinkPage;
-import com.EdwiserRemUI.PageObjects.HeaderColorSettingPage;
-import com.EdwiserRemUI.PageObjects.PrimaryButtonColorPage;
-import com.EdwiserRemUI.PageObjects.SecondaryButtonColorPage;
 
 public class FooterSocialMediaLinkTest extends BaseClass {
 
 	public String URL = "https://www.example.com/";
 
-	DashBoardPage dp;
-	CustomizerPage cpp;
 	BrandColorPage bcp;
-	ColorConversion cc;
-	PrimaryButtonColorPage pbcp;
-	SecondaryButtonColorPage sbcp;
-	HeaderColorSettingPage hcsp;
 	FooterSocialMediaLinkPage fsmlp;
 
 	@BeforeClass
 	public void Before_class() {
-		dp = new DashBoardPage(driver);
-		cpp = new CustomizerPage(driver);
+		System.out.println("In Header Color Settings Test Class : HeaderColorSettingTest");
 		bcp = new BrandColorPage(driver);
-		cc = new ColorConversion();
-		pbcp = new PrimaryButtonColorPage(driver);
-		sbcp = new SecondaryButtonColorPage(driver);
-		hcsp = new HeaderColorSettingPage(driver);
 		fsmlp = new FooterSocialMediaLinkPage(driver);
 
 	}
@@ -125,7 +107,6 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 		act.moveToElement(fsmlp.outsideelement).click().build().perform();
 		bcp.save.click();
 		String actualvalue = fsmlp.selectedtype.getAttribute("value");
-		System.out.println(actualvalue);
 		Thread.sleep(2000);
 		fsmlp.footermenu.click();
 		fsmlp.mainfooterareamenu.click();
@@ -133,7 +114,6 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 		Thread.sleep(2000);
 		String present = fsmlp.socialchkbx.getAttribute("checked");
 		boolean status = Boolean.parseBoolean(present);
-		System.out.println(status);
 		if (status == true) {
 			fsmlp.selectsocialoption();
 			bcp.save.click();
@@ -146,7 +126,6 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 			Thread.sleep(2000);
 			driver.get(remuifootersetting);
 			String Expectedvalue = fsmlp.selectedsocialicon.getAttribute("value");
-			System.out.println(Expectedvalue);
 			softAssert.assertEquals(actualvalue, Expectedvalue,
 					"The selected widget type from customizer and theme setting didnt matched ");
 
@@ -160,9 +139,6 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 
 			String titlefromfooter = fsmlp.titlefromfooter.getAttribute("innerHTML");
 			softAssert.assertEquals(title, titlefromfooter, "the title from footer and customizer didnt matched");
-
-//			String text=fsmlp.contentfromfooter.getAttribute("innerHTML");
-//			System.out.println("text "+text );
 
 			String linkfromfooter = fsmlp.socialicon1stfromfooter.getAttribute("href");
 			softAssert.assertEquals(URL, linkfromfooter,
@@ -187,7 +163,6 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 			Thread.sleep(2000);
 			driver.get(remuifootersetting);
 			String Expectedvalue = fsmlp.selectedsocialicon.getAttribute("value");
-			System.out.println(Expectedvalue);
 			softAssert.assertEquals(actualvalue, Expectedvalue,
 					"The selected widget type from customizer and theme setting didnt matched ");
 
@@ -201,9 +176,6 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 
 			String titlefromfooter = fsmlp.titlefromfooter.getAttribute("innerHTML");
 			softAssert.assertEquals(title, titlefromfooter, "the title from footer and customizer didnt matched");
-
-//			String text=fsmlp.contentfromfooter.getAttribute("innerHTML");
-//			System.out.println("text "+text );
 
 			String linkfromfooter = fsmlp.socialicon1stfromfooter.getAttribute("href");
 			softAssert.assertEquals(URL, linkfromfooter,

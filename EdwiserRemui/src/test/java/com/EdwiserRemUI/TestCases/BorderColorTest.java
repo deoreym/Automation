@@ -15,6 +15,7 @@ public class BorderColorTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
+		System.out.println("In Border Color Test Class : BorderColorTest");
 		bcp = new BrandColorPage(driver);
 		bcp1 = new BorderColorPage(driver);
 	}
@@ -35,7 +36,6 @@ public class BorderColorTest extends BaseClass {
 		Thread.sleep(2000);
 		driver.get(coursearchive);
 		String Expected = ColorConversion.Color(bcp1.lightborderelement.getCssValue("border-top-color"));
-		System.out.println(Expected);
 		Assert.assertEquals(lightbordercolor, Expected,
 				"The selected light border color is not getting applied on the element");
 	}
@@ -56,7 +56,6 @@ public class BorderColorTest extends BaseClass {
 		Thread.sleep(2000);
 		driver.get(coursearchive);
 		String Expected = ColorConversion.Color(bcp1.mediumborderelement.getCssValue("border-bottom-color"));
-		System.out.println(Expected);
 		Assert.assertEquals(mediumbordercolor, Expected,
 				"The selected medium border color is not getting applied on the element");
 	}

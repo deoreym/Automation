@@ -26,11 +26,11 @@ public class SettingsPage extends BasePage {
 	@FindBy(xpath = "//button[text()='Save changes']")
 	public WebElement savebutton;
 
-	@FindBy(xpath = "//div[@class='alert alert-success site-announcement mb-0 show-more']")
+	@FindBy(xpath = "//div[contains(@class,'site-announcement')]")
 	public List<WebElement> alert;
 
-	@FindBy(xpath = "//input[@id='id_s_theme_remui_enableannouncement']")
-	public WebElement enablesiteannouncement;
+	@FindBy(xpath = "//label[@for='id_s_theme_remui_enableannouncement']")
+	public WebElement SiteAnnouncementLabel;
 
 	@FindBy(id = "id_s_theme_remui_enabledismissannouncement")
 	public WebElement dismisschbk;

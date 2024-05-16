@@ -35,9 +35,6 @@ public class ColorConversion {
 			int green = rgbaValues[1];
 			int blue = rgbaValues[2];
 
-//			System.out.println("Red: " + red);
-//			System.out.println("Green: " + green);
-//			System.out.println("Blue: " + blue);
 			Hex = rgbToHex(red, green, blue);
 		} else {
 			System.out.println("Invalid RGBA string format.");

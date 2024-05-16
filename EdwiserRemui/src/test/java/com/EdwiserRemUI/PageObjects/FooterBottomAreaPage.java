@@ -74,9 +74,16 @@ public class FooterBottomAreaPage extends BasePage {
 	@FindBy(xpath = "//div[@id='fitem_id_poweredbyedwiser']//div[@data-fieldtype='checkbox']")		//toggle
 	public WebElement poweredByEdwiserToggle;
 	
+	@FindBy(xpath="//a[contains(@class,'footer-privacy-policy')]")
+	public WebElement f_privacypolicy;
+	
+	@FindBy(xpath="//a[contains(@class,'footer-terms-and-conditions')]")
+	public WebElement f_TnC;
+
+	
 	//Home Page
 	
-	@FindBy(xpath = "//*[@class='navbar-brand-logo iconsitename']/i")
+	@FindBy(xpath = "//div[contains(@class,'secondary-footer-logo')]//*[contains(@class,'navbar-brand-logo')]/i")
 	public WebElement sameFooterIconAsHeader;
 	
 	@FindBy(xpath = "//div[@class='footer-diff-logo ']//a//img")
@@ -88,7 +95,10 @@ public class FooterBottomAreaPage extends BasePage {
 	@FindBy(xpath = "//a[normalize-space()='Terms & Conditions']")
 	public WebElement TermsandConditons;
 	
-	@FindBy(xpath = "//div[contains(@class,'copyright-content secondary-footer-copyright')]//p")
+	@FindBy(xpath = "//div[contains(@class,'copyright-content')]")
+	public WebElement CopyrightDiv;
+	
+	@FindBy(xpath = "//div[contains(@class,'copyright-content')]//p")
 	public WebElement Copyright;
 	
 	@FindBy(xpath = "//button[@aria-label='Show footer']")

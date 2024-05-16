@@ -14,6 +14,7 @@ public class ActivationDeactivationTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
+		System.out.println("In Activation Deactivation Test Class - ActivationDeactivationTest");
 		adp = new ActivationDeactivationPage(driver);
 	}
 

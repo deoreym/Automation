@@ -56,10 +56,9 @@ public class DashBoardPage extends BaseClass {
 
 	@FindBy(xpath = "(//span[contains(@class,'dashboard-stats-activitiesdue')])[1]")
 	public WebElement activitiesdue;
-	
+
 	@FindBy(xpath = "//a[@aria-controls='usercourses']")
 	public WebElement CoursesTab;
-	
 
 	@FindBy(xpath = "//div[contains(@class,'edw-course-list-container')]//div[contains(@class,'edw-course-list')]")
 	public List<WebElement> coursesfromprofilepage;
@@ -72,24 +71,8 @@ public class DashBoardPage extends BaseClass {
 
 	// Actions
 
-//	public boolean dashboardstatsstatus() {
-//		String present = dashboardstatschbk.getAttribute("checked");
-//		// System.out.println("present "+present);
-//		boolean status = Boolean.parseBoolean(present);
-//		// System.out.println("present "+status);
-//		return status;
-//	}
-
-//	public String coursecountfrompp() {
-//		int count = coursesfromprofilepage.size();
-//		String coursecount = String.valueOf(count);
-//		// System.out.println("coursecount "+coursecount);
-//		return coursecount;
-//
-//	}
-
 	public String CompletedActivities() {
-		String Totalactcount = null;
+		String Totalactcount = "";
 		int sum = 0;
 		for (WebElement ele : actcompletedfrompp) {
 			String innerHTML = ele.getAttribute("title");
@@ -102,25 +85,6 @@ public class DashBoardPage extends BaseClass {
 		return Totalactcount;
 	}
 
-
-//	public String additionofactivitiescompleted() {
-//		int sum = 0;
-//		String Totalactcount;
-//		for (int i = 0; i < actcompletedfrompp.size(); i++) {
-//			WebElement ele = actcompletedfrompp.get(i);
-//			String innerHTML = ele.getAttribute("title");
-//			String[] splited = innerHTML.split(" ");
-//			// System.out.println(splited[0]);
-//			String actual = (splited[0]);
-//			int a = Integer.parseInt(actual);
-//			sum = a + sum;
-//		}
-//		// System.out.println("sum "+sum);
-//		Totalactcount = Integer.toString(sum);
-//		System.out.println("Totalactcount  " + Totalactcount);
-//		return Totalactcount;
-//	}
-	
 	public String TotalActivities() {
 		String Totalactcount = null;
 		int sum = 0;
@@ -134,52 +98,15 @@ public class DashBoardPage extends BaseClass {
 		Totalactcount = Integer.toString(sum);
 		return Totalactcount;
 	}
-//	public String totalfactivitiescount() {
-//		int sum = 0;
-//		String Totalactcount;
-//		for (int i = 0; i < actcompletedfrompp.size(); i++) {
-//			WebElement ele = actcompletedfrompp.get(i);
-//			String innerHTML = ele.getAttribute("title");
-//			String[] splited = innerHTML.split(" ");
-//			// System.out.println(splited[0]);
-//			String actual = (splited[3]);
-//			int a = Integer.parseInt(actual);
-//			sum = a + sum;
-//		}
-//		// System.out.println("sum "+sum);
-//		Totalactcount = Integer.toString(sum);
-//		System.out.println("Totalactcount  " + Totalactcount);
-//		return Totalactcount;
-//	}
 
 	public int Completed_Course_Count() {
 		int cnt = 0;
 		for (WebElement pgr : coursecompletedperct) {
-			if(pgr.getText().equals("100")) {
+			if (pgr.getText().equals("100")) {
 				cnt++;
 			}
 		}
 		return cnt;
 	}
-
-	public int coursecompletedcount() {
-		int counter = 0;
-		String innerHTML;
-		int percent = 100;
-		for (int i = 0; i < coursecompletedperct.size(); i++) {
-			WebElement ele = coursecompletedperct.get(i);
-			innerHTML = ele.getText();
-			int perc = Integer.parseInt(innerHTML);
-			System.out.println(innerHTML);
-			if (perc == percent) {
-				counter = counter + 1;
-				System.out.println("test");
-			}
-
-		}
-		System.out.println("counter " + counter);
-		return counter;
-	}
-
 
 }

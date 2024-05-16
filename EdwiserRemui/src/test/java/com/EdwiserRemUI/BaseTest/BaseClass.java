@@ -96,7 +96,7 @@ public class BaseClass {
 
 		options.addArguments("--disable-dev-shm-usage");
 
-		// options.addArguments("--headless");
+		options.addArguments("--headless");
 
 		options.addArguments("window-size=1400,900");
 

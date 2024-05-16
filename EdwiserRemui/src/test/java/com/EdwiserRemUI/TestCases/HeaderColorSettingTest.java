@@ -21,7 +21,7 @@ public class HeaderColorSettingTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
-
+		System.out.println("In Header Color Settings Test Class : HeaderColorSettingTest");
 		bcp = new BrandColorPage(driver);
 
 		hcsp = new HeaderColorSettingPage(driver);
@@ -227,11 +227,9 @@ public class HeaderColorSettingTest extends BaseClass {
 		hcsp.headercolormenu.click();
 		String present = hcsp.bgcolorcheckbox.getAttribute("checked");
 		boolean status = Boolean.parseBoolean(present);
-		System.out.println(status);
 		if (status == true) {
 			driver.get(dashboard);
 			String Expected = ColorConversion.Color(hcsp.navsubbarelement.getCssValue("background-color"));
-			System.out.println(Expected);
 			Assert.assertEquals(logobgcolor, Expected,
 					"The selected logo bg color is not getting applied on the nav sub bar of header");
 
@@ -241,7 +239,6 @@ public class HeaderColorSettingTest extends BaseClass {
 			Thread.sleep(2000);
 			driver.get(dashboard);
 			String Expected = ColorConversion.Color(hcsp.navsubbarelement.getCssValue("background-color"));
-			System.out.println(Expected);
 			Assert.assertEquals(logobgcolor, Expected,
 					"The selected logo bg color is not getting applied on the nav sub bar of header");
 
@@ -263,15 +260,13 @@ public class HeaderColorSettingTest extends BaseClass {
 		String menuitemactivecolor = "#2C3E50";
 		String elementbgcolor = "#C3F7FF";
 		String elementdividercolor = "#34495E";
-		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
+
 		driver.get(customizer);
 		Thread.sleep(1500);
 		hcsp.headermenu.click();
 		hcsp.headerdesignsettingmenu.click();
 		hcsp.headercolormenu.click();
-//		String present = hcsp.bgcolorcheckbox.getAttribute("checked");
-//		boolean status = Boolean.parseBoolean(present);
-//		System.out.println(status);
+
 		if (hcsp.bgcolorcheckbox.isSelected()) {
 			hcsp.enableheaderbgcoloraslogobgcolor.click();
 		}
@@ -319,31 +314,21 @@ public class HeaderColorSettingTest extends BaseClass {
 				ColorConversion.Color(hcsp.navsubbarelement.getCssValue("background-color")),
 				"The selected Header Background color is not getting applied to header");
 
-		String Expectedmenuitemcolor = ColorConversion.Color(hcsp.headermenuelement.getCssValue("color"));
-		System.out.println(Expectedmenuitemcolor);
-
 		softAssert.assertEquals(menuitemcolor, ColorConversion.Color(hcsp.headermenuelement.getCssValue("color")),
 				"The  selected menu item color is not getting applied on the header");
 
 		Actions act = new Actions(driver);
 		act.moveToElement(hcsp.headermenuelement).build().perform();
 		Thread.sleep(2000);
-		String Expectedmenuitemhovercolor = ColorConversion.Color(hcsp.headermenuelement.getCssValue("color"));
-		System.out.println(Expectedmenuitemhovercolor);
+
 		softAssert.assertEquals(menuitemhovercolor, ColorConversion.Color(hcsp.headermenuelement.getCssValue("color")),
 				"The selected menu item hover  color is not getting applied on the header");
 
 		hcsp.dashboardmenuelement.click();
-		String Expectedmenuitemactivecolor = ColorConversion.Color(hcsp.dashboardmenuelement.getCssValue("color"));
-		System.out.println(Expectedmenuitemactivecolor);
+
 		softAssert.assertEquals(menuitemactivecolor,
 				ColorConversion.Color(hcsp.dashboardmenuelement.getCssValue("color")),
 				"The selected menu item active color is not getting applied on the header");
-
-		// Get Enable Editor mode Switch Background color
-//		String script = "return window.getComputedStyle(arguments[0], ':before').getPropertyValue('background-color');";
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        String E_BG_C = ColorConversion.convertRGBtoRGBA((String) js.executeScript(script, hcsp.EditModeSwitch));
 
 		softAssert.assertEquals(elementbgcolor,
 				ColorConversion.Color(hcsp.CategoryMenu.getCssValue("background-color")),
@@ -433,9 +418,6 @@ public class HeaderColorSettingTest extends BaseClass {
 		String Box_shadow_size = "0.7";
 		String Box_shadow_blur = "1.2";
 
-		driver.get(profilepage);
-		System.out.println("Box Shadow before settings: " + hcsp.SiteHeaderNav.getCssValue("box-shadow"));
-		// http://localhost/v43/theme/remui/customizer.php?url=http://localhost/v43/my/
 		driver.get(customizer);
 		Thread.sleep(1500);
 		hcsp.headermenu.click();
@@ -466,7 +448,6 @@ public class HeaderColorSettingTest extends BaseClass {
 		Thread.sleep(2000);
 		// Visit Dashboard
 		driver.get(dashboard);
-		System.out.println("Box Shadow After settings: " + hcsp.SiteHeaderNav.getCssValue("box-shadow"));
 
 		Assert.assertFalse(hcsp.SiteHeaderNav.getCssValue("box-shadow").contains("none"),
 				"Header Box Shadow is not getting Set");

@@ -14,6 +14,7 @@ public class FocusModeTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() throws InterruptedException {
+		System.out.println("In Focus Mode Test Class : FocusModeTest");
 		FM = new FocusMode(driver);
 	}
 

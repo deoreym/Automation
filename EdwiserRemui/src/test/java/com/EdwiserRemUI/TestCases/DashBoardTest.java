@@ -12,6 +12,7 @@ public class DashBoardTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
+		System.out.println("In Dashboard Stats Test Class : DashBoardTest");
 		dp = new DashBoardPage(driver);
 
 	}
@@ -56,9 +57,10 @@ public class DashBoardTest extends BaseClass {
 	@Test(priority = 3)
 	public void Verify_Course_Enrolled_Count_on_Dashboard_Stats() throws InterruptedException {
 		driver.get(dashboard);
+		Thread.sleep(1500);
 		String DP_Enrolled_Count = dp.courseenrolleddp.getText();
-		driver.get(profilepage+"#usercourses");
-		Thread.sleep(1000);
+		driver.get(profilepage + "#usercourses");
+		Thread.sleep(500);
 		String ProfilePage_Enroled = String.valueOf(dp.coursesfromprofilepage.size());
 		Assert.assertEquals(DP_Enrolled_Count, ProfilePage_Enroled,
 				"The courses enrolled count from dashboard and profile page didnt matched ");
@@ -72,8 +74,10 @@ public class DashBoardTest extends BaseClass {
 	@Test(priority = 4)
 	public void Verify_Activities_Completed_Count_on_Dashboard_Stats() throws InterruptedException {
 		driver.get(dashboard);
+		Thread.sleep(1500);
 		String DP_Activities_Completed = dp.activitiescompleted.getText();
-		driver.get(profilepage+"#usercourses");
+		driver.get(profilepage + "#usercourses");
+		Thread.sleep(500);
 		String PP_ComptedActivities = dp.CompletedActivities();
 		Assert.assertEquals(DP_Activities_Completed, PP_ComptedActivities,
 				"Completed Activities count from dashboard stats and profilepage didnt matched");
@@ -88,12 +92,10 @@ public class DashBoardTest extends BaseClass {
 	public void Verify_Completed_Course_Count_on_Dashboard_Stats() throws InterruptedException {
 
 		driver.get(dashboard);
+		Thread.sleep(1500);
 		String DP_Completed_Course = dp.coursecompleted.getText();
-		driver.get(profilepage+"#usercourses");
-//		
-//		dp.CoursesTab.click();
+		driver.get(profilepage + "#usercourses");
 		Thread.sleep(5000);
-//		System.out.println("coursecompletedcount : "+dp.coursecompletedcount());
 		String PP_ComptedCourses = Integer.toString(dp.Completed_Course_Count());
 		Assert.assertEquals(DP_Completed_Course, PP_ComptedCourses,
 				"The course completed count from dashboard stats and profile page didnt matched");
@@ -105,10 +107,11 @@ public class DashBoardTest extends BaseClass {
 	 * @throws InterruptedException
 	 */
 	@Test(priority = 6)
-	public void verifyactivitiesduecount() throws InterruptedException {
+	public void Verify_Activities_Due_Count_on_Dashboard_Stats() throws InterruptedException {
 		driver.get(dashboard);
+		Thread.sleep(2000);
 		int DP_Due_Activities = Integer.parseInt(dp.activitiesdue.getText());
-		driver.get(profilepage+"#usercourses");
+		driver.get(profilepage + "#usercourses");
 		int PP_ComptedActivities = Integer.parseInt(dp.CompletedActivities());
 		int PP_Total_Activities = Integer.parseInt(dp.TotalActivities());
 		int PP_Due_Activities = (PP_Total_Activities - PP_ComptedActivities);

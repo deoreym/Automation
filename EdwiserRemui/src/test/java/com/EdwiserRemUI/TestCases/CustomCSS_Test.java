@@ -14,6 +14,7 @@ public class CustomCSS_Test extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() throws InterruptedException {
+		System.out.println("In Customizer Custom Css Test Class : CustomizerCustomCSS");
 		CC = new CustomizerCustomCSS(driver);
 	}
 

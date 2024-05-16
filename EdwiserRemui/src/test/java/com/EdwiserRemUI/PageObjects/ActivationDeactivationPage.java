@@ -39,7 +39,6 @@ public class ActivationDeactivationPage extends BasePage {
 	
 	public String checkstatus() {
 		String statusofremui=status.getText();
-		System.out.println(statusofremui);
 		return statusofremui;
 	}
 	

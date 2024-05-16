@@ -14,7 +14,7 @@ public class CourseArchivePageTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
-
+		System.out.println("In Course Archive Page Test Class : CourseArchivePageTest");
 		CAP = new CoursesArchivePage(driver);
 
 	}

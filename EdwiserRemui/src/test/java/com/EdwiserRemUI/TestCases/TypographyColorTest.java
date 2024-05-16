@@ -18,6 +18,7 @@ public class TypographyColorTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
+		System.out.println("In Typography Color Test Class : TypographyColorTest");
 		bcp = new BrandColorPage(driver);
 		cc = new ColorConversion();
 		tcp = new TypogrphyColorPage(driver);
@@ -37,7 +38,6 @@ public class TypographyColorTest extends BaseClass {
 		Thread.sleep(2000);
 		driver.get(siteadminurl);
 		String Expected = ColorConversion.Color(tcp.linkcolorelement.getCssValue("color"));
-		System.out.println(Expected);
 		Assert.assertEquals(primarycolor, Expected, "The selected link color is not getting applied on the element");
 	}
 
@@ -58,7 +58,6 @@ public class TypographyColorTest extends BaseClass {
 		act.moveToElement(tcp.linkcolorelement).build().perform();
 		Thread.sleep(2000);
 		String Expected = ColorConversion.Color(tcp.linkcolorelement.getCssValue("color"));
-		System.out.println(Expected);
 		Assert.assertEquals(linkhovercolor, Expected,
 				"The selected link hover color is not getting applied on the element");
 	}

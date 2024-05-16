@@ -14,6 +14,7 @@ public class CustomizerTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
+		System.out.println("In Customizer Option Check Class - CustomizerTest");
 		cpp = new CustomizerPage(driver);
 	}
 
@@ -24,9 +25,7 @@ public class CustomizerTest extends BaseClass {
 		boolean status = cpp.customizerbutton.isDisplayed();
 		if (status == true) {
 			cpp.customizerbutton.click();
-			System.out.println(driver.getTitle());
 			String actual = driver.getTitle();
-			// System.out.println(actual);
 			Assert.assertTrue(actual.contains(expected),
 					"On clicking the button it is not redirecting to the expected page");
 			driver.get(dashboard);

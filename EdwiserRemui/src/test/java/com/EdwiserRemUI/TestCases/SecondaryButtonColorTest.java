@@ -20,6 +20,7 @@ public class SecondaryButtonColorTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
+		System.out.println("In  Secondary Button Color Test Class : SecondaryButtonColorTest");
 		bcp = new BrandColorPage(driver);
 		cc = new ColorConversion();
 		pbcp = new PrimaryButtonColorPage(driver);
@@ -41,7 +42,6 @@ public class SecondaryButtonColorTest extends BaseClass {
 		Thread.sleep(2000);
 		driver.get(managecoursecategory);
 		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("color"));
-		System.out.println(Expected);
 		Assert.assertEquals(Textcolor, Expected, "The selected text color is not getting applied on the element");
 	}
 
@@ -63,7 +63,6 @@ public class SecondaryButtonColorTest extends BaseClass {
 		act.moveToElement(sbcp.secondarybutton).build().perform();
 		Thread.sleep(2000);
 		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("color"));
-		System.out.println(Expected);
 		Assert.assertEquals(Texthovercolor, Expected,
 				"The selected text hover color is not getting applied on the element");
 	}
@@ -83,7 +82,6 @@ public class SecondaryButtonColorTest extends BaseClass {
 		Thread.sleep(2000);
 		driver.get(managecoursecategory);
 		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("background-color"));
-		System.out.println(Expected);
 		Assert.assertEquals(backgroundcolor, Expected,
 				"The selected background color is not getting applied on the element");
 	}
@@ -107,7 +105,6 @@ public class SecondaryButtonColorTest extends BaseClass {
 		act.moveToElement(sbcp.secondarybutton).build().perform();
 		Thread.sleep(2000);
 		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("background-color"));
-		System.out.println(Expected);
 		Assert.assertEquals(backgroundhovercolor, Expected,
 				"The selected background hover color is not getting applied on the element");
 	}
@@ -127,7 +124,6 @@ public class SecondaryButtonColorTest extends BaseClass {
 		Thread.sleep(2000);
 		driver.get(managecoursecategory);
 		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("border-top-color"));
-		System.out.println(Expected);
 		Assert.assertEquals(bordercolor, Expected, "The selected border color is not getting applied on the element");
 	}
 
@@ -150,7 +146,6 @@ public class SecondaryButtonColorTest extends BaseClass {
 		act.moveToElement(sbcp.secondarybutton).build().perform();
 		Thread.sleep(2000);
 		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("border-top-color"));
-		System.out.println(Expected);
 		Assert.assertEquals(borderhovercolor, Expected,
 				"The selected border hover color is not getting applied on the element");
 	}

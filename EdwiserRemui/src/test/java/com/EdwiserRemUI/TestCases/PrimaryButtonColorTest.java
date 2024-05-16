@@ -18,7 +18,7 @@ public class PrimaryButtonColorTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
-
+		System.out.println("In Primary Button Color Test Class : PrimaryButtonColorTest");
 		bcp = new BrandColorPage(driver);
 		cc = new ColorConversion();
 		pbcp = new PrimaryButtonColorPage(driver);
@@ -39,7 +39,6 @@ public class PrimaryButtonColorTest extends BaseClass {
 		Thread.sleep(2000);
 		driver.get(remuisetting);
 		String Expected = ColorConversion.Color(pbcp.primarybutton.getCssValue("color"));
-		System.out.println(Expected);
 		Assert.assertEquals(Textcolor, Expected, "The selected link hover color is not getting applied on the element");
 	}
 
@@ -61,7 +60,6 @@ public class PrimaryButtonColorTest extends BaseClass {
 		act.moveToElement(pbcp.primarybutton).build().perform();
 		Thread.sleep(2000);
 		String Expected = ColorConversion.Color(pbcp.primarybutton.getCssValue("color"));
-		System.out.println(Expected);
 		Assert.assertEquals(Texthovercolor, Expected,
 				"The selected link hover color is not getting applied on the element");
 	}
@@ -81,7 +79,6 @@ public class PrimaryButtonColorTest extends BaseClass {
 		Thread.sleep(2000);
 		driver.get(remuisetting);
 		String Expected = ColorConversion.Color(pbcp.primaryiconelement.getCssValue("color"));
-		System.out.println(Expected);
 		Assert.assertEquals(iconcolor, Expected, "The selected icon color is not getting applied on the element");
 	}
 
@@ -103,7 +100,6 @@ public class PrimaryButtonColorTest extends BaseClass {
 		act.moveToElement(pbcp.primaryiconelement).build().perform();
 		Thread.sleep(2000);
 		String Expected = ColorConversion.Color(pbcp.primaryiconelement.getCssValue("color"));
-		System.out.println(Expected);
 		Assert.assertEquals(iconhovercolor, Expected,
 				"The selected icon hover color is not getting applied on the element");
 	}
@@ -123,7 +119,6 @@ public class PrimaryButtonColorTest extends BaseClass {
 		Thread.sleep(2000);
 		driver.get(remuisetting);
 		String Expected = ColorConversion.Color(pbcp.primarybutton.getCssValue("background-color"));
-		System.out.println(Expected);
 		Assert.assertEquals(backgroundcolor, Expected,
 				"The selected background color is not getting applied on the element");
 	}
@@ -147,7 +142,6 @@ public class PrimaryButtonColorTest extends BaseClass {
 		act.moveToElement(pbcp.primarybutton).build().perform();
 		Thread.sleep(2000);
 		String Expected = ColorConversion.Color(pbcp.primarybutton.getCssValue("background-color"));
-		System.out.println(Expected);
 		Assert.assertEquals(backgroundhovercolor, Expected,
 				"The selected background hover color is not getting applied on the element");
 	}
@@ -167,7 +161,6 @@ public class PrimaryButtonColorTest extends BaseClass {
 		Thread.sleep(2000);
 		driver.get(remuisetting);
 		String Expected = ColorConversion.Color(pbcp.primarybutton.getCssValue("border-top-color"));
-		System.out.println(Expected);
 		Assert.assertEquals(bordercolor, Expected, "The selected border color is not getting applied on the element");
 	}
 
@@ -190,7 +183,6 @@ public class PrimaryButtonColorTest extends BaseClass {
 		act.moveToElement(pbcp.primarybutton).build().perform();
 		Thread.sleep(2000);
 		String Expected = ColorConversion.Color(pbcp.primarybutton.getCssValue("border-top-color"));
-		System.out.println(Expected);
 		Assert.assertEquals(borderhovercolor, Expected,
 				"The selected border hover color is not getting applied on the element");
 	}

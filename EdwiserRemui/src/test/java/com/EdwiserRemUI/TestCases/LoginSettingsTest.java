@@ -23,7 +23,7 @@ public class LoginSettingsTest extends BaseClass {
 	@Parameters({ "username", "password" })
 	@BeforeClass
 	public void Before_class(String username, String password) {
-
+		System.out.println("In Login Settings Test Class : LoginSettingsTest");
 		lsp = new LoginSettingsPage(driver);
 		User = username;
 		Pass = password;

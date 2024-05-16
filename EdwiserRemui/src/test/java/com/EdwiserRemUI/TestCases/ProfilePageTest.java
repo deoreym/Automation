@@ -25,6 +25,7 @@ public class ProfilePageTest extends BaseClass {
 	@Parameters({ "siteURL", "username", "password" })
 	@BeforeClass
 	public void Before_class(String siteURL, String username, String password) throws InterruptedException {
+		System.out.println("In Profile Page Test Class : ProfilePageTest");
 		sp = new SettingsPage(driver);
 		dp = new DashBoardPage(driver);
 		hsp = new HeaderHideShowMenuPage(driver);
@@ -41,7 +42,6 @@ public class ProfilePageTest extends BaseClass {
 		Thread.sleep(2000);
 		String present = pp.blogchbk.getAttribute("Checked");
 		boolean status = Boolean.parseBoolean(present);
-		System.out.println(status);
 		if (status == true) {
 			driver.get(profilepage);
 			softAssert.assertTrue(pp.blogentriesonpp.size() == 1,
@@ -78,7 +78,6 @@ public class ProfilePageTest extends BaseClass {
 		Thread.sleep(2000);
 		String present = pp.blogchbk.getAttribute("Checked");
 		boolean status = Boolean.parseBoolean(present);
-		System.out.println(status);
 		if (status == true) {
 			pp.lablelblog.click();
 			sp.savebutton.click();
@@ -104,7 +103,6 @@ public class ProfilePageTest extends BaseClass {
 		Thread.sleep(2000);
 		String present = pp.badgechbk.getAttribute("Checked");
 		boolean status = Boolean.parseBoolean(present);
-		System.out.println(status);
 		if (status == true) {
 			driver.get(profilepage);
 			softAssert.assertTrue(pp.badgeentriesonpp.size() == 1,
@@ -138,7 +136,6 @@ public class ProfilePageTest extends BaseClass {
 		Thread.sleep(2000);
 		String present = pp.badgechbk.getAttribute("Checked");
 		boolean status = Boolean.parseBoolean(present);
-		System.out.println(status);
 		if (status == true) {
 			pp.lablelbadge.click();
 			sp.savebutton.click();
@@ -159,7 +156,6 @@ public class ProfilePageTest extends BaseClass {
 	public void verifydiscussioncount() throws InterruptedException {
 		driver.get(profilepage);
 		String actual = pp.discussioncount.getText();
-		System.out.println(actual);
 		driver.get(forumpage);
 		int count = pp.discussionsize.size();
 		String expected = Integer.toString(count);
@@ -167,15 +163,6 @@ public class ProfilePageTest extends BaseClass {
 
 	}
 
-//	@Test(priority=6)
-//	public void verifycontactcount() throws InterruptedException {
-//		driver.get(profilepage);
-//		String actual=pp.contactcount.getAttribute("innerHTML");
-//		pp.contactlink.click();
-//		Thread.sleep(10000);
-//		String expected=pp.countactcountonmsgpanel.getAttribute("innerHTML");
-//		Assert.assertEquals(actual, expected,"contact count didnt matched");
-//	}
 	@Test(priority = 6)
 	public void Edit_Profile_Fileds() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();

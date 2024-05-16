@@ -13,6 +13,7 @@ public class HideShowHeaderMenuTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
+		System.out.println("In Hide Show Header Menu Test Class : HideShowHeaderMenuTest");
 		hsp = new HeaderHideShowMenuPage(driver);
 	}
 
@@ -65,7 +66,7 @@ public class HideShowHeaderMenuTest extends BaseClass {
 				"Recent Courses menu is still visible even when hidden from customizer setting ");
 		softAssert.assertEquals(hsp.Categories_Menu.getCssValue("display"), "none",
 				"Categories DropDown menu is still visible even when hidden from customizer setting ");
-		
+
 		softAssert.assertAll();
 	}
 

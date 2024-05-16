@@ -18,7 +18,7 @@ public class BackgroundColorSettingPage extends BasePage {
 	public WebElement elementbgcolor;
 	
 		
-	@FindBy(xpath="//th[@class='header text-xs-center']")
+	@FindBy(xpath="//span[contains(@class,'categoryname')]")
 	public WebElement elementbgelement;
 	
 	@FindBy(xpath="//div[@id='fitem_id_global-colors-ascentbackgroundcolor']//div[@class='sp-preview-inner']")
@@ -30,7 +30,7 @@ public class BackgroundColorSettingPage extends BasePage {
 	@FindBy(xpath="//div[@class='dropdown-menu open show']//ul//li[2]//a")
 	public WebElement tags;
 	
-	@FindBy(xpath="//li[@class='list-inline-item badge badge-primary py-1 px-2'][1]")
+	@FindBy(xpath="//*[contains(@class,'tag_list')]/li")
 	public WebElement ascentbgelement;
 	
 	@FindBy(xpath="//select[@id='id_global-colors-pagebackground']//option[text()='Color']")
@@ -44,4 +44,7 @@ public class BackgroundColorSettingPage extends BasePage {
 
 	@FindBy(id="page")
 	public WebElement pagebgcolorelement;
+	
+	@FindBy(xpath = "//div[@class='sp-container sp-light sp-palette-buttons-disabled sp-initial-disabled border-secondary']//button[@type='button'][normalize-space()='Choose']")
+	public WebElement chooseButton;
 }

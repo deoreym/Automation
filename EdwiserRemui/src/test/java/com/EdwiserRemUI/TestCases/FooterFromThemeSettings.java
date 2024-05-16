@@ -14,6 +14,7 @@ public class FooterFromThemeSettings extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
+		System.out.println("In Footer From Theme Settings Test Class - FooterFromThemeSettings");
 		FSP = new FooterSettingsPage(driver);
 	}
 
@@ -37,7 +38,7 @@ public class FooterFromThemeSettings extends BaseClass {
 		FSP.DropDown(FSP.footerColumn_1_Type).selectByValue("customhtml");
 		FSP.footerColumn_1_Title.clear();
 		FSP.footerColumn_1_Title.sendKeys("Footer Column 01");
-		
+
 		FSP.FooterColumn_1_Div.clear();
 		FSP.FooterColumn_1_Div.sendKeys("Content For Footer Column 01.");
 
@@ -58,7 +59,7 @@ public class FooterFromThemeSettings extends BaseClass {
 
 		FSP.FooterColumn_2_Div.clear();
 		FSP.FooterColumn_2_Div.sendKeys("Content For Footer Column 02.");
-		
+
 //		// Switch to the iframe
 //		driver.switchTo().frame(FSP.FooterColumn_2_iFrame);
 //		Thread.sleep(1000);
@@ -117,7 +118,6 @@ public class FooterFromThemeSettings extends BaseClass {
 		softAssert.assertEquals(FSP.FC_4_Title.getText(), "Footer Column 04 with Menu",
 				"Footer fourth column title is not getting changed");
 		// Check Footer Column Content
-		System.out.println("FC_1_Content_D: " + FSP.FC_1_Content_D.getText());
 		softAssert.assertEquals(FSP.FC_1_Content.getText(), "Content For Footer Column 01.",
 				"Footer first column content is not getting changed");
 		softAssert.assertEquals(FSP.FC_2_Content.getText(), "Content For Footer Column 02.",
@@ -196,7 +196,8 @@ public class FooterFromThemeSettings extends BaseClass {
 		}
 		driver.get(profilepage);
 
-		softAssert.assertTrue(FSP.F_Bottom_Left_Text_size.size()==0, "Footer Bottom Left Text is not getting removed");
+		softAssert.assertTrue(FSP.F_Bottom_Left_Text_size.size() == 0,
+				"Footer Bottom Left Text is not getting removed");
 		softAssert.assertTrue(FSP.Copyrights_Content.getAttribute("class").contains("d-none"),
 				"Footer Bottom CopyRight Content is Visible when disabled ");
 		softAssert.assertTrue(FSP.Footer_Logo_img.getAttribute("class").contains("d-none"),

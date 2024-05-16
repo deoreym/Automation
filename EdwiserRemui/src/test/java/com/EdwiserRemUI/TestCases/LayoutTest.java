@@ -12,6 +12,7 @@ public class LayoutTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
+		System.out.println("In Layout Test Class : LayoutTest");
 		sp = new SettingsPage(driver);
 	}
 

@@ -1,8 +1,5 @@
 package com.EdwiserRemUI.TestCases;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -18,7 +15,9 @@ public class DarkModeTests extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() throws InterruptedException {
+		System.out.println("In Dark Mode Test Class : DarkModeTests");
 		DM = new DarkMode(driver);
+
 	}
 
 	/**
@@ -31,6 +30,7 @@ public class DarkModeTests extends BaseClass {
 		SoftAssert softAssert = new SoftAssert();
 
 		driver.get(remuisetting);
+		Thread.sleep(1500);
 		DM.DarkModeSetting("includepages");
 
 		DM.IncludePagesTestArea.clear();
@@ -99,6 +99,7 @@ public class DarkModeTests extends BaseClass {
 		SoftAssert softAssert = new SoftAssert();
 
 		driver.get(remuisetting);
+		Thread.sleep(1500);
 		DM.DarkModeSetting("excludepages");
 
 		DM.ExcludePagesTestArea.clear();
@@ -168,6 +169,7 @@ public class DarkModeTests extends BaseClass {
 	@Test(priority = 3)
 	public void Disable_Dark_Mode_From_Settings() throws InterruptedException {
 		driver.get(remuisetting);
+		Thread.sleep(1500);
 		DM.DarkModeSetting("disable");
 		DM.savechanges.click();
 		Thread.sleep(1000);
@@ -196,6 +198,7 @@ public class DarkModeTests extends BaseClass {
 
 		SoftAssert softAssert = new SoftAssert();
 		driver.get(remuisetting);
+		Thread.sleep(1500);
 		DM.DarkModeSetting("allowonallpages");
 		DM.savechanges.click();
 		Thread.sleep(1000);
@@ -291,64 +294,6 @@ public class DarkModeTests extends BaseClass {
 		// Login to Admin
 		studentLogin(username, password);
 
-	}
-
-	/**
-	 * Code For Testing Not Used
-	 * 
-	 * @throws InterruptedException
-	 */
-//	@Test(priority = 1)
-	public void TestUserListQuickMenu() throws InterruptedException {
-		driver.get(dashboard);
-		// Find the target element
-		WebElement Dark = driver.findElement(By.xpath("//span[contains(@class,'darkmodeicon')]"));
-		WebElement Light = driver.findElement(By.xpath("//span[contains(@class,'lightmodeicon')]"));
-
-		// Check if Dark mode Icons is shown
-		System.out.println("Dark Mode Present : " + CheckElementBefore(Dark));
-
-		// Check Light mode Icons is not shown
-		System.out.println("Light Mode Present : " + CheckElementBefore(Light));
-
-		Dark.click();
-		Thread.sleep(10000);
-
-		// Check if Dark mode Icons is not shown
-		System.out.println(" After Click Dark Mode Present : " + CheckElementBefore(Dark));
-
-		// Check Light mode Icons is shown
-		System.out.println("After Click Light Mode Present : " + CheckElementBefore(Light));
-
-		Light.click();
-		Thread.sleep(10000);
-
-		// Check if Dark mode Icons is shown
-		System.out.println("2 Dark Mode Present : " + CheckElementBefore(Dark));
-
-		// Check Light mode Icons is not shown
-		System.out.println("2 Light Mode Present : " + CheckElementBefore(Light));
-
-	}
-
-	public boolean CheckElementBefore(WebElement element) throws InterruptedException {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		try {
-			String beforeContent = (String) js.executeScript(
-					"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('content');", element);
-
-			// Check if the ::before pseudo-element has content
-			if (beforeContent != null && !beforeContent.trim().isEmpty() && !"none".equals(beforeContent)) {
-				System.out.println("The element contains a ::before pseudo-element with content: " + beforeContent);
-				return true;
-			} else {
-				System.out.println("The element does not contain a ::before pseudo-element or its content is empty.");
-			}
-		} catch (Exception e) {
-			System.out.println("In Catch");
-			return false;
-		}
-		return false;
 	}
 
 }

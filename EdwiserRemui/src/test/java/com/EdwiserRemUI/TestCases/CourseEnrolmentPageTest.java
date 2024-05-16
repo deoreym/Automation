@@ -17,10 +17,9 @@ public class CourseEnrolmentPageTest extends BaseClass {
 	@Parameters({ "siteURL", "username", "password" })
 	@BeforeClass
 	public void Before_class(String siteURL, String username, String password) throws InterruptedException {
+		System.out.println("In Course Enrolment Page Test Class : CourseEnrolmentPageTest");
 		CP = new CoursePage(driver);
 		EP = new EnrollmentPage(driver);
-//		adminbackendlogout();
-//		studentLogin(siteURL, username, password);
 	}
 
 	/**
@@ -66,13 +65,14 @@ public class CourseEnrolmentPageTest extends BaseClass {
 		driver.get(EnrolmentTestCourse);
 		Thread.sleep(500);
 		String Enrolled_Students = CP.EnrolledStudents.getText();
-		System.out.println("CP Enrolled_Students : " + Enrolled_Students);
 		String Course_Category = CP.CourseCategory.getText();
 		CP.CourseSettings.click();
 		Thread.sleep(1000);
 
-		String Overview_Text = CP.Course_Summary.getText();
-		System.out.println("CP Overview" + Overview_Text);
+		String Overview_Text = "The human body is a complex, highly organized structure made up of unique cells that work together to accomplish the specific functions necessary for sustaining life.";
+
+		CP.Course_Summary.clear();
+		CP.Course_Summary.sendKeys(Overview_Text);
 
 		Select dropdownDay = new Select(CP.StartDate_Day);
 		// Get the selected option
@@ -89,12 +89,12 @@ public class CourseEnrolmentPageTest extends BaseClass {
 		String StartDate = Day + " " + Month + " " + Year;
 		System.out.println("CP : StartDate : " + StartDate);
 
+		CP.Save_and_Display.click();
 		driver.get(CourseEnrolmentPage);
 		Thread.sleep(500);
 
 		sf.assertTrue(EP.Course_Overview.getText().contains(Overview_Text),
 				"Course Overview Text not Available OR Not Matching");
-		System.out.println("EP Enrolled_Students : " + EP.StudentsCount.getText());
 		sf.assertEquals(EP.StudentsCount.getText(), Enrolled_Students,
 				"Course Enrolled Students Count not Matching on Enrolment Page");
 		sf.assertEquals(EP.Category.getText(), Course_Category, "Course Category not Matching on Enrolment Page");

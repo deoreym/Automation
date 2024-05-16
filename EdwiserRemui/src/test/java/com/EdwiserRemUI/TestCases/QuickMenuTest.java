@@ -15,6 +15,7 @@ public class QuickMenuTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() throws InterruptedException {
+		System.out.println("In Quick Menu Test Class : QuickMenuTest");
 		QM = new QuickMenu(driver);
 		sp = new SettingsPage(driver);
 		driver.get(remuisetting);
@@ -22,7 +23,6 @@ public class QuickMenuTest extends BaseClass {
 		Thread.sleep(2000);
 
 		boolean status = Boolean.parseBoolean(QM.chbk_quicklink.getAttribute("Checked"));
-		System.out.println(status);
 		if (status != true) {
 			sp.label_quicklink.click();
 			sp.savebutton.click();

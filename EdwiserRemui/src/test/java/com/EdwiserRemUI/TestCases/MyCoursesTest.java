@@ -15,9 +15,10 @@ public class MyCoursesTest extends BaseClass {
 	MyCourses MC;
 	ProfilePage pp;
 
-	@Parameters({"StudentUser", "StudentPassword" })
+	@Parameters({ "StudentUser", "StudentPassword" })
 	@BeforeClass
 	public void Before_class(String username, String password) throws InterruptedException {
+		System.out.println("In My Courses Test Class : MyCoursesTest");
 		MC = new MyCourses(driver);
 		pp = new ProfilePage(driver);
 		adminbackendlogout();
@@ -31,7 +32,7 @@ public class MyCoursesTest extends BaseClass {
 	 */
 	@Test(priority = 1)
 	public void TestTotalEnrolledCoursesCount() throws InterruptedException {
-		driver.get(profilepage+"#usercourses");
+		driver.get(profilepage + "#usercourses");
 		Thread.sleep(1500);
 		int Courses = pp.CoursesCards.size();
 		driver.get(mycourses);
@@ -55,7 +56,6 @@ public class MyCoursesTest extends BaseClass {
 		MC.ShowIcon.click();
 		MC.Courses12.click();
 		Thread.sleep(5000);
-		System.out.println(MC.CourseCards.size());
 		Assert.assertEquals(MC.CourseCards.size(), 12,
 				"Courses Count not matching as per selected filter on My Course Pages");
 	}

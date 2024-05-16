@@ -27,10 +27,11 @@ public class Customizer_Reset_Test extends BaseClass {
 	String PPLink = "https://example.com.com/privacy-policy/";
 	String TCLink = "https://example.com.com/terms-and-conditions/";
 	String title = "Title 1";
-	String content = "Lorem ipsum dolor sit amet consectetur adipiscing elir";
+	String content = "Footer Column 1 Text";
 
 	@BeforeClass
 	public void Before_class() throws InterruptedException {
+		System.out.println("In Customizer Reset Test Class : Customizer_Reset_Test");
 		CC = new CustomizerCustomCSS(driver);
 		fsmlp = new FooterSocialMediaLinkPage(driver);
 		fbap = new FooterBottomAreaPage(driver);
@@ -69,7 +70,6 @@ public class Customizer_Reset_Test extends BaseClass {
 		// Check Login Description
 		lsp.loginMenu.click();
 		lsp.loginPageSettings.click();
-		System.out.println("Login Message : " + lsp.siteLoginDescription.getText());
 		softAssert.assertTrue(lsp.siteLoginDescription.getText() != null,
 				"On Simple Reset Login Description is Getting Removed");
 
@@ -219,10 +219,6 @@ public class Customizer_Reset_Test extends BaseClass {
 		driver.get(customizer);
 		bcp.globalmenu.click();
 		bcp.themecolorsmenu.click();
-		System.out.println("Primary : " + bcp.primarycolor.getCssValue("background-color"));
-		System.out.println("ascentcolor : " + bcp.ascentcolor.getCssValue("background-color"));
-		System.out.println("textcolor : " + bcp.textcolor.getCssValue("background-color"));
-		System.out.println("bordercolor : " + bcp.bordercolor.getCssValue("background-color"));
 
 		// Check Primary Color
 		softAssert.assertEquals(bcp.primarycolor.getCssValue("background-color"), "rgba(0, 81, 249, 1)",
@@ -242,12 +238,11 @@ public class Customizer_Reset_Test extends BaseClass {
 		tcp.typographymenu.click();
 		tcp.BodyTypography.click();
 
-		System.out.println("Font Family" + tcp.FontFamily().getFirstSelectedOption().getText());
+		
 		softAssert.assertEquals(tcp.FontFamily().getFirstSelectedOption().getText(), "Standard",
 				"After Reset Default Font Family Not set as Standard");
 
 		driver.get(FocusModeCoursePage);
-		System.out.println("Primary Color on selected Menu :- " + bcp.primarycolortext.getCssValue("color"));
 
 		softAssert.assertEquals(CC.primarycolortext.getCssValue("color"), "rgba(0, 81, 249, 1)",
 				"After Reset Default Primary Color not Applied to Site Primary Elements - Admin Links");
