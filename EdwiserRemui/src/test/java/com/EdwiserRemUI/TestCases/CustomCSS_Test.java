@@ -75,7 +75,7 @@ public class CustomCSS_Test extends BaseClass {
 		Thread.sleep(500);
 
 		CC.save.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 		driver.get(dashboard);
 		Thread.sleep(1000);

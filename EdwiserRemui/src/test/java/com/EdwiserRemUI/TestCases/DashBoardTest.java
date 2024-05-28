@@ -18,23 +18,22 @@ public class DashBoardTest extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void Disable_Course_Stats_From_RemUi_Settings() {
-
+	public void Disable_Course_Stats_From_RemUi_Settings() throws InterruptedException {
 		driver.get(remuisetting);
 		dp.dashboardmenu.click();
-
 		if (dp.dashboardstatschbk.isSelected()) {
 			dp.dashboardstatslabel.click();
 			dp.savechanges.click();
+			Thread.sleep(3000);
 		}
+
 		driver.get(dashboard);
 		Assert.assertTrue(dp.dashboardstatsondp.size() == 0,
 				"Dashboard stats is present on dashboard even if setting is disabled.");
-
 	}
 
 	@Test(priority = 2)
-	public void Enable_Course_Stats_From_RemUi_Settings() {
+	public void Enable_Course_Stats_From_RemUi_Settings() throws InterruptedException {
 
 		driver.get(remuisetting);
 		dp.dashboardmenu.click();

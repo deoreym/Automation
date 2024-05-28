@@ -40,7 +40,8 @@ public class BaseClass {
 	public String CourseIntroVideo = "https://www.youtube.com/embed/MIWu2FCPnIQ";
 	public String homepage = siteurl + "?redirect=0";
 	public String CopyRightText = "QA Site v44 © 2024. All rights reserved.";
-//	public String RemUISettings = siteurl + "admin/settings.php?section=themesettingremui";
+	public String coursepage2 = siteurl + "course/view.php?id=48";
+
 
 	public static WebDriver driver;
 

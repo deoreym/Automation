@@ -24,7 +24,7 @@ public class BorderColorPage extends BasePage {
 	@FindBy(xpath="//div[@id='fitem_id_themecolors-mediumbordercolor']//div[@class='sp-preview-inner']")
 	public WebElement mediumborder;
 	
-	@FindBy(xpath="//div[@aria-label='Course Archive Page Filters']")
+	@FindBy(xpath="//div[@class='filters-wrapper d-flex']")
 	public WebElement mediumborderelement;
 
 }

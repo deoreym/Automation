@@ -30,6 +30,7 @@ public class CourseEnrolmentPageTest extends BaseClass {
 	@Test(priority = 1)
 	public void Set_RemUI_CutomFields_Data() throws InterruptedException {
 		SoftAssert sf = new SoftAssert();
+		Thread.sleep(2000);
 		driver.get(EnrolmentTestCourse);
 		Thread.sleep(500);
 		CP.CourseSettings.click();
@@ -62,6 +63,7 @@ public class CourseEnrolmentPageTest extends BaseClass {
 	@Test(priority = 2)
 	public void Check_Enrolment_Page_Data() throws InterruptedException {
 		SoftAssert sf = new SoftAssert();
+		Thread.sleep(1000);
 		driver.get(EnrolmentTestCourse);
 		Thread.sleep(500);
 		String Enrolled_Students = CP.EnrolledStudents.getText();

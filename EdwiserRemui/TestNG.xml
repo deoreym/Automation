@@ -6,12 +6,14 @@
 	<parameter name="password" value="Golden0-" />
 	<parameter name="StudentUser" value="emma" />
 	<parameter name="StudentPassword" value="emma" />
+	<parameter name="StudentUser" value="automationu4" />
+	<parameter name="StudentPassword2" value="Golden0-" />
 
 
 	<test name="Edwiser Remui Automation Testing">
 		<classes>
 			<class name="com.EdwiserRemUI.BaseTest.BaseClass" />
-
+			<!-- -->
 			<class name="com.EdwiserRemUI.TestCases.ActivationDeactivationTest" />
 			<class name="com.EdwiserRemUI.TestCases.BasicSettings" />
 			<class name="com.EdwiserRemUI.TestCases.CoursePageTest" />
@@ -26,12 +28,14 @@
 			<class name="com.EdwiserRemUI.TestCases.TypographyColorTest" />
 			<class name="com.EdwiserRemUI.TestCases.FooterColorSettingTest" />
 			<class name="com.EdwiserRemUI.TestCases.DashBoardTest" />
+			<!-- Sanket-->
 			<class name="com.EdwiserRemUI.TestCases.FooterBottomAreaTest" />
-			<class name="com.EdwiserRemUI.TestCases.LoginSettingsTest" /> 
-			
-			
-		
+			<class name="com.EdwiserRemUI.TestCases.LoginSettingsTest" />
+			<class name="com.EdwiserRemUI.TestCases.RatingAndReviewTest" />
+
+
 			<!-- New -->
+
 			<class name="com.EdwiserRemUI.TestCases.QuickMenuTest" />
 			<class name="com.EdwiserRemUI.TestCases.ProfilePageTest" />
 			<class name="com.EdwiserRemUI.TestCases.CourseArchivePageTest" />
@@ -46,7 +50,8 @@
 			<class name="com.EdwiserRemUI.TestCases.MyCoursesTest" />
 
 			<!-- For Single Testing  -->
-			
+			<!--<class name="com.EdwiserRemUI.TestCases.Customizer_Reset_Test" />-->
+
 		</classes>
 	</test> <!--Test -->
 </suite> 

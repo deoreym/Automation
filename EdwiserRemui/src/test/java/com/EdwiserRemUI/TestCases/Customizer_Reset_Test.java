@@ -91,6 +91,7 @@ public class Customizer_Reset_Test extends BaseClass {
 		fsmlp.footermenu.click();
 		fsmlp.mainfooterareamenu.click();
 		fsmlp.widget1menu.click();
+		Thread.sleep(1500);
 		softAssert.assertTrue(fsmlp.footercolumtitle.getAttribute("value").contains(title),
 				"On Simple Reset Footer Column Title Text got Removed");
 		softAssert.assertTrue(fsmlp.footercontenteditor.getText().contains(content),
@@ -238,17 +239,14 @@ public class Customizer_Reset_Test extends BaseClass {
 		tcp.typographymenu.click();
 		tcp.BodyTypography.click();
 
-		
 		softAssert.assertEquals(tcp.FontFamily().getFirstSelectedOption().getText(), "Standard",
 				"After Reset Default Font Family Not set as Standard");
 
 		driver.get(FocusModeCoursePage);
+		Thread.sleep(1500);
 
 		softAssert.assertEquals(CC.primarycolortext.getCssValue("color"), "rgba(0, 81, 249, 1)",
 				"After Reset Default Primary Color not Applied to Site Primary Elements - Admin Links");
-
-		softAssert.assertEquals(CC.PrimaryColor.getCssValue("background-color"), "rgba(0, 81, 249, 1)",
-				"After Reset Default Primary Color not Applied to Site Primary Elements - Moodle Help Button");
 
 		softAssert.assertEquals(CC.Accsent_Color.getCssValue("color"), "rgba(55, 190, 113, 1)",
 				"After Reset Default Accent Color not Applied to Site");

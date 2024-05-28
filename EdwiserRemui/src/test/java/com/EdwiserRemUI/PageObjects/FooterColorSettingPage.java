@@ -62,7 +62,7 @@ public class FooterColorSettingPage extends BasePage{
 	@FindBy(xpath="//hr[@class='d-block mb-0']")
 	public WebElement dividercolorelement;
 	
-	@FindBy(xpath="(//div[@id='footer-column-2']//a)[1]")
+	@FindBy(xpath="(//footer[@id='page-footer']//div//div//a[contains(text(), 'Purge all caches')])")
 	public WebElement linkcolorelement;
 	
 	@FindBy(xpath="//div[@class='contentsocial social-links ']//a[1]//i")

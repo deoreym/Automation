@@ -83,6 +83,9 @@ public class FooterBottomAreaPage extends BasePage {
 	
 	//Home Page
 	
+	@FindBy(xpath="//a[@class='navbar-brand d-none d-md-flex align-items-center m-0 aabtn']//span//i")
+	public WebElement logoFromHeader;
+	
 	@FindBy(xpath = "//div[contains(@class,'secondary-footer-logo')]//*[contains(@class,'navbar-brand-logo')]/i")
 	public WebElement sameFooterIconAsHeader;
 	

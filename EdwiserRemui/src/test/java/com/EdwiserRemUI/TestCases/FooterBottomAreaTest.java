@@ -34,8 +34,9 @@ public class FooterBottomAreaTest extends BaseClass {
 		fbap.saveButton.click();
 		Thread.sleep(3000);
 		driver.get(siteurl);
-
-		Assert.assertTrue(fbap.sameFooterIconAsHeader.getAttribute("class").contains("fa fa-graduation-cap"),
+		String logoname=fbap.logoFromHeader.getAttribute("class");
+		System.out.println(logoname);
+		Assert.assertTrue(fbap.sameFooterIconAsHeader.getAttribute("class").contains(logoname),
 				"The Footer icon is not same as Header icon even after 'Use the same logo from header' is enabled");
 
 	}
@@ -45,7 +46,7 @@ public class FooterBottomAreaTest extends BaseClass {
 	 * 
 	 * @throws InterruptedException
 	 */
-//	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void showLogo_DifferentLogoForFooter() throws InterruptedException {
 		driver.get(customizer);
 		fbap.footerMenu.click();

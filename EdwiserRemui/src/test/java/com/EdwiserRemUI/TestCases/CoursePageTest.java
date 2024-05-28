@@ -53,8 +53,10 @@ public class CoursePageTest extends BaseClass {
 	public void verifycourseselectedcount() throws InterruptedException {
 		driver.get(remuisetting);
 		cp.coursepagemenu.click();
-
+		
 		cp.SelectOption(cp.CoursesPerPage).selectByValue("9");
+		cp.savechanges.click();
+		
 		driver.get(coursearchive);
 		Thread.sleep(2000);
 		Assert.assertEquals(String.valueOf(cp.countonap.size()), "9",

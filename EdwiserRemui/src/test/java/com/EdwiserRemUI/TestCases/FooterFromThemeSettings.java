@@ -95,7 +95,7 @@ public class FooterFromThemeSettings extends BaseClass {
 		FSP.FooterColumn_4_TextArea.clear();
 		FSP.FooterColumn_4_TextArea.sendKeys(
 				"[ { \"text\": \"ABC\", \"address\": \"http://abc.abc/\" }, { \"text\": \"XYZ\", \"address\": \"http://xyz.abc/\" } ]");
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		FSP.savebutton.click();
 		try {
 			// Check for the unexpected alert
@@ -165,6 +165,7 @@ public class FooterFromThemeSettings extends BaseClass {
 		// hide Show Logo
 		if (FSP.ShowLogo_Checkbox.isSelected()) {
 			FSP.ShowLogo_Checkbox_ele.click();
+			Thread.sleep(1000);
 		}
 
 		// Hide Show Terms & Conditions
@@ -182,7 +183,7 @@ public class FooterFromThemeSettings extends BaseClass {
 			FSP.Show_PoweredByEdwiser_ele.click();
 		}
 
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		FSP.savebutton.click();
 		try {
 			// Check for the unexpected alert
@@ -272,7 +273,7 @@ public class FooterFromThemeSettings extends BaseClass {
 			FSP.Show_PoweredByEdwiser_ele.click();
 		}
 
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		FSP.savebutton.click();
 		try {
 			// Check for the unexpected alert

@@ -89,7 +89,8 @@ public class FooterColorSettingTest extends BaseClass {
 
 		String Expectedtextcolor = ColorConversion.Color(fcsp.textcolorelement.getCssValue("color"));
 		softAssert.assertEquals(textcolor, Expectedtextcolor, "The  selected text color is not getting applied ");
-
+		
+		
 		String Expectedlinkcolor = ColorConversion.Color(fcsp.linkcolorelement.getCssValue("color"));
 		softAssert.assertEquals(linktextcolor, Expectedlinkcolor, "The  selected link color is not getting applied ");
 
