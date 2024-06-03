@@ -17,7 +17,7 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 
 	@BeforeClass
 	public void Before_class() {
-		System.out.println("In Header Color Settings Test Class : HeaderColorSettingTest");
+		System.out.println("In Footer Social Media Link Test Test Class : FooterSocialMediaLinkTest");
 		bcp = new BrandColorPage(driver);
 		fsmlp = new FooterSocialMediaLinkPage(driver);
 
