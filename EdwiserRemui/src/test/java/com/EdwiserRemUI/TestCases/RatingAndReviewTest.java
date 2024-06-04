@@ -22,14 +22,14 @@ public class RatingAndReviewTest extends BaseClass {
 	String User;
 	String Pass;
 
-	@Parameters({ "StudentUser", "StudentPassword2" })
+	@Parameters({ "StudentUser2", "StudentPassword2" })
 	@BeforeClass
-	public void Before_class(String StudentUser, String StudentPassword2) {
+	public void Before_class(String StudentUser2, String StudentPassword2) {
 
 		rrp = new RatingAndReviewPage(driver);
 		random = new Random();
 		softassert = new SoftAssert();
-		User = StudentUser;
+		User = StudentUser2;
 		Pass = StudentPassword2;
 	}
 
