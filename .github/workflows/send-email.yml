@@ -2,7 +2,7 @@ name: Send Email via SMTP
 
 on:
   workflow_run:
-    workflows: [RemUI Automation]
+    workflows: [RemUI Automation Testing]
     types: [completed]
 jobs:
   pin-artifacts:
