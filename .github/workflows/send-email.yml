@@ -1,0 +1,25 @@
+name: Send Email via SMTP
+
+on:
+  push:
+    branches:
+      - release
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "GitHub Action Notification"
+          body: "This is an email notification from your GitHub workflow!"
+          to: 'ymdeore93@gmail.com'
+          from: ${{ secrets.SMTP_USERNAME }}
+          secure: true  # Set to false for non-encrypted connections
