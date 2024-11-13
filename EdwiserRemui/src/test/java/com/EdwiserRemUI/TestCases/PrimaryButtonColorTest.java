@@ -98,7 +98,7 @@ public class PrimaryButtonColorTest extends BaseClass {
 		driver.get(remuisetting);
 		Actions act = new Actions(driver);
 		act.moveToElement(pbcp.primaryiconelement).build().perform();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		String Expected = ColorConversion.Color(pbcp.primaryiconelement.getCssValue("color"));
 		Assert.assertEquals(iconhovercolor, Expected,
 				"The selected icon hover color is not getting applied on the element");

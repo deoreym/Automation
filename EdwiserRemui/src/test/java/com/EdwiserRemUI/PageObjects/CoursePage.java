@@ -131,7 +131,7 @@ public class CoursePage extends BasePage {
 
 	// Course Summary - Take Attribute "data-initial-value" for value coparison on
 	// Overview Page
-	@FindBy(id = "id_summary_editoreditable")
+	@FindBy(id = "id_summary_editor")
 	public WebElement Course_Summary;
 
 	// Start Date - DAY
@@ -149,6 +149,10 @@ public class CoursePage extends BasePage {
 	// Enrolled Student Count
 	@FindBy(xpath = "//*[contains(@class,'stats-enrolledusers')]")
 	public WebElement EnrolledStudents;
+	
+	//Lesson count on cp
+	@FindBy(xpath="//li[@data-for='section']")
+	public List<WebElement> lessoncount;
 
 	// Save and display
 	@FindBy(id = "id_saveanddisplay")

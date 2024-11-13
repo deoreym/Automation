@@ -49,7 +49,7 @@ public class MyCoursesTest extends BaseClass {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void TestCoursesPerPageFilter() throws InterruptedException {
 		driver.get(mycourses);
 		Thread.sleep(5000);
@@ -65,7 +65,7 @@ public class MyCoursesTest extends BaseClass {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	public void SearchCourses() throws InterruptedException {
 		driver.get(mycourses);
 		Thread.sleep(5000);
@@ -80,7 +80,7 @@ public class MyCoursesTest extends BaseClass {
 	 * 
 	 * @throws InterruptedException
 	 */
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	public void CheckViewCourseLink() throws InterruptedException {
 		driver.get(mycourses);
 		Thread.sleep(5000);

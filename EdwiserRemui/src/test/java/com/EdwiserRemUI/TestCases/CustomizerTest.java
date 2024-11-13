@@ -8,7 +8,7 @@ import com.EdwiserRemUI.BaseTest.BaseClass;
 import com.EdwiserRemUI.PageObjects.CustomizerPage;
 
 public class CustomizerTest extends BaseClass {
-	String expected = "Customizer";
+	String expected = "personalizer";
 
 	CustomizerPage cpp;
 
@@ -26,6 +26,7 @@ public class CustomizerTest extends BaseClass {
 		if (status == true) {
 			cpp.customizerbutton.click();
 			String actual = driver.getTitle();
+			System.out.println(actual);
 			Assert.assertTrue(actual.contains(expected),
 					"On clicking the button it is not redirecting to the expected page");
 			driver.get(dashboard);

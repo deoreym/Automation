@@ -143,6 +143,7 @@ public class DarkModeTests extends BaseClass {
 
 		// Return to Dark Mode Enabled Page Check Dark Mode is Still Enabled
 		driver.get(profilepage);
+		Thread.sleep(2000);
 		softAssert.assertTrue(DM.DarkModeMenu.getAttribute("class").contains("enabled"),
 				"Check Dark mode is still enabled after navigating to Other Pages - Nav Menu");
 		softAssert.assertTrue(DM.HTML.getAttribute("nighteyeplgn").contains("active"),
@@ -241,8 +242,12 @@ public class DarkModeTests extends BaseClass {
 				"Dark Mode is not Getting Enabled on Click of Dark Mode Icon - DOM HTML");
 
 		driver.get(siteadminurl);
+		Thread.sleep(2000);
 		softAssert.assertTrue(DM.DarkModeMenu.getAttribute("class").contains("enabled"),
 				"Dark Mode State Not Maintained After Navigating to Other Pages - Site Admin Page");
+		// Ensure the attribute is not null before checking
+		String nightEyePlgn = DM.HTML.getAttribute("nighteyeplgn");
+		softAssert.assertNotNull(nightEyePlgn, "Dark Mode Attribute not present in - DOM HTML");
 		softAssert.assertTrue(DM.HTML.getAttribute("nighteyeplgn").contains("active"),
 				"Dark Mode is not Getting Enabled on Click of Dark Mode Icon - DOM HTML");
 

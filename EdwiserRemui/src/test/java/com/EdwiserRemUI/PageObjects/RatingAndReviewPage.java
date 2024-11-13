@@ -15,14 +15,14 @@ public class RatingAndReviewPage extends BasePage {
 	@FindBy(xpath = "//a[@role='menuitem'][normalize-space()='My courses']")
 	public WebElement myCourseTab;
 	
-	@FindBy(xpath = "//input[@id='searchinput']")
+	@FindBy(xpath = "//input[@name='q']")
 	public WebElement courseSearch;
 		
 	public WebElement testCourse(String CourseTitle) {
 		return driver.findElement(By.xpath("//a[contains(@title,'" + CourseTitle + "')]"));
 	}
 	
-	@FindBy(xpath = "//button[contains(@class,'writereviewbtn')]")
+	@FindBy(xpath = "//div[@class='card-text content block-content-area edw-block-body']//button")
 	public WebElement writeAReviewButton;
 	
 	public WebElement selectStars(int Rating) {
@@ -84,7 +84,7 @@ public class RatingAndReviewPage extends BasePage {
 	@FindBy(xpath = "//div[@class = 'avg-rating__wrapper d-flex flex-column justify-content-center align-items-center']//h2")
 	public WebElement avgRatingCountOnCoursePage;
 	
-	@FindBy(xpath = "//a[@title='Automation testing course']/../../../..//div[2]//div//div[2]//div//div//div//span")
+	@FindBy(xpath = "//a[@title='L2 Biology Test Course - 2']/../../../..//div[2]//div//div[2]//div//div//div//span")
 	public WebElement avgCourseRatingOnArchivePage;
 	
 	public WebElement avgCourseRatingOnArchivePage(String CourseTitle) {

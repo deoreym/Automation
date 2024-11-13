@@ -323,13 +323,13 @@ public class HeaderColorSettingTest extends BaseClass {
 
 		softAssert.assertEquals(menuitemhovercolor, ColorConversion.Color(hcsp.headermenuelement.getCssValue("color")),
 				"The selected menu item hover  color is not getting applied on the header");
-
-		hcsp.dashboardmenuelement.click();
-
+		
+		
+		hcsp.headermenuelement.click();
 		softAssert.assertEquals(menuitemactivecolor,
-				ColorConversion.Color(hcsp.dashboardmenuelement.getCssValue("color")),
+				ColorConversion.Color(hcsp.headermenuelement.getCssValue("color")),
 				"The selected menu item active color is not getting applied on the header");
-
+		Thread.sleep(3000);
 		softAssert.assertEquals(elementbgcolor,
 				ColorConversion.Color(hcsp.CategoryMenu.getCssValue("background-color")),
 				"The selected Element background color is not getting applied on the header");

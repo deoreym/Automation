@@ -1,5 +1,9 @@
 package com.EdwiserRemUI.TestCases;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -59,15 +63,21 @@ public class CourseEnrolmentPageTest extends BaseClass {
 	 * Check Enrolment Page Data
 	 * 
 	 * @throws InterruptedException
+	 * @throws ParseException 
 	 */
 	@Test(priority = 2)
-	public void Check_Enrolment_Page_Data() throws InterruptedException {
+	public void Check_Enrolment_Page_Data() throws InterruptedException, ParseException{
 		SoftAssert sf = new SoftAssert();
+		
 		Thread.sleep(1000);
 		driver.get(EnrolmentTestCourse);
 		Thread.sleep(500);
+		String lesson_count_str = String.valueOf(CP.lessoncount.size());
+		//System.out.println(lesson_count_str);
+
 		String Enrolled_Students = CP.EnrolledStudents.getText();
 		String Course_Category = CP.CourseCategory.getText();
+		//System.out.println("Course_Category " +Course_Category);
 		CP.CourseSettings.click();
 		Thread.sleep(1000);
 
@@ -88,22 +98,29 @@ public class CourseEnrolmentPageTest extends BaseClass {
 		// Get the selected option
 		String Year = dropdownYear.getFirstSelectedOption().getText();
 
-		String StartDate = Day + " " + Month + " " + Year;
+		String StartDate1 = Day + " " + Month + " " + Year;
+		Date StartDate = new SimpleDateFormat("dd MMMM yyyy").parse(StartDate1);
 		System.out.println("CP : StartDate : " + StartDate);
 
 		CP.Save_and_Display.click();
 		driver.get(CourseEnrolmentPage);
 		Thread.sleep(500);
-
+		
+		
 		sf.assertTrue(EP.Course_Overview.getText().contains(Overview_Text),
 				"Course Overview Text not Available OR Not Matching");
 		sf.assertEquals(EP.StudentsCount.getText(), Enrolled_Students,
-				"Course Enrolled Students Count not Matching on Enrolment Page");
-		sf.assertEquals(EP.Category.getText(), Course_Category, "Course Category not Matching on Enrolment Page");
-		sf.assertEquals(EP.LessonsCount.getText(), "4", "Course Lesson Count not Matching on Enrolment Page");
-
+			"Course Enrolled Students Count not Matching on Enrolment Page");
+		String expected =EP.Category.getText();
+		//System.out.println("course cat"+Course_Category);
+		String actual=Course_Category;
+		Thread.sleep(16000);
+		sf.assertEquals(expected,actual , "Course Category not Matching on Enrolment Page");
+		
+		sf.assertEquals(EP.LessonsCount.getText(), lesson_count_str, "Course Lesson Count not Matching on Enrolment Page");
+		Date expectedDate = new SimpleDateFormat("dd MMMM yyyy").parse(EP.Course_Start_Date.getText());
 		System.out.println("EP : StartDate : " + EP.Course_Start_Date.getText());
-//		sf.assertEquals(EP.Course_Start_Date.getText(), StartDate, "Course Start Date not Matching on Enrolment Page");
+		sf.assertEquals(expectedDate, StartDate, "Course Start Date not Matching on Enrolment Page");
 		sf.assertTrue(EP.Course_Language.getText().contains("English"),
 				"Course Language not Available OR Not Matching");
 

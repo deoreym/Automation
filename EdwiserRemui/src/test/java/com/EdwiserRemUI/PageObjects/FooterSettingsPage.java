@@ -259,11 +259,11 @@ public class FooterSettingsPage extends BasePage {
 	public WebElement F_Bottom_Left_Link;
 
 	// Footer Bottom Left Text
-	@FindBy(xpath = "//a[@class='footer-bottomtext']/div")
+	@FindBy(xpath = "//a[@class='footer-bottomtext']")
 	public WebElement F_Bottom_Left_Text;
 
 	// Footer Bottom Left Text
-	@FindBy(xpath = "//a[@class='footer-bottomtext']/div")
+	@FindBy(xpath = "//a[@class='footer-bottomtext']")
 	public List<WebElement> F_Bottom_Left_Text_size;
 
 //	@FindBy(xpath = "//div[@class='copyright-content secondary-footer-copyright ']/p")

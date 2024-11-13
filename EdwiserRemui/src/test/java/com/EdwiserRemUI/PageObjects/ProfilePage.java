@@ -98,7 +98,7 @@ public class ProfilePage extends BasePage {
 	@FindBy(xpath = "//p[contains(@class,'prof-user-city')]")
 	public WebElement CityText;
 
-	@FindBy(xpath = "//p[contains(@class,'prof-user-desc')]")
+	@FindBy(xpath = "//div[@id='user-description']")
 	public WebElement DescriptionText;
 
 	@FindBy(xpath = "//p[contains(@class,'prof-user-address')]")
@@ -134,5 +134,11 @@ public class ProfilePage extends BasePage {
 	
 	@FindBy(id = "btn-save-changes")
 	public WebElement SaveChanges;
+	
+	@FindBy(xpath="//div[@id='page-content']//nav[1]//ul[1]//li[4]//a[1]")
+	public List<WebElement> next_page;
+	
+	@FindBy(xpath="//div[@id='page-content']//nav[1]//ul[1]//li[4]//a[1]")
+	public WebElement next_page_button;
 	
 }

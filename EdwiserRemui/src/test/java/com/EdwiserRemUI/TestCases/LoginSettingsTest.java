@@ -297,6 +297,7 @@ public class LoginSettingsTest extends BaseClass {
 		lsp.siteDescriptionColor.click();
 		lsp.colorTextField.clear();
 		lsp.colorTextField.sendKeys("#EFF209");
+		Thread.sleep(20000);
 		lsp.chooseButton.click();
 		lsp.saveButton.click();
 		Thread.sleep(3000);

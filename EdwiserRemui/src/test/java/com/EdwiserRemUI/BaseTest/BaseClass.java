@@ -16,12 +16,13 @@ import com.EdwiserRemUI.PageObjects.LoginLogoutPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	public String siteurl = "https://qa-remui81.edwiser.org/m44/";
-	public String LisenceKey = "d8939029e2b51c81285fc2bbbaa4370f";
+	public String siteurl = "https://qa-remui81.edwiser.org/m45/";
+	public String LisenceKey = "cb1cade9128ad2cbaabe4ff147bbf862";
 	public String loginpage = siteurl + "login/index.php";
 	public String profilepage = siteurl + "user/profile.php";
 	public String blogpage = siteurl + "blog/index.php?userid=2";
 	public String forumpage = siteurl + "mod/forum/discuss.php?d=1#p2";
+	public String forumpage1=siteurl + "mod/forum/user.php?id=2";
 	public String siteadminurl = siteurl + "admin/search.php";
 	public String dashboard = siteurl + "my/";
 	public String coursearchive = siteurl + "course/index.php?categoryid=all";
@@ -30,19 +31,22 @@ public class BaseClass {
 	public String managecoursecategory = siteurl + "course/management.php";
 	public String remuifootersetting = siteurl + "admin/settings.php?section=themesettingremui#theme_remui_footer";
 	public String mycourses = siteurl + "my/courses.php";
-	public String coursepage = siteurl + "course/view.php?id=26";
+	public String coursepage = siteurl + "course/view.php?id=20";
 	public String courseName = "Testing Course - 18 - Automation Course - 1";
-	public String coursepage1 = siteurl + "course/view.php?id=27";
+	public String coursepage1 = siteurl + "course/view.php?id=15";
 	public String EnrolmentTestCourse = siteurl + "course/view.php?id=49";
 	public String CourseEnrolmentPage = siteurl + "enrol/index.php?id=49";
-	public String FocusModeCoursePage = siteurl + "course/view.php?id=28";
+	public String FocusModeCoursePage = siteurl + "course/view.php?id=22";
 	public String FocusModeCourse = "Focus Mode Testing Course";
 	public String CourseIntroVideo = "https://www.youtube.com/embed/MIWu2FCPnIQ";
 	public String homepage = siteurl + "?redirect=0";
-	public String CopyRightText = "QA Site v44 © 2024. All rights reserved.";
+	public String CopyRightText = "QA M45 © 2024. All rights reserved.";
 	public String coursepage2 = siteurl + "course/view.php?id=48";
-
-
+	public String customPagesURL = siteurl + "/admin/settings.php?section=themesettingremui#epbsitepages";
+	public String CourseSettingPage =siteurl + "course/edit.php?id=48";
+	public String HeaderImageUrl="https://blogs.swarthmore.edu/its/wp-content/uploads/2018/05/Untitled-design-1.png";
+	public String LevelTagCourse=siteurl+"/course/edit.php?id=67";
+	public String CourseCategoryPage=siteurl+"/course/management.php";
 	public static WebDriver driver;
 
 	@Parameters({ "username", "password" })

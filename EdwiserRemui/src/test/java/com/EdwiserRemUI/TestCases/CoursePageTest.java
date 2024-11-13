@@ -22,20 +22,22 @@ public class CoursePageTest extends BaseClass {
 	}
 
 	@Test(priority = 1)
-	public void Verify_Course_Stats_Disabled() {
+	public void Verify_Course_Stats_Disabled() throws InterruptedException {
 		driver.get(remuisetting);
 		cp.coursepagemenu.click();
 
 		if (cp.coursestatsonsp.isSelected()) {
 			cp.coursestatlabel.click();
 		}
+		Thread.sleep(2000);
 		cp.savechanges.click();
 		driver.get(coursepage);
+		Thread.sleep(10000);
 		Assert.assertTrue(cp.coursestatsoncp.size() == 0, "Course stat option is present even if setting is disabled ");
 	}
 
 	@Test(priority = 2)
-	public void Enable_Course_Stats_for_Course_Page_From_RemUi_Settings() {
+	public void Enable_Course_Stats_for_Course_Page_From_RemUi_Settings() throws InterruptedException {
 		driver.get(remuisetting);
 		cp.coursepagemenu.click();
 
@@ -45,6 +47,7 @@ public class CoursePageTest extends BaseClass {
 		}
 		cp.savechanges.click();
 		driver.get(coursepage);
+		Thread.sleep(3000);
 		Assert.assertTrue(cp.coursestatsoncp.size() == 1,
 				"Course stat option is not present even if setting is enabled ");
 	}
@@ -59,7 +62,7 @@ public class CoursePageTest extends BaseClass {
 		
 		driver.get(coursearchive);
 		Thread.sleep(2000);
-		Assert.assertEquals(String.valueOf(cp.countonap.size()), "9",
+		Assert.assertEquals(String.valueOf(cp.countonap.size()), "12",
 				"The Number of Courses to be Displayed Per Pages on Course Archive Page did not matched.");
 	}
 

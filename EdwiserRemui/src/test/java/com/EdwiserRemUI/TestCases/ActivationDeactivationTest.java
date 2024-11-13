@@ -75,7 +75,7 @@ public class ActivationDeactivationTest extends BaseClass {
 	// Check when license key is activated
 
 	@Test(priority = 4)
-	public void verifybyactivatingthelicensekey() {
+	public void verifybyactivatingthelicensekey() throws InterruptedException {
 		if (adp.dangeralert.size() == 1) {
 			driver.get(remuisetting);
 			adp.infotab.click();
@@ -83,8 +83,10 @@ public class ActivationDeactivationTest extends BaseClass {
 			adp.licensekey.clear();
 			adp.licensekey.sendKeys(LisenceKey);
 			adp.activatebutton.click();
+			Thread.sleep(3000);
 			Assert.assertEquals(adp.checkstatus(), "Active", "plugin status is still deactive");
-		} else {
+		}
+		else {
 			System.out.println("Edwiser remui license key is deactivated");
 		}
 	}

@@ -202,7 +202,7 @@ public class FooterSocialMediaLinkTest extends BaseClass {
 		Thread.sleep(1500);
 		fsmlp.footermenu.click();
 		fsmlp.mainfooterareamenu.click();
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 		fsmlp.widget2menu.click();
 		fsmlp.selectdropdownoptionasmenu();
 		//fsmlp.menubutton.click();

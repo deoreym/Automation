@@ -91,7 +91,7 @@ public class QuickMenuTest extends BaseClass {
 		QM.CustomizerIcon.click();
 		Thread.sleep(500);
 
-		Assert.assertTrue(driver.getTitle().contains("Customizer"),
+		Assert.assertTrue(driver.getTitle().contains("Visual personalizer"),
 				"Customizer Quick Menu not redirecting to Customizer page");
 
 	}

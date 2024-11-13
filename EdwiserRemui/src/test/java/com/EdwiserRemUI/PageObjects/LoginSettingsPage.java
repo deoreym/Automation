@@ -133,7 +133,7 @@ public class LoginSettingsPage extends BasePage {
 	@FindBy(xpath = "//div[@class='login-description']")
 	public WebElement loginDescriptionText;
 
-	@FindBy(xpath = "//div[@class='login-description']")
+	@FindBy(xpath = "//div[@class='login-description-content']")
 	public WebElement siteDescriptionTextColor;
 
 }

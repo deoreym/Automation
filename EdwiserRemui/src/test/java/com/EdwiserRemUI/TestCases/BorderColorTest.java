@@ -1,5 +1,9 @@
 package com.EdwiserRemUI.TestCases;
 
+import java.time.Duration;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -48,8 +52,8 @@ public class BorderColorTest extends BaseClass {
 		bcp.globalmenu.click();
 		bcp.themecolorsmenu.click();
 		bcp1.bordermenu.click();
-		Thread.sleep(1000);
 		bcp1.mediumborder.click();
+		Thread.sleep(3000);
 		bcp.colorinputfield.clear();
 		bcp.colorinputfield.sendKeys(mediumbordercolor);
 		bcp.save.click();

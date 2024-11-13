@@ -1,5 +1,7 @@
 package com.EdwiserRemUI.TestCases;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -35,7 +37,7 @@ public class CourseArchivePageTest extends BaseClass {
 
 		// Visit Course Archive (Categories) Page
 		driver.get(coursearchive);
-		Assert.assertTrue(CAP.CourseCards.size() == 6, "Selected Number Of Courses per page is not getting Applied");
+		Assert.assertTrue(CAP.CourseCards.size() == 8, "Selected Number Of Courses per page is not getting Applied");
 	}
 
 	@Test(priority = 2)
@@ -246,5 +248,25 @@ public class CourseArchivePageTest extends BaseClass {
 		softAssert.assertAll();
 
 	}
+	
+	@Test(priority=9)
+	public void Check_courses_count_on_site() throws InterruptedException {
+		int sum = 0;
+		
+		//visit courses and category page
+		driver.get(CourseCategoryPage);
+		int value=CAP.coursescountfrommoodle.size();
+		System.out.println(value);
+		Thread.sleep(2000);
+		for (WebElement element : CAP.coursescountfrommoodle) {
+            // Get the text of the element and convert it to an integer
+            String text = element.getText();
+            int value1 = Integer.parseInt(text);
+            sum += value;
+        }
+		
+	}
+	
+	
 
 }

@@ -27,6 +27,7 @@ public class BasicSettings extends BaseClass {
 		driver.get(remuisetting);
 		Thread.sleep(2000);
 		sp.basictab.click();
+		Thread.sleep(2000);
 		if (!sp.siteannouncementchbk.isSelected()) {
 			sp.SiteAnnouncementLabel.click();
 		}

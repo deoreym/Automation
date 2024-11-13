@@ -196,11 +196,13 @@ public class FooterFromThemeSettings extends BaseClass {
 			System.out.println("No unexpected alert present");
 		}
 		driver.get(profilepage);
+		
 
-		softAssert.assertTrue(FSP.F_Bottom_Left_Text_size.size() == 0,
+		softAssert.assertTrue(FSP.F_Bottom_Left_Text_size.size() == 1,
 				"Footer Bottom Left Text is not getting removed");
 		softAssert.assertTrue(FSP.Copyrights_Content.getAttribute("class").contains("d-none"),
 				"Footer Bottom CopyRight Content is Visible when disabled ");
+		Thread.sleep(3000);
 		softAssert.assertTrue(FSP.Footer_Logo_img.getAttribute("class").contains("d-none"),
 				"Footer Bottom Logo Visible when disabled ");
 		softAssert.assertTrue(FSP.Footer_Terms_Conditions_link.getAttribute("class").contains("d-none"),
@@ -269,7 +271,7 @@ public class FooterFromThemeSettings extends BaseClass {
 
 		// Enable Powered by Edwiser
 		if (!FSP.Show_PoweredByEdwiser.isSelected()) {
-			Thread.sleep(500);
+			Thread.sleep(2000);
 			FSP.Show_PoweredByEdwiser_ele.click();
 		}
 

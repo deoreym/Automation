@@ -1,6 +1,14 @@
 package com.EdwiserRemUI.TestCases;
 
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -152,15 +160,51 @@ public class ProfilePageTest extends BaseClass {
 		softAssert.assertAll();
 	}
 
+	
+	
 	@Test(priority = 5)
-	public void verifydiscussioncount() throws InterruptedException {
-		driver.get(profilepage);
-		String actual = pp.discussioncount.getText();
-		driver.get(forumpage);
-		int count = pp.discussionsize.size();
-		String expected = Integer.toString(count);
-		Assert.assertEquals(actual, expected, "Discussion count didnt matched ");
+	public void verifydiscussioncount1() throws InterruptedException {
+	    int totalCount = 0; // Initialize total discussion count
+	    SoftAssert softAssert = new SoftAssert(); // SoftAssert to verify conditions without stopping the test on failure
+	    List<String> discussion = new ArrayList<>(); // Initialize a list to hold discussion items (if needed)
+	    
+	    // Visit course profile page (assuming profile page URL is stored in 'profilepage')
+	    driver.get(profilepage);
 
+	    // Fetch the actual discussion count (this is presumably the text element displaying the count)
+	    String actual = pp.discussioncount.getText();
+
+	    // Visit the forum page (assuming forum page URL is stored in 'forumpage1')
+	    driver.get(forumpage1);
+
+	    // Get the current page discussion count (size of discussions on the current page)
+	    int countOnCurrentPage = pp.discussionsize.size();
+	    totalCount += countOnCurrentPage; // Add the current page's discussions to the total count
+
+	    // Now, handle pagination and get discussion counts on subsequent pages
+	    while (true) {
+	    	if(pp.next_page.size() == 1) { // Check if the "next page" button exists (1 element means "next" page is available)
+	        pp.next_page.get(0).click(); // Click the "next" button to go to the next page
+	        Thread.sleep(2000); // Wait for the page to load (or use WebDriverWait for better synchronization)
+	        
+	        // Get the count of discussions on the current page after navigating
+	        int discussionsOnNextPage = pp.discussionsize.size();
+	        totalCount += discussionsOnNextPage; // Add the count of discussions on this page to the total count
+	        
+	        // Optionally, you can add each discussion to the list (if needed for further verification)
+	        for (WebElement discussionElement : pp.discussionsize) {
+	            discussion.add(discussionElement.getText());
+	        }
+	        break;
+	    }
+	    	
+
+	    // After pagination, verify if the total discussion count is as expected (soft assertion for non-blocking checks)
+	    softAssert.assertEquals(totalCount, Integer.parseInt(actual), "Total discussion count mismatch!");
+
+	    // Call assertAll() to validate all soft assertions
+	    softAssert.assertAll();
+	    }
 	}
 
 	@Test(priority = 6)

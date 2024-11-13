@@ -1,6 +1,9 @@
 package com.EdwiserRemUI.PageObjects;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -221,4 +224,52 @@ public class CoursesArchivePage extends BasePage {
 		String nextactap = nextactap1.replaceAll("\\s", "");
 		return nextactap;
 	}
+	
+	//inner html of course count from course and category page
+	 @FindBy(xpath="//span[@class='course-count text-muted']/span[1]")
+	    public List<WebElement> coursescountfrommoodle;
+	 
+	//Remui custum field link
+	 @FindBy(xpath="//a[@id='collapseElement-8']")
+	 public WebElement customfieldlink;
+	 
+	 //Skill tag on course card
+	 @FindBy(xpath="//p[@class='skilltag m-0 badge badge-light']")
+	 public WebElement Beginner_tag;
+	 
+	//Skill tag on course card
+	 @FindBy(xpath="//p[@class='skilltag m-0 badge badge-info']")
+	 public WebElement intermediate_tag;
+		 
+	//Skill tag on course card
+	 @FindBy(xpath="//p[@class='skilltag m-0 badge badge-warning']")
+	 public WebElement advanced_tag;
+	
+	// Extract the list of items
+    @FindBy(xpath="//a[@class='coursename text-decoration-none ellipsis ellipsis-3 h-semibold-6']")
+    public List<WebElement> coursename;
+    
+    //Next page button visibility
+    @FindBy(xpath="//a[@aria-label='Next page']")
+    public List<WebElement>  Next_page_buttons;
+    
+    //Next page button 
+    @FindBy(xpath="//a[@aria-label='Next page']")
+    public WebElement  Next_page_button;
+    
+    //sorting dropdown
+    @FindBy(xpath="//div[@id='course-archive-main-container']//div//div[@class='btn-group edw-custom-dropdown-wrapper course-shorting']")
+    public WebElement sorting_dd;
+    
+    //ASC sorting link
+    @FindBy(xpath="//div[@class='p-py-2d5 d-flex flex-column flex-gap-d5 select-optgroup-wrapper']//div//p[@title='A to Z']")
+    public WebElement ASC_Sorting;
+    
+    //DSC sorting link
+    @FindBy(xpath="//div[@class='p-py-2d5 d-flex flex-column flex-gap-d5 select-optgroup-wrapper']//div//p[@title='Z to A']")
+    public WebElement DSC_Sorting;
+    
+    
+        
+    
 }

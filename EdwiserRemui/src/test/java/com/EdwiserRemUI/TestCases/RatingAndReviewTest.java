@@ -2,6 +2,7 @@ package com.EdwiserRemUI.TestCases;
 
 import java.util.Random;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -18,7 +19,7 @@ public class RatingAndReviewTest extends BaseClass {
 	SoftAssert softassert;
 	Random random;
 	int Rating = 3;
-	String CourseTitle = "Automation testing course";
+	String CourseTitle = "L2 Biology Test Course - 2";
 	String User;
 	String Pass;
 
@@ -39,11 +40,17 @@ public class RatingAndReviewTest extends BaseClass {
 	public void addingRatingAndReview() throws InterruptedException {
 
 		driver.get(coursepage2);
-		rrp.writeAReviewButton.click();
+		Thread.sleep(10000);
+		WebElement button =rrp.writeAReviewButton ;
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
+		button.click();
+
+		//rrp.writeAReviewButton.click();
 		rrp.selectStars(Rating).click();
 		int randomNumber = random.nextInt(900) + 100;
 		rrp.reviewTextArea.clear();
 		rrp.reviewTextArea.sendKeys(Rating + " Star Review Code: " + randomNumber);
+		Thread.sleep(3000);
 		rrp.sumbitButton.click();
 
 		softassert.assertTrue(
@@ -117,14 +124,28 @@ public class RatingAndReviewTest extends BaseClass {
 		driver.get(coursepage2);
 		Thread.sleep(1000);
 		String RatingOnCoursePage = rrp.avgRatingCountOnCoursePage.getText();
+		System.out.println(RatingOnCoursePage);
 
 		driver.get(siteurl + "course/index.php?categoryid=all");
 		Thread.sleep(1000);
+		rrp.courseSearch.sendKeys(CourseTitle);
+		rrp.courseSearch.sendKeys(Keys.ENTER);
+		Thread.sleep(1000);
 		String RatingOnArchivePage = rrp.avgCourseRatingOnArchivePage(CourseTitle).getText();
+		
+		// Convert to doubles for comparison
+	    double expectedRating = Double.parseDouble(RatingOnCoursePage);
+	    System.out.println(expectedRating);
+	    double actualRating = Double.parseDouble(RatingOnArchivePage);
+	    System.out.println(actualRating);
+	    
+		//softassert.assertEquals(RatingOnCoursePage, RatingOnArchivePage,
+				//"Rating of Course on Course Page and Archive page does not match");
 
-		softassert.assertEquals(RatingOnCoursePage, RatingOnArchivePage,
-				"Rating of Course on Course Page and Archive page does not match");
+	    softassert.assertEquals(actualRating, expectedRating, 
+	            "Rating of Course on Course Page: " + RatingOnCoursePage + " and Archive page: " + RatingOnArchivePage + " do not match.");
 
+	    
 		softassert.assertAll();
 
 	}
@@ -137,16 +158,22 @@ public class RatingAndReviewTest extends BaseClass {
 
 		String avgRating = rrp.avgRatingCountOnCoursePage.getText();
 
-		adminbackendlogout();
-		studentLogin(User, Pass);
+		//adminbackendlogout();
+		//studentLogin(User, Pass);
 		driver.get(siteurl + "enrol/index.php?id=48");
 
 		String avgRatingOnEnrolPage = rrp.courseRatingOnEnrolPage.getText();
-		adminbackendlogout();
 
-		Assert.assertEquals(avgRating, avgRatingOnEnrolPage,
+		// Convert to doubles for comparison
+	    double expectedRating = Double.parseDouble(avgRating);
+	    System.out.println(expectedRating);
+	    double actualRating = Double.parseDouble(avgRatingOnEnrolPage);
+	    System.out.println(actualRating);
+	    Thread.sleep(1000);
+		//adminbackendlogout();
+		Assert.assertEquals(expectedRating, actualRating,
 				"Course Rating is not same on the Course Page and Course Enrol Page");
-
+		
 	}
 
 	/** Approval Page **/
@@ -154,7 +181,7 @@ public class RatingAndReviewTest extends BaseClass {
 	@Test(priority = 7)
 	public void viewPendingForApproval() throws InterruptedException {
 
-		adminbackendLogin("admin", "Golden0-");
+	//	adminbackendLogin("admin", "Golden0-");
 
 		driver.get(siteurl + "blocks/edwiserratingreview/admin.php");
 		Thread.sleep(2000);
