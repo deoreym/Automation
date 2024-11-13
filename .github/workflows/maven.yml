@@ -37,6 +37,20 @@ jobs:
         name: Testing-Report
         path: EdwiserRemui/target/surefire-reports/emailable-report.html
 
+
+# Send the email with the Surefire report
+    - name: Send Surefire Report via Email
+      uses: dawidd6/action-send-mail@v3
+      with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "RemUI Maven Surefire Test Report"
+          body: "Attached is the Surefire test report from the latest build."
+          to: 'ymdeore93@gmail.com'
+          from: ${{ secrets.SMTP_USERNAME }}
+          attachments: EdwiserRemui/target/surefire-reports/emailable-report.html
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
     #   uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
