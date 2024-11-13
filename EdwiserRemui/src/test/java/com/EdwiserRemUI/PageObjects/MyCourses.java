@@ -26,7 +26,7 @@ public class MyCourses extends BaseClass {
 
 
 	public WebElement ViewCourseButton(String Course) {
-		return driver.findElement(By.xpath("//span[contains(@title,'"+Course+"')]/../../../../..//a[contains(@class,'view-course-btn')]"));
+		return driver.findElement(By.xpath("//a[contains(@title,'"+Course+"')]/../../../../..//a[contains(@class,'view-course-btn')]"));
 	};
 	
 	public WebElement ActivityCompletedCount(String Course) {
@@ -37,21 +37,17 @@ public class MyCourses extends BaseClass {
 		return driver.findElement(By.xpath("//span[contains(@title,'"+Course+"')]/../../../../..//a[contains(@class,'view-course-btn')]"));
 	};
 
-	@FindBy(xpath = "//a[@title='Course Archive Page']")
-	public WebElement CourseArchiveIcon;
+	@FindBy(xpath = "//div[contains(@class,'btn-group')]")
+	public WebElement ShowIcon;
 
-	@FindBy(xpath = "//a[@title='Create A New Course']")
-	public WebElement NewCourseIcon;
+	@FindBy(xpath = "//a[@data-limit='0']")
+	public WebElement AllCourses;
 
-	@FindBy(xpath = "//a[@title='Customizer']")
-	public WebElement CustomizerIcon;
+	@FindBy(xpath = "//a[@data-limit='12']")
+	public WebElement Courses12;
 
-	@FindBy(xpath = "//a[@title='RemUI Settings']")
-	public WebElement EdwiserSettingsIcon;
+	@FindBy(xpath = "//*[contains(@data-region,'course-content')]")
+	public List <WebElement> CourseCards;
 
-	@FindBy(xpath = "//label[@for='id_s_theme_remui_enablequickmenu']")
-	public WebElement label_quicklink;
 
-	@FindBy(id = "id_s_theme_remui_enablequickmenu")
-	public WebElement chbk_quicklink;
 }

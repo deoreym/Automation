@@ -35,9 +35,6 @@ public class ColorConversion {
 			int green = rgbaValues[1];
 			int blue = rgbaValues[2];
 
-//			System.out.println("Red: " + red);
-//			System.out.println("Green: " + green);
-//			System.out.println("Blue: " + blue);
 			Hex = rgbToHex(red, green, blue);
 		} else {
 			System.out.println("Invalid RGBA string format.");
@@ -62,4 +59,16 @@ public class ColorConversion {
 
 		return null; // Return null if no match
 	}
+	
+	public static String convertRGBtoRGBA(String rgbColor) {
+        // Convert RGB to RGBA by adding alpha value (assuming alpha is 1.0 for fully opaque)
+        return rgbColor.replace("rgb", "rgba").replace(")", ", 1.0)");
+    }
+	
+    public static String convertPxToRem(String fontSizeInPx) {
+        // Assuming 1rem is equivalent to the root font size (16px), you can adjust this value accordingly
+    	float rootFontSizeInPx = (float) 16.0;
+    	float fontSizeInPxValue = Float.parseFloat(fontSizeInPx.replaceAll("[^0-9.]", ""));
+        return String.valueOf( fontSizeInPxValue / rootFontSizeInPx);
+    }
 }

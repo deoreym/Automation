@@ -1,47 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="EdwiserRemui">
-	<parameter name="siteURL" value="https://qa-ir.wisdmlabs.net/" />
+	<parameter name="siteURL" value="https://qa-remui81.edwiser.org/m44" />
 	<parameter name="username" value="admin" />
 	<parameter name="password" value="Golden0-" />
 	<parameter name="StudentUser" value="emma" />
 	<parameter name="StudentPassword" value="emma" />
-	
-	
+	<parameter name="StudentUser2" value="automationu4" />
+	<parameter name="StudentPassword2" value="Golden0-" />
+
+
 	<test name="Edwiser Remui Automation Testing">
 		<classes>
 			<class name="com.EdwiserRemUI.BaseTest.BaseClass" />
-			<!--    Tested 
+			 
+	
+			<!-- Sanket-->
+			<!-- <class name="com.EdwiserRemUI.TestCases.CustomPagesTest" />-->  
+
+
+			<!-- New 
+			<class name="com.EdwiserRemUI.TestCases.MyCoursesTest" />-->
+						
+			<!-- Test cases updation -> 
 			<class name="com.EdwiserRemUI.TestCases.ActivationDeactivationTest" />
 			<class name="com.EdwiserRemUI.TestCases.BasicSettings" />
-			<class name="com.EdwiserRemUI.TestCases.CoursePageTest" />
 			<class name="com.EdwiserRemUI.TestCases.CustomizerTest" />
-			<class name="com.EdwiserRemUI.TestCases.FooterCustomizerTest" />
 			<class name="com.EdwiserRemUI.TestCases.BackgroundColorSettingTest" />
-			<class name="com.EdwiserRemUI.TestCases.BorderColorTest" /> -->
-			
-			
-			
-			<!-- Non Tested
-			
+			<class name="com.EdwiserRemUI.TestCases.BorderColorTest" />
+			<class name="com.EdwiserRemUI.TestCases.FooterSocialMediaLinkTest" />
 			<class name="com.EdwiserRemUI.TestCases.BrandColorTest" />
 			<class name="com.EdwiserRemUI.TestCases.LayoutTest" />
-			<class name="com.EdwiserRemUI.TestCases.PrimaryButtonColorTest" />
+			<class name="com.EdwiserRemUI.TestCases.CourseEnrolmentPageTest" />
 			<class name="com.EdwiserRemUI.TestCases.SecondaryButtonColorTest" />
+			<class name="com.EdwiserRemUI.TestCases.PrimaryButtonColorTest" />
 			<class name="com.EdwiserRemUI.TestCases.TypographyColorTest" />
-			<class name="com.EdwiserRemUI.TestCases.ProfilePageTest" />
 			<class name="com.EdwiserRemUI.TestCases.FooterColorSettingTest" />
-			<class name="com.EdwiserRemUI.TestCases.HeaderColorSettingTest" />
-			<class name="com.EdwiserRemUI.TestCases.FooterSocialMediaLinkTest" />
-			<class name="com.EdwiserRemUI.TestCases.DashBoardTest" />
-			<class name="com.EdwiserRemUI.TestCases.HideShowHeaderMenuTest" />-->
-			
-			
-			<!-- New  -->
+			<class name="com.EdwiserRemUI.TestCases.FooterBottomAreaTest" />
+			<class name="com.EdwiserRemUI.TestCases.LoginSettingsTest" />
 			<class name="com.EdwiserRemUI.TestCases.QuickMenuTest" />
+			<class name="com.EdwiserRemUI.TestCases.HideShowHeaderMenuTest" />
+			<class name="com.EdwiserRemUI.TestCases.FooterFromThemeSettings" />
+			<class name="com.EdwiserRemUI.TestCases.HeaderColorSettingTest" />
+			<class name="com.EdwiserRemUI.TestCases.CustomCSS_Test" />
+			<class name="com.EdwiserRemUI.TestCases.Customizer_Reset_Test" />
+			<class name="com.EdwiserRemUI.TestCases.CustomizerTest" />
+			<class name="com.EdwiserRemUI.TestCases.CoursePageTest" />
+			<class name="com.EdwiserRemUI.TestCases.DarkModeTests" /> 
+			<class name="com.EdwiserRemUI.TestCases.DashBoardTest" />
+			<class name="com.EdwiserRemUI.TestCases.ProfilePageTest" />
+			<class name="com.EdwiserRemUI.TestCases.CourseFormatTest" />
+			<class name="com.EdwiserRemUI.TestCases.CourseArchivePageTest" />
+			<class name="com.EdwiserRemUI.TestCases.RatingAndReviewTest" />
+			<class name="com.EdwiserRemUI.TestCases.FocusModeTest" />-->
 			
 			
+			
+			
+
+			<!-- For Single Testing  -->
+			<class name="com.EdwiserRemUI.TestCases.FocusModeTest" />
+			 			
+
 		</classes>
-		</test> <!--Test -->
+	</test> <!--Test -->
 </suite> 
 			

@@ -57,15 +57,13 @@ public class DashboardSettingPage extends BasePage {
 	
 	public boolean enablecoursestatus() {
 		String present=enabledashboardcs.getAttribute("checked");
-		//System.out.println("present "+present);
 		boolean status = Boolean.parseBoolean(present);
-		System.out.println("present "+status);
+
 		return status;
 	}
 	
 	public boolean statsondashboard() {
 		boolean status=statsondashboard.isDisplayed();
-		//System.out.println("statsondashboard "+status);
 		return status;
 	}
 	public void clickoncheckbox() {

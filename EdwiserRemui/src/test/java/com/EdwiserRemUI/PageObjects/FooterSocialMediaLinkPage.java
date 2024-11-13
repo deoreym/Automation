@@ -95,6 +95,7 @@ public class FooterSocialMediaLinkPage extends BasePage {
 	public WebElement selectedtype2;
 	
 	
+	
 	public void selectdropdownoptionasmenu() {
 		Select type=new Select(selecttypemenu2);
 		type.selectByValue("menu");

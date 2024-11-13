@@ -13,7 +13,7 @@ public class CustomizerPage extends BasePage {
 	
 	//elements
 	
-	@FindBy(xpath="//ul[@role='tablist']//li//a[text()='Visual Personaliser']")
+	@FindBy(xpath="//ul[@role='tablist']//li//a[text()='Visual Personalizer']")
 	public WebElement customizertab;
 	
 	@FindBy(xpath="//a[@class='btn btn-primary activatepersonalizer']")

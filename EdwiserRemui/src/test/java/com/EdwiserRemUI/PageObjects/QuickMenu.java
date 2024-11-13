@@ -32,7 +32,7 @@ public class QuickMenu extends BaseClass {
 	@FindBy(xpath = "//a[@title='Create A New Course']")
 	public WebElement NewCourseIcon;
 
-	@FindBy(xpath = "//a[@title='Customizer']")
+	@FindBy(xpath = "//a[@title='Visual personalizer']")
 	public WebElement CustomizerIcon;
 
 	@FindBy(xpath = "//a[@title='RemUI Settings']")

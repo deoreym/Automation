@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class SettingsPage extends BasePage {
 
@@ -25,11 +26,11 @@ public class SettingsPage extends BasePage {
 	@FindBy(xpath = "//button[text()='Save changes']")
 	public WebElement savebutton;
 
-	@FindBy(xpath = "//div[@class='alert alert-success site-announcement mb-0 show-more']")
+	@FindBy(xpath = "//div[contains(@class,'site-announcement')]")
 	public List<WebElement> alert;
 
-	@FindBy(xpath = "//input[@id='id_s_theme_remui_enableannouncement']")
-	public WebElement enablesiteannouncement;
+	@FindBy(xpath = "//label[@for='id_s_theme_remui_enableannouncement']")
+	public WebElement SiteAnnouncementLabel;
 
 	@FindBy(id = "id_s_theme_remui_enabledismissannouncement")
 	public WebElement dismisschbk;
@@ -65,6 +66,13 @@ public class SettingsPage extends BasePage {
 	@FindBy(id="id_s_theme_remui_sitenamecolor")
 	public WebElement colorinput;
 	
+	@FindBy(id="id_s_theme_remui_pagewidth")
+	public WebElement Theme_Layout;
+	
+	public Select ThemeLayout() {
+		Select TL = new Select(Theme_Layout);
+		return TL;
+	}
 	
 	@FindBy(xpath = "//select[@name='s_theme_remui_pagewidth']//option")
 	public List<WebElement> layout_option;

@@ -8,37 +8,29 @@ import org.testng.annotations.Test;
 import com.EdwiserRemUI.BaseTest.BaseClass;
 import com.EdwiserRemUI.PageObjects.BrandColorPage;
 import com.EdwiserRemUI.PageObjects.ColorConversion;
-import com.EdwiserRemUI.PageObjects.CustomizerPage;
-import com.EdwiserRemUI.PageObjects.DashBoardPage;
 import com.EdwiserRemUI.PageObjects.PrimaryButtonColorPage;
 import com.EdwiserRemUI.PageObjects.SecondaryButtonColorPage;
 
 public class SecondaryButtonColorTest extends BaseClass {
 
-	
-	DashBoardPage dp;
-	CustomizerPage cpp;
 	BrandColorPage bcp;
 	ColorConversion cc;
 	PrimaryButtonColorPage pbcp;
 	SecondaryButtonColorPage sbcp;
-	
+
 	@BeforeClass
 	public void Before_class() {
-		dp =new DashBoardPage(driver);
-		cpp= new CustomizerPage(driver);
-		bcp=new BrandColorPage(driver);
-		cc=new ColorConversion();
-		pbcp=new PrimaryButtonColorPage(driver);
-		sbcp=new SecondaryButtonColorPage(driver);
-	}	
-	
-	@Test(priority=1)
+		System.out.println("In  Secondary Button Color Test Class : SecondaryButtonColorTest");
+		bcp = new BrandColorPage(driver);
+		cc = new ColorConversion();
+		pbcp = new PrimaryButtonColorPage(driver);
+		sbcp = new SecondaryButtonColorPage(driver);
+	}
+
+	@Test(priority = 1)
 	public void verifysecondarybuttontextcolor() throws InterruptedException {
-		String Textcolor="#FFC107";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		String Textcolor = "#FFC107";
+		driver.get(customizer);
 		bcp.globalmenu.click();
 		pbcp.buttonmenu.click();
 		pbcp.buttoncolorsettingmenu.click();
@@ -49,17 +41,14 @@ public class SecondaryButtonColorTest extends BaseClass {
 		bcp.save.click();
 		Thread.sleep(2000);
 		driver.get(managecoursecategory);
-		String Expected=ColorConversion.Color(sbcp.secondarybutton.getCssValue("color"));
-		System.out.println(Expected);
+		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("color"));
 		Assert.assertEquals(Textcolor, Expected, "The selected text color is not getting applied on the element");
 	}
-	
-	@Test(priority=2)
+
+	@Test(priority = 2)
 	public void verifysecondarybuttontexthovercolor() throws InterruptedException {
-		String Texthovercolor="#000000";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		String Texthovercolor = "#000000";
+		driver.get(customizer);
 		bcp.globalmenu.click();
 		pbcp.buttonmenu.click();
 		pbcp.buttoncolorsettingmenu.click();
@@ -70,20 +59,18 @@ public class SecondaryButtonColorTest extends BaseClass {
 		bcp.save.click();
 		Thread.sleep(2000);
 		driver.get(managecoursecategory);
-		Actions act=new Actions(driver);
+		Actions act = new Actions(driver);
 		act.moveToElement(sbcp.secondarybutton).build().perform();
 		Thread.sleep(2000);
-		String Expected=ColorConversion.Color(sbcp.secondarybutton.getCssValue("color"));
-		System.out.println(Expected);
-		Assert.assertEquals(Texthovercolor, Expected, "The selected text hover color is not getting applied on the element");
+		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("color"));
+		Assert.assertEquals(Texthovercolor, Expected,
+				"The selected text hover color is not getting applied on the element");
 	}
-	
-	@Test(priority=3)
+
+	@Test(priority = 3)
 	public void verifyprimarybuttonbackgroundcolor() throws InterruptedException {
-		String backgroundcolor="#BC61DE";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		String backgroundcolor = "#BC61DE";
+		driver.get(customizer);
 		bcp.globalmenu.click();
 		pbcp.buttonmenu.click();
 		pbcp.buttoncolorsettingmenu.click();
@@ -94,17 +81,15 @@ public class SecondaryButtonColorTest extends BaseClass {
 		bcp.save.click();
 		Thread.sleep(2000);
 		driver.get(managecoursecategory);
-		String Expected=ColorConversion.Color(sbcp.secondarybutton.getCssValue("background-color"));
-		System.out.println(Expected);
-		Assert.assertEquals(backgroundcolor, Expected, "The selected background color is not getting applied on the element");
+		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("background-color"));
+		Assert.assertEquals(backgroundcolor, Expected,
+				"The selected background color is not getting applied on the element");
 	}
-	
-	@Test(priority=4)
+
+	@Test(priority = 4)
 	public void verifyprimarybuttonbackgroundhovercolor() throws InterruptedException {
-		String backgroundhovercolor="#CB8312";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		String backgroundhovercolor = "#CB8312";
+		driver.get(customizer);
 		bcp.globalmenu.click();
 		pbcp.buttonmenu.click();
 		pbcp.buttoncolorsettingmenu.click();
@@ -116,20 +101,18 @@ public class SecondaryButtonColorTest extends BaseClass {
 		bcp.save.click();
 		Thread.sleep(2000);
 		driver.get(managecoursecategory);
-		Actions act=new Actions(driver);
+		Actions act = new Actions(driver);
 		act.moveToElement(sbcp.secondarybutton).build().perform();
 		Thread.sleep(2000);
-		String Expected=ColorConversion.Color(sbcp.secondarybutton.getCssValue("background-color"));
-		System.out.println(Expected);
-		Assert.assertEquals(backgroundhovercolor, Expected, "The selected background hover color is not getting applied on the element");
+		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("background-color"));
+		Assert.assertEquals(backgroundhovercolor, Expected,
+				"The selected background hover color is not getting applied on the element");
 	}
-	
-	@Test(priority=5)
+
+	@Test(priority = 5)
 	public void verifyprimarybuttonbordercolor() throws InterruptedException {
-		String bordercolor="#BC61DE";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		String bordercolor = "#BC61DE";
+		driver.get(customizer);
 		bcp.globalmenu.click();
 		pbcp.buttonmenu.click();
 		pbcp.buttoncolorsettingmenu.click();
@@ -140,17 +123,14 @@ public class SecondaryButtonColorTest extends BaseClass {
 		bcp.save.click();
 		Thread.sleep(2000);
 		driver.get(managecoursecategory);
-		String Expected=ColorConversion.Color(sbcp.secondarybutton.getCssValue("border-top-color"));
-		System.out.println(Expected);
+		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("border-top-color"));
 		Assert.assertEquals(bordercolor, Expected, "The selected border color is not getting applied on the element");
 	}
-	
-	@Test(priority=6)
+
+	@Test(priority = 6)
 	public void verifyprimarybuttonborderhovercolor() throws InterruptedException {
-		String borderhovercolor="#CB8312";
-		dp.remuimenu();
-		cpp.customizertab.click();
-		cpp.customizerbutton.click();
+		String borderhovercolor = "#CB8312";
+		driver.get(customizer);
 		bcp.globalmenu.click();
 		pbcp.buttonmenu.click();
 		pbcp.buttoncolorsettingmenu.click();
@@ -162,12 +142,11 @@ public class SecondaryButtonColorTest extends BaseClass {
 		bcp.save.click();
 		Thread.sleep(2000);
 		driver.get(managecoursecategory);
-		Actions act=new Actions(driver);
+		Actions act = new Actions(driver);
 		act.moveToElement(sbcp.secondarybutton).build().perform();
 		Thread.sleep(2000);
-		String Expected=ColorConversion.Color(sbcp.secondarybutton.getCssValue("border-top-color"));
-		System.out.println(Expected);
-		Assert.assertEquals(borderhovercolor, Expected, "The selected border hover color is not getting applied on the element");
+		String Expected = ColorConversion.Color(sbcp.secondarybutton.getCssValue("border-top-color"));
+		Assert.assertEquals(borderhovercolor, Expected,
+				"The selected border hover color is not getting applied on the element");
 	}
 }
-
