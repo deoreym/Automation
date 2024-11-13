@@ -1,9 +1,8 @@
 name: Send Email via SMTP
 
 on:
-  workflow_run:
-    workflows: [RemUI Automation Testing]
-    types: [completed]
+  push:
+    branches: [ "release" ]
 jobs:
   pin-artifacts:
     permissions:
